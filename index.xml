@@ -1,0 +1,3355 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Emma Blog</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Emma Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <copyright>Emma Chang</copyright>
+    <lastBuildDate>Wed, 31 Jul 2019 15:34:22 +0800</lastBuildDate>
+    
+        <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>連結</title>
+      <link>http://localhost:1313/link/</link>
+      <pubDate>Wed, 31 Jul 2019 15:34:22 +0800</pubDate>
+      
+      <guid>http://localhost:1313/link/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>關於</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Wed, 31 Jul 2019 15:34:22 +0800</pubDate>
+      
+      <guid>http://localhost:1313/about/</guid>
+      
+        <description>&lt;p&gt;一個努力精進前端技術的女子&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>attr</title>
+      <link>http://localhost:1313/post/angular/ng-attr/</link>
+      <pubDate>Wed, 26 Dec 2018 11:30:13 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/ng-attr/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;在 angular 裡使用 &lt;code&gt;attr&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;常見情境-響應式 Table&lt;/li&gt;
+&lt;li&gt;常見情境-直接在列表上更新
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;在-angular-裡使用-attr&#34;&gt;在 angular 裡使用 &lt;code&gt;attr&lt;/code&gt;&lt;/h1&gt;
+
+&lt;p&gt;一般我們都會做 html 的屬性綁定,如: &lt;code&gt;[attr.colspan]&lt;/code&gt;
+或是 value 不夠用時,要多增加一個自訂參數,
+如: &lt;code&gt;[attr.change-val]&lt;/code&gt; change-val 是我自訂的&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;常見情境-響應式-table&#34;&gt;常見情境-響應式 Table&lt;/h1&gt;
+
+&lt;p&gt;目前的 RWD 的 table 做法請參見此網站&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://lab.25sprout.com/responsive_table/&#34;&gt;http://lab.25sprout.com/responsive_table/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;那&lt;code&gt;attr&lt;/code&gt;的好處可以使用&lt;code&gt;破壞 TABLE 排版&lt;/code&gt;的方式&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/ng_attr_2.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;也就是直接將 Thead 直接拿掉，&lt;/p&gt;
+
+&lt;p&gt;剩下的 tbody tr td 都使用 display:block 來排版&lt;/p&gt;
+
+&lt;p&gt;那在angular下可以這樣寫&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;table&amp;gt;
+  &amp;lt;thead&amp;gt;
+    &amp;lt;tr&amp;gt;
+      &amp;lt;th&amp;gt;標題1&amp;lt;/th&amp;gt;
+      &amp;lt;th&amp;gt;標題2&amp;lt;/th&amp;gt;
+      &amp;lt;th&amp;gt;標題3&amp;lt;/th&amp;gt;
+      &amp;lt;th&amp;gt;標題4&amp;lt;/th&amp;gt;
+    &amp;lt;/tr&amp;gt;
+  &amp;lt;/thead&amp;gt;
+  &amp;lt;tbody&amp;gt;
+    &amp;lt;tr&amp;gt;
+      &amp;lt;td [attr.data-title]=&amp;quot;&#39;標題1&#39;&amp;quot;&amp;gt;A1&amp;lt;/td&amp;gt;
+      &amp;lt;td [attr.data-title]=&amp;quot;&#39;標題2&#39;&amp;quot;&amp;gt;A2&amp;lt;/td&amp;gt;
+      &amp;lt;td [attr.data-title]=&amp;quot;&#39;標題3&#39;&amp;quot;&amp;gt;A3&amp;lt;/td&amp;gt;
+      &amp;lt;td [attr.data-title]=&amp;quot;&#39;標題4&#39;&amp;quot;&amp;gt;A4&amp;lt;/td&amp;gt;
+    &amp;lt;/tr&amp;gt;
+    &amp;lt;tr&amp;gt;
+      &amp;lt;td [attr.data-title]=&amp;quot;&#39;標題1&#39;&amp;quot;&amp;gt;B1&amp;lt;/td&amp;gt;
+      &amp;lt;td [attr.data-title]=&amp;quot;&#39;標題2&#39;&amp;quot;&amp;gt;B2&amp;lt;/td&amp;gt;
+      &amp;lt;td [attr.data-title]=&amp;quot;&#39;標題3&#39;&amp;quot;&amp;gt;B3&amp;lt;/td&amp;gt;
+      &amp;lt;td [attr.data-title]=&amp;quot;&#39;標題4&#39;&amp;quot;&amp;gt;B4&amp;lt;/td&amp;gt;
+    &amp;lt;/tr&amp;gt;
+  &amp;lt;/tbody&amp;gt;
+&amp;lt;/table&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;//css
+@media only screen and (max-width: 767px) {
+  .table {
+    display: block;
+  }
+  .table thead,
+  .table tbody,
+  .table tfoot,
+  .table th,
+  .table td,
+  .table tr {
+    display: block;
+  }
+
+  .table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .table tbody tr td {
+    height: auto;
+    min-height: 30px;
+    position: relative;
+  }
+
+  .table tbody tr td span,.table tbody tr td a {
+    line-height: 34px;
+  }
+
+  .table td:before {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    line-height: 40px;
+  }
+
+  .table td:before {
+    content: attr(data-title);
+  }
+
+  tfoot tr td {
+    position: relative;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;常見情境-直接在列表上更新&#34;&gt;常見情境-直接在列表上更新&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/ng_attr_1.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在實務上有時候我們只需要改少數幾個欄位,
+不見得會另做一頁表單式,&lt;/p&gt;
+
+&lt;p&gt;所以作法上就是在html元素上綁上自訂義的值,
+在用監聽的方式,一但按下(click)後就開始做更新修改的事情&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;import { Component, OnInit, OnDestroy } from &#39;@angular/core&#39;;
+import { FormControl, Validators } from &amp;quot;@angular/forms&amp;quot;;
+import { fromEvent as observableFromEvent } from &amp;quot;rxjs/internal/observable/fromEvent&amp;quot;;
+import { Observable } from &amp;quot;rxjs/internal/Observable&amp;quot;;
+import { Subscription } from &amp;quot;rxjs/internal/Subscription&amp;quot;;
+
+@Component({
+  selector: &#39;my-app&#39;,
+  templateUrl: &#39;./app.component.html&#39;,
+  styleUrls: [&#39;./app.component.css&#39;]
+})
+export class AppComponent implements OnInit, OnDestroy {
+  subscriptionClick: Subscription;
+  fc: FormControl;
+  a = &amp;quot;AAA&amp;quot;
+  b = &amp;quot;BBB&amp;quot;
+  c = &amp;quot;CCC&amp;quot;
+  selectID = 0;
+  constructor() { }
+
+  ngOnInit() {
+    this.subscriptionClick = observableFromEvent(window, &amp;quot;click&amp;quot;).subscribe(
+      (e: MouseEvent) =&amp;gt; {
+        if (!!e.srcElement.attributes.getNamedItem(&amp;quot;change-val&amp;quot;)) {
+          let v = e.srcElement.attributes.getNamedItem(&amp;quot;change-val&amp;quot;);
+          this.selectID = parseInt(v.nodeValue);
+          this.fc = new FormControl(&amp;quot;&amp;quot;, [
+            Validators.required,
+          ]);
+        }
+
+        if (!e.srcElement.attributes.getNamedItem(&amp;quot;change-val&amp;quot;)) {
+          if (!this.fc) {
+            this.clickReset();
+            return;
+          }
+          if (!!this.fc &amp;amp;&amp;amp; this.fc.valid) {
+            this.saveVal(this.fc.value)
+            this.clickReset();
+          }
+        }
+      }
+    );
+  }
+
+  ngOnDestroy() {
+    if (!!this.subscriptionClick) {
+      this.subscriptionClick.unsubscribe();
+    }
+  }
+
+  clickReset() {
+    this.selectID = 0;
+    if (!!this.fc) {
+      this.fc.setValue(&amp;quot;&amp;quot;)
+    }
+  }
+
+  saveVal(val: string) {
+    switch (this.selectID) {
+      case 1:
+        this.a = val;
+        break;
+      case 2:
+        this.b = val;
+        break;
+      case 3:
+        this.c = val;
+        break;
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;flex&amp;quot;&amp;gt;
+  &amp;lt;div&amp;gt;
+    &amp;lt;span [attr.change-val]=&amp;quot;1&amp;quot; *ngIf=&amp;quot;selectID != 1&amp;quot;&amp;gt;{{ a }}&amp;lt;/span&amp;gt;
+    &amp;lt;div *ngIf=&amp;quot;selectID == 1 &amp;amp;&amp;amp; !!fc&amp;quot;&amp;gt;
+      &amp;lt;input [attr.change-val]=&amp;quot;1&amp;quot; [formControl]=&amp;quot;fc&amp;quot; cusAutofocus /&amp;gt; 
+      &amp;lt;button *ngIf=&amp;quot;fc.touched &amp;amp;&amp;amp; !fc.valid&amp;quot; (click)=&amp;quot;clickReset()&amp;quot;&amp;gt;X&amp;lt;/button&amp;gt;
+      &amp;lt;span *ngIf=&amp;quot;fc.touched &amp;amp;&amp;amp; fc.errors &amp;amp;&amp;amp; fc.errors.required&amp;quot; class=&amp;quot;tip&amp;quot;&amp;gt;必填&amp;lt;/span&amp;gt;
+    &amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;div&amp;gt;
+    &amp;lt;span [attr.change-val]=&amp;quot;2&amp;quot; *ngIf=&amp;quot;selectID != 2&amp;quot;&amp;gt;{{ b }}&amp;lt;/span&amp;gt;
+    &amp;lt;div *ngIf=&amp;quot;selectID == 2 &amp;amp;&amp;amp; !!fc&amp;quot;&amp;gt;
+      &amp;lt;input [attr.change-val]=&amp;quot;2&amp;quot; [formControl]=&amp;quot;fc&amp;quot; cusAutofocus /&amp;gt; 
+      &amp;lt;button *ngIf=&amp;quot;fc.touched &amp;amp;&amp;amp; !fc.valid&amp;quot; (click)=&amp;quot;clickReset()&amp;quot;&amp;gt;X&amp;lt;/button&amp;gt;
+      &amp;lt;span *ngIf=&amp;quot;fc.touched &amp;amp;&amp;amp; fc.errors &amp;amp;&amp;amp; fc.errors.required&amp;quot; class=&amp;quot;tip&amp;quot;&amp;gt;必填&amp;lt;/span&amp;gt;
+    &amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;div&amp;gt;
+    &amp;lt;span [attr.change-val]=&amp;quot;3&amp;quot; *ngIf=&amp;quot;selectID != 3&amp;quot;&amp;gt;{{ c }}&amp;lt;/span&amp;gt;
+    &amp;lt;div *ngIf=&amp;quot;selectID == 3 &amp;amp;&amp;amp; !!fc&amp;quot;&amp;gt;
+      &amp;lt;input [attr.change-val]=&amp;quot;3&amp;quot; [formControl]=&amp;quot;fc&amp;quot; cusAutofocus /&amp;gt; 
+      &amp;lt;button *ngIf=&amp;quot;fc.touched &amp;amp;&amp;amp; !fc.valid&amp;quot; (click)=&amp;quot;clickReset()&amp;quot;&amp;gt;X&amp;lt;/button&amp;gt;
+      &amp;lt;span *ngIf=&amp;quot;fc.touched &amp;amp;&amp;amp; fc.errors &amp;amp;&amp;amp; fc.errors.required&amp;quot; class=&amp;quot;tip&amp;quot;&amp;gt;必填&amp;lt;/span&amp;gt;
+    &amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;//css
+
+.flex{
+  display: flex;
+}
+
+.flex&amp;gt;*{
+  border: 1px solid #333;
+  margin:0 5px;
+  padding: 0 5px;
+}
+
+button{
+  margin-left:2px;
+}
+
+.tip{
+  font-size: smaller;
+  color:orange;
+}
+&lt;/code&gt;&lt;/pre&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>ngx-translate</title>
+      <link>http://localhost:1313/post/angular/translate/</link>
+      <pubDate>Mon, 17 Dec 2018 09:28:45 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/translate/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;安裝簡述&lt;/li&gt;
+&lt;li&gt;一般用法&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;mat-paginator&amp;gt;&lt;/code&gt;的翻譯&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;安裝簡述&#34;&gt;安裝簡述&lt;/h1&gt;
+
+&lt;p&gt;其實網上好多教學,
+所以簡單紀錄&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;npm install @ngx-translate/core --save
+npm install @ngx-translate/http-loader --save
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;//app.module.ts
+
+export function createTranslateLoader(http: HttpClient) {
+    //i18n的資料夾位置
+    return new TranslateHttpLoader(http, &amp;quot;./assets/i18n/&amp;quot;, &amp;quot;.json&amp;quot;);
+}
+
+@NgModule({
+  imports: [
+    BrowserAnimationsModule, 
+    PostModule, 
+    HttpClientModule,
+    TranslateModule.forRoot({
+        loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+        }
+    }), 
+    AppRoutingModule
+    ],
+    declarations: [AppComponent],
+    providers: [AppService],
+    bootstrap: [AppComponent]
+})
+export class AppModule { }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;//share.module.ts
+
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    TranslateModule
+  ],
+  exports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    TranslateModule
+  ]
+})
+export class SharedModule { }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;//app.component.ts
+
+export class AppComponent  {
+  defaultLang = &amp;quot;en&amp;quot;;
+
+  constructor(public translate: TranslateService){
+    translate.addLangs([&amp;quot;en&amp;quot; ,&amp;quot;tw&amp;quot;]);
+    translate.setDefaultLang(this.defaultLang);
+    translate.use(this.defaultLang);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;一般用法&#34;&gt;一般用法&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在需要使用的功能模塊&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;@Component({
+  selector: &amp;quot;app-post&amp;quot;,
+  template: `
+    &amp;lt;p&amp;gt;{{&#39;welcome&#39; | translate}}&amp;lt;/p&amp;gt;
+    &amp;lt;button (click)=&amp;quot;changeTranslate(&#39;tw&#39;)&amp;quot;&amp;gt;繁體&amp;lt;/button&amp;gt;
+    &amp;lt;button (click)=&amp;quot;changeTranslate(&#39;en&#39;)&amp;quot;&amp;gt;英文&amp;lt;/button&amp;gt;
+  `
+})
+export class PostComponent implements OnInit {
+ 
+  constructor(public translate: TranslateService) {}
+
+  ngOnInit() {}
+
+  changeTranslate(lang){
+    this.translate.use(lang);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;placeholder&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;input type=&amp;quot;text&amp;quot; [placeholder]=&amp;quot;&#39;import_account&#39; | translate&amp;quot;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;可直接在Component裡翻譯字串&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;constructor(private translate: TranslateService) {}
+  
+translate(str:string):string{
+    return this.translate.instant(str);
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;mat-paginator-的翻譯&#34;&gt;&lt;code&gt;mat-paginator&lt;/code&gt;的翻譯&lt;/h1&gt;
+
+&lt;p&gt;接下來紀錄一下在&lt;code&gt;Angular-Material&lt;/code&gt;的頁碼如何翻譯.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Paginator&lt;/code&gt;安裝過程請參照官網,&lt;/p&gt;
+
+&lt;p&gt;然後在shareModule裡&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatPaginatorModule,
+    TranslateModule
+  ],
+  exports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatPaginatorModule,
+    TranslateModule
+  ]
+})
+export class SharedModule { }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在需要的模塊上使用&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//post.component.ts
+
+export class PostComponent implements OnInit {
+  PAGESIZEOPTIONS=[5,10,15]
+
+  constructor(public translate: TranslateService) {}
+  ngOnInit() {}
+
+  setPage($event){
+    console.log($event)
+  }
+}
+
+//post.component.html
+
+&amp;lt;mat-paginator
+      [pageIndex]=&amp;quot;1&amp;quot;
+      [length]=&amp;quot;0&amp;quot;
+      [pageSize]=&amp;quot;10&amp;quot;
+      [pageSizeOptions]=&amp;quot;PAGESIZEOPTIONS&amp;quot;
+      (page)=&amp;quot;setPage($event)&amp;quot;
+&amp;gt;
+&amp;lt;/mat-paginator&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/translate_1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;那很多功能模塊都會有頁碼,&lt;/p&gt;
+
+&lt;p&gt;所以單純的在各個模塊翻譯各自的頁碼是比較不妥的,&lt;/p&gt;
+
+&lt;p&gt;加上實務上經常會切換語系,&lt;/p&gt;
+
+&lt;p&gt;所以會用到&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;this.translate.onLangChange.subscribe((e: Event) =&amp;gt; {
+     //do something
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;onLangChange能監聽語言變化,不管哪個模塊切了語系,&lt;/p&gt;
+
+&lt;p&gt;其他模塊都會跟著切換.&lt;/p&gt;
+
+&lt;p&gt;所以我們客製 MatPaginatorIntl&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;import {TranslateService} from &#39;@ngx-translate/core&#39;;
+import {MatPaginatorIntl} from &#39;@angular/material&#39;;
+import {Injectable} from &#39;@angular/core&#39;;
+
+@Injectable()
+export class CustomMatPaginatorIntl extends MatPaginatorIntl {
+  constructor(private translate: TranslateService) {
+    super();
+
+    this.translate.onLangChange.subscribe((e: Event) =&amp;gt; {
+      this.getAndInitTranslations();
+    });
+
+    this.getAndInitTranslations();
+  }
+
+  getAndInitTranslations() {
+    this.translate.get([&#39;items_per_page&#39;, &#39;next_page&#39;, &#39;previous_page&#39;, &#39;of_label&#39;]).subscribe(translation =&amp;gt; {
+      this.itemsPerPageLabel = translation[&#39;items_per_page&#39;];
+      this.nextPageLabel = translation[&#39;next_page&#39;];
+      this.previousPageLabel = translation[&#39;previous_page&#39;];
+      this.changes.next();
+    });
+  }
+
+ getRangeLabel = (page: number, pageSize: number, length: number) =&amp;gt;  {
+    if (length === 0 || pageSize === 0) {
+      return `0 / ${length}`;
+    }
+    length = Math.max(length, 0);
+    const startIndex = page * pageSize;
+    const endIndex = startIndex &amp;lt; length ? Math.min(startIndex + pageSize, length) : startIndex + pageSize;
+    return `${startIndex + 1} - ${endIndex} / ${length}`;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;//./assets/i18n/tw.json
+
+  &amp;quot;items_per_page&amp;quot;: &amp;quot;筆數&amp;quot;,
+  &amp;quot;next_page&amp;quot;: &amp;quot;下一頁&amp;quot;,
+  &amp;quot;previous_page&amp;quot;: &amp;quot;上一頁&amp;quot;,
+  &amp;quot;of_label&amp;quot;: &amp;quot;of&amp;quot;,
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;//share.module.ts
+
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    TranslateModule,
+    MatPaginatorModule,
+  ],
+  exports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    TranslateModule,
+    MatPaginatorModule,  
+  ],
+  providers: [
+    {
+      provide: MatPaginatorIntl,
+      useClass: CustomMatPaginatorIntl
+    }
+  ]
+})
+export class SharedModule {}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/translate_2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>使用websocket</title>
+      <link>http://localhost:1313/post/angular/service-ws/</link>
+      <pubDate>Fri, 14 Dec 2018 16:03:23 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/service-ws/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;一般用法&lt;/li&gt;
+&lt;li&gt;把資訊隱藏的寫法
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;實務上經常用 websocket 來跟後端溝通,
+所以簡單紀錄一下我常用的兩個 service&lt;/p&gt;
+
+&lt;h1 id=&#34;一般用法&#34;&gt;一般用法&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;web.service.ts : 跟後端連接溝通的地方&lt;/li&gt;
+&lt;li&gt;data.service.ts :接收前端要送給後端的數據,
+以及把後端的數據傳給有訂閱的 component&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;//web.service.ts
+
+@Injectable()
+export class SocketService {
+  private subject: Subject&amp;lt;MessageEvent&amp;gt;;
+  private url: string = &amp;quot;&amp;quot;;
+
+  constructor() {}
+
+  public setUrl(wsUrl: string, token: string) {
+    this.url = `wss://${wsUrl}/${token}`;
+  }
+
+  public connect(): Subject&amp;lt;MessageEvent&amp;gt; {
+    if (!this.subject) {
+      this.subject = this.create();
+    }
+    return this.subject;
+  }
+
+  private create(): Subject&amp;lt;MessageEvent&amp;gt; {
+    const ws = new WebSocket(this.url);
+    const observable = Observable.create((obs: Observer&amp;lt;MessageEvent&amp;gt;) =&amp;gt; {
+      ws.onmessage = obs.next.bind(obs);
+      ws.onerror = obs.error.bind(obs);
+      ws.onclose = obs.complete.bind(obs);
+      return ws.close.bind(ws);
+    });
+    const observer = {
+      next: (data: Object) =&amp;gt; {
+        if (ws.readyState === WebSocket.OPEN) {
+          ws.send(JSON.stringify(data));
+        }
+      }
+    };
+    return Subject.create(observer, observable).share();
+  }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;//data.service.ts
+
+@Injectable()
+export class DataService {
+    private wsDatas: BehaviorSubject&amp;lt;any&amp;gt;;
+
+    constructor(
+        private logger: LoggerService,
+        private wsService: WebService
+    ) {}
+
+    webConnet() {
+         this.wsDatas = &amp;lt;BehaviorSubject&amp;lt;any&amp;gt;&amp;gt;this.wsService.connect()
+        .pipe(
+            map(response =&amp;gt; {
+                this.logger.print(&amp;quot;response&amp;quot;, response);
+                const data = JSON.parse(response.data);
+                return data;
+            })
+        );
+    }
+
+    sendWs(obj: any) {
+        this.logger.print(&amp;quot;next ws&amp;quot;, obj);
+        this.wsDatas.next(obj);
+    }
+
+    isWebSocketIn(): Observable&amp;lt;any&amp;gt; {
+        return this.wsDatas.asObservable();
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;接下來就是開始跟後端連線&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;//app.component.ts
+
+login(){
+    this.dataService.webConnet();
+    this.dataService.isWebSocketIn().subscribe(
+        (val: Event) =&amp;gt; {
+            if (val.type == &amp;quot;open&amp;quot;) {
+                //當ws連接上時,會回傳&amp;quot;open&amp;quot;狀態
+                this.sendUser();
+            }
+        }
+    );
+}
+
+sendUser() {
+    //下面這個訂閱者只要收到一次值就會關閉(take(1))
+    this.dataService
+        .isWebSocketIn()
+        .pipe(
+            filter(val =&amp;gt; {
+                return val.t == &amp;quot;user&amp;quot; &amp;amp;&amp;amp; val.m == &amp;quot;one&amp;quot;;
+            })
+        )
+        .take(1)
+        .subscribe((val: UserMain) =&amp;gt; {
+            if (!!val.c) {
+            this.service.setUser(val);
+            }
+        });
+    this.dataService.sendModel(&amp;quot;user&amp;quot;, &amp;quot;one&amp;quot;, &amp;quot;request&amp;quot;);
+ }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;接值的方式-1&#34;&gt;接值的方式 1&lt;/h2&gt;
+
+&lt;p&gt;如上面例子,我如果想請求使用者的資訊&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;this.dataService.sendModel(&amp;quot;user&amp;quot;, &amp;quot;one&amp;quot;, &amp;quot;request&amp;quot;);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;但是有可能很多的功能模塊都有各自的請求,
+比如請求商品列表,客戶列表等&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;this.dataService.sendModel(&amp;quot;product&amp;quot;, &amp;quot;list&amp;quot;, &amp;quot;request&amp;quot;);&lt;/code&gt;
+&lt;code&gt;this.dataService.sendModel(&amp;quot;customer&amp;quot;, &amp;quot;list&amp;quot;, &amp;quot;request&amp;quot;);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;但後端會把你所請求的傳給你,
+可是我們要怎麼分辨哪個數據是商品列表,
+所以上面的例子用過濾的方式&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;.pipe(
+    filter(val =&amp;gt; {
+        return val.t == &amp;quot;product&amp;quot; &amp;amp;&amp;amp; val.m == &amp;quot;list&amp;quot;;
+    })
+)
+.take(1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;接值的方式-2&#34;&gt;接值的方式 2&lt;/h1&gt;
+
+&lt;p&gt;其實上面的方式可能不太好,
+因為可能要先過濾掉好幾個不是自己這個模塊要的數據,
+應該是我 next 出去給後端,它立即性的回應我這個請求,
+所以我們可以修改成&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;//data.service.ts
+
+@Injectable()
+export class DataService {
+    private wsDatas: BehaviorSubject&amp;lt;any&amp;gt;;
+    private selfSubject = new Subject&amp;lt;any&amp;gt;();
+    private count = 0;
+
+    constructor(
+        private logger: LoggerService,
+        private wsService: WebService
+    ) {}
+
+    webConnet() {
+         this.wsDatas = &amp;lt;BehaviorSubject&amp;lt;any&amp;gt;&amp;gt;this.wsService.connect()
+        .pipe(
+            map(response =&amp;gt; {
+                this.logger.print(&amp;quot;response&amp;quot;, response);
+                if (!!this.selfSubject) {
+                    this.selfSubject.next(response);
+                }
+                return response;
+            })
+        );
+    }
+
+    sendWs(obj: any) {
+        this.logger.print(&amp;quot;next ws&amp;quot;, obj);
+        this.wsDatas.next(obj);
+    }
+
+    isWebSocketIn(): Observable&amp;lt;any&amp;gt; {
+        return this.wsDatas.asObservable();
+    }
+
+    ObWsModel(obj): Observable&amp;lt;any&amp;gt; {
+        const c = this.count++;
+        obj.s += c;
+        this.logger.print(&amp;quot;next ws&amp;quot;, obj);
+        this.wsDatas.next(obj);
+        return this.selfSubject.pipe(
+            filter(val =&amp;gt; {
+                return val.s === obj.s;
+            })
+        );
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;把後端接回來的值,
+我另外再用selfSubject去裝
+&lt;code&gt;count&lt;/code&gt;是辨識碼,
+可以確定我next出去 後端回傳的資料是相對應的&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;把資訊隱藏&#34;&gt;把資訊隱藏&lt;/h1&gt;
+
+&lt;p&gt;在檢查前後端數據,通常我們可以打開 F12 開發者工具中,
+按下 Network 裡去看 socket 雙方傳送的數據,
+但如果要正式上線就不太妥當&lt;/p&gt;
+
+&lt;p&gt;所以在開發的時候,
+後端使用二進制的方式送來,
+而前端傳送過去的也要包成二進制&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;//web.service.ts
+
+@Injectable()
+export class SocketService {
+  private subject: Subject&amp;lt;MessageEvent&amp;gt;;
+  private url: string = &amp;quot;&amp;quot;;
+
+  constructor() {}
+
+  public setUrl(wsUrl: string, token: string) {
+    this.url = `wss://${wsUrl}/${token}`;
+  }
+
+  public connect(): Subject&amp;lt;MessageEvent&amp;gt; {
+    if (!this.subject) {
+      this.subject = this.create();
+    }
+    return this.subject;
+  }
+
+  private create(): Subject&amp;lt;MessageEvent&amp;gt; {
+    const ws = new WebSocket(this.url);
+    const observable = Observable.create((obs: Observer&amp;lt;MessageEvent&amp;gt;) =&amp;gt; {
+      ws.onopen = obs.next.bind(obs);
+      ws.onmessage = e =&amp;gt; {
+        //讀取後端數據
+        const reader = new FileReader();
+        reader.onload = () =&amp;gt; {
+          let r = &amp;lt;string&amp;gt;reader.result;
+          const data = JSON.parse(r);
+          obs.next(data);
+        };
+        reader.readAsBinaryString(e.data);
+      };
+
+      ws.onerror = obs.error.bind(obs);
+      ws.onclose = obs.complete.bind(obs);
+      return ws.close.bind(ws);
+    });
+    const observer = {
+      //傳送數據到後端
+      next: (data: Object) =&amp;gt; {
+        if (ws.readyState === WebSocket.OPEN) {
+          ws.send(new Blob([JSON.stringify(data)]));
+        }
+      }
+    };
+    return Subject.create(observer, observable).share();
+  }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;//data.service.ts
+
+webConnet() {
+        this.wsDatas = &amp;lt;BehaviorSubject&amp;lt;any&amp;gt;&amp;gt;this.wsService.connect()
+    .pipe(
+        map(response =&amp;gt; {
+            this.logger.print(&amp;quot;response&amp;quot;, response);
+            return response;
+        })
+    );
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;接下來打開 F12 開發者工具,就會看不到資料了&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/service_ws1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>路由守衛</title>
+      <link>http://localhost:1313/post/angular/route-guard/</link>
+      <pubDate>Fri, 14 Dec 2018 15:19:09 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/route-guard/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;一般用法&lt;/li&gt;
+&lt;li&gt;以&lt;code&gt;Observable&lt;/code&gt;方式回傳&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;一般用法&#34;&gt;一般用法&lt;/h1&gt;
+
+&lt;p&gt;其實網路上有好多教學文,&lt;/p&gt;
+
+&lt;p&gt;我簡單寫個紀錄.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;@Injectable()
+export class GuardService implements CanActivate {
+    constructor(
+      private service: AppService,
+      public loginService: loginService
+    ) {}
+
+  canActivate(): boolean {
+    if (!this.loginService.isLogin()) {
+      this.service.backLogin();
+      return false;
+    }
+    return true;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;@Injectable()
+export class AppService {
+
+  constructor(private router: Router) {}
+
+  backLogin(){
+    this.router.navigate([&#39;login&#39;]);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在RouteModule裡&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;const routes: Routes = [
+  {
+    path: &amp;quot;cms&amp;quot;,
+    component: CoreComponent,
+    canActivate: [GuardService],
+    children: CmsRouting
+  },
+  { path: &amp;quot;&amp;quot;, redirectTo: &amp;quot;cms/home&amp;quot;, pathMatch: &amp;quot;full&amp;quot; }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class CoreRoutingModule {}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;以-observable-方式回傳&#34;&gt;以&lt;code&gt;Observable&lt;/code&gt;方式回傳&lt;/h1&gt;
+
+&lt;p&gt;實務上通常都要等後端送使用者資訊回來,
+才能確定裡面內容都可以看,
+至於何時送回來呢
+guard.service 以訂閱的方式來接&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;//login service
+@Injectable()
+export class LoginService {
+  private loginSubject = new Subject&amp;lt;boolean&amp;gt;();
+
+  loginState = this.loginSubject.asObservable();
+
+  constructor() {}
+
+  login() {
+    this.loginSubject.next(true);
+  }
+
+  logout() {
+    this.loginSubject.next(false);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;//app component
+@Component({
+  selector: &amp;quot;app-root&amp;quot;,
+  templateUrl: &amp;quot;./app.component.html&amp;quot;,
+  styleUrls: [&amp;quot;./app.component.css&amp;quot;]
+})
+export class AppComponent implements OnInit {
+  constructor(private loginService: LoginService) {}
+  ngOnInit() {
+       this.dataService.ObWsModel(obj).subscribe(val =&amp;gt; {
+        if (!!val &amp;amp;&amp;amp; !!val.Status &amp;amp;&amp;amp; val.Status== 1) {
+            this.loginService.login();
+        } else {
+            this.loginService.logout();
+        }
+    });
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;@Injectable()
+export class AppService {
+
+  constructor(private router: Router) {}
+
+  backLogin(){
+    this.router.navigate([&#39;login&#39;]);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以上述例子來說如果後端送回來的使用者狀態為1,&lt;/p&gt;
+
+&lt;p&gt;代表有權限登入,並觸發訂閱&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;//guard service
+@Injectable()
+export class GuardService implements CanActivate {
+    constructor(
+      private service: AppService,
+      private loginService: loginService
+    ) {}
+
+  canActivate(): Observable&amp;lt;boolean&amp;gt; {
+    return this.loginService.loginState
+      .map(e =&amp;gt; {
+        if (e) {
+          return true;
+        }
+      })
+      .catch(() =&amp;gt; {
+        this.service.backLogin();
+        return Observable.of(false);
+      });
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>表單驗證4-FormControl</title>
+      <link>http://localhost:1313/post/angular/form-control/</link>
+      <pubDate>Wed, 12 Dec 2018 15:15:57 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/form-control/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;一般用法&lt;/li&gt;
+&lt;li&gt;有沒有&lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt;標籤的差異&lt;/li&gt;
+&lt;li&gt;常見情境-帳號是否重複(異步)
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;一般用法&#34;&gt;一般用法&lt;/h1&gt;
+
+&lt;p&gt;其實這個有點像FormBuilder的零件版,&lt;/p&gt;
+
+&lt;p&gt;可單獨使用,不需&lt;code&gt;[formGroup]&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;ip-detail.component.ts&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  ipContent = new FormControl(&amp;quot;&amp;quot;, [
+    Validators.required,
+    ValidationService.ipValidator
+  ]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ip-detail.component.html&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div&amp;gt;
+    &amp;lt;input [formControl]=&amp;quot;ipContent&amp;quot;/&amp;gt;
+    &amp;lt;validation-messages [control]=&amp;quot;ipContent&amp;quot;&amp;gt;&amp;lt;/validation-messages&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;button
+    (click)=&amp;quot;enter()&amp;quot;
+    [disabled]=&amp;quot;!ipContent.valid&amp;quot;
+    [ngClass]=&amp;quot;{ disable: !ipContent.valid }&amp;quot;
+&amp;gt;
+    {{ &amp;quot;insert&amp;quot; | translate }}
+&amp;lt;/button&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;驗證方式跟FormBuilder一樣&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;有沒有-form-標籤的差異&#34;&gt;有沒有&lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt;標籤的差異&lt;/h1&gt;
+
+&lt;p&gt;當沒有使用&lt;code&gt;[formGroup]&lt;/code&gt;時,html寫法也有些變化&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//FormBuilder
+&amp;lt;form [formGroup]=&amp;quot;form&amp;quot;&amp;gt;
+  &amp;lt;input type=&amp;quot;text&amp;quot; formControlName=&amp;quot;account&amp;quot;/&amp;gt;
+  &amp;lt;validation-messages [control]=&amp;quot;form.controls.account&amp;quot;&amp;gt;
+    &amp;lt;/validation-messages&amp;gt;
+  &amp;lt;button mat-button (click)=&amp;quot;enter()&amp;quot; [disabled]=&amp;quot;!form.valid&amp;quot; 
+          [ngClass]=&amp;quot;{ disable: !form.valid }&amp;quot;&amp;gt;
+    {{ &amp;quot;enter&amp;quot; | translate }}
+  &amp;lt;/button&amp;gt;
+&amp;lt;/form&amp;gt;
+
+
+//FormControl
+&amp;lt;input type=&amp;quot;text&amp;quot; [formControl]=&amp;quot;account&amp;quot;/&amp;gt;
+&amp;lt;validation-messages [control]=&amp;quot;account&amp;quot;&amp;gt;&amp;lt;/validation-messages&amp;gt;
+&amp;lt;button (click)=&amp;quot;submit()&amp;quot; [disabled]=&amp;quot;account.invalid&amp;quot; 
+[ngClass]=&amp;quot;{&#39;disable&#39;:account.invalid}&amp;quot;&amp;gt;
+  {{ &amp;quot;enter&amp;quot; | translate }}
+&amp;lt;/button&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;有&lt;code&gt;[formGroup]&lt;/code&gt;時,input控鍵需寫上&lt;code&gt;formControlName&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;常見情境-帳號是否重複-異步&#34;&gt;常見情境-帳號是否重複(異步)&lt;/h1&gt;
+
+&lt;p&gt;實務上要驗證帳號是否重複,
+有兩種方式,
+- 第一種是使用者邊輸入的時候資料就邊送去後端比對
+- 第二種是使用者全部輸入完按送出&lt;/p&gt;
+
+&lt;h2 id=&#34;第一種則是異步-如下例&#34;&gt;第一種則是異步,如下例&lt;/h2&gt;
+
+&lt;p&gt;在 post-detail.component.html&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div&amp;gt;
+  &amp;lt;input type=&amp;quot;text&amp;quot; [formControl]=&amp;quot;ipContent&amp;quot;/&amp;gt;
+  &amp;lt;validation-messages [control]=&amp;quot;ipContent&amp;quot;&amp;gt;&amp;lt;/validation-messages&amp;gt;
+  &amp;lt;button (click)=&amp;quot;submit()&amp;quot; [disabled]=&amp;quot;ipContent.invalid&amp;quot; 
+  [ngClass]=&amp;quot;{&#39;disable&#39;:ipContent.invalid}&amp;quot;&amp;gt;
+    {{ &amp;quot;binding&amp;quot; | translate }}
+  &amp;lt;/button&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在 post-detail.component.ts&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;createForm() {
+    let obj = {
+      account: [
+        &amp;quot;&amp;quot;,
+        [
+          Validators.required,
+          ValidationService.userValidator,
+          Validators.minLength(6)
+        ], 
+        this.asyncValidator.bind(this)
+      ],
+      password: [
+        &amp;quot;&amp;quot;,
+        [
+          Validators.required,
+          ValidationService.passwordValidator,
+          Validators.minLength(6)
+        ]
+      ]
+    };
+    this.form = this.fb.group(obj);
+  }
+
+asyncValidator(control): Observable&amp;lt;IDataMain&amp;gt; {
+    let obj = this.dataService.setWsModel(
+      &amp;quot;self&amp;quot;,
+      &amp;quot;bindotp&amp;quot;,
+      &amp;quot;request&amp;quot;,
+      control.value
+    );
+    return Observable.create(observer =&amp;gt; {
+      this.dataService.ObWsModel(obj).subscribe({
+        next: result =&amp;gt; {
+          if (result.errorCode == &amp;quot;0&amp;quot;) {
+            observer.next(null);
+          } else {
+            observer.next({ invalidOtpFail: true });
+          }
+          observer.complete();
+        }
+      });
+    });
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在FormBuilder的物件中,第三個參數是放異步加載的function,&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;通常回傳的是Observable或是Promise,我個人比較習慣用Observable&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上述例子是後端資料送回來的errorCode只要不是0,就是有錯誤訊息&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;第二種等使用者全輸入完-非異步&#34;&gt;第二種等使用者全輸入完(非異步)&lt;/h2&gt;
+
+&lt;p&gt;在 post-detail.component.html&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div&amp;gt;
+  &amp;lt;input type=&amp;quot;text&amp;quot; [formControl]=&amp;quot;ipContent&amp;quot;/&amp;gt;
+  &amp;lt;validation-messages [control]=&amp;quot;ipContent&amp;quot;&amp;gt;&amp;lt;/validation-messages&amp;gt;
+  &amp;lt;button (click)=&amp;quot;bind()&amp;quot; [disabled]=&amp;quot;ipContent.invalid&amp;quot; 
+  [ngClass]=&amp;quot;{&#39;disable&#39;:ipContent.invalid}&amp;quot;&amp;gt;
+    {{ &amp;quot;binding&amp;quot; | translate }}
+  &amp;lt;/button&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在 post-detail.component.ts&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;createForm() {
+    let obj = {
+      account: [
+        &amp;quot;&amp;quot;,
+        [
+          Validators.required,
+          ValidationService.userValidator,
+          Validators.minLength(6)
+        ]
+      ],
+      password: [
+        &amp;quot;&amp;quot;,
+        [
+          Validators.required,
+          ValidationService.passwordValidator,
+          Validators.minLength(6)
+        ]
+      ]
+    };
+    this.form = this.fb.group(obj);
+  }
+
+bind() {
+    let obj = this.dataService.setWsModel(
+      &amp;quot;self&amp;quot;,
+      &amp;quot;bindotp&amp;quot;,
+      &amp;quot;request&amp;quot;,
+      this.ipContent.value
+    );
+    this.dataService
+      .ObWsModel(obj)
+      .pipe(take(1))
+      .subscribe(val =&amp;gt; {
+        if (!val.e) {
+          this.data.OTPBinding = true;
+        } else {
+          this.ipContent.setErrors({ invalidOtpFail: true });
+        }
+      });
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;稍微說明一下setErrors:&lt;/p&gt;
+
+&lt;p&gt;一般我們在使用FormBuilder或是FormControl的時候,&lt;/p&gt;
+
+&lt;p&gt;第二個參數是以陣列的方式,並塞進要驗證的function&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;account: [
+  &amp;quot;&amp;quot;,
+  [
+    Validators.required,
+    ValidationService.userValidator,
+    Validators.minLength(6)
+  ]
+],
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;當驗證出&lt;code&gt;account&lt;/code&gt;的值有錯誤時,其實它會自動幫我們塞setErrors&lt;/p&gt;
+
+&lt;p&gt;所以實務上有發生需要自己寫自己塞setErrors,&lt;/p&gt;
+
+&lt;p&gt;就是如上例所寫的&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  this.ipContent.setErrors({ invalidOtpFail: true });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;當出現錯誤時就會show: &lt;code&gt;invalidOtpFail&lt;/code&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>表單驗證3-FormBuilder</title>
+      <link>http://localhost:1313/post/angular/form-builder/</link>
+      <pubDate>Tue, 11 Dec 2018 17:38:48 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/form-builder/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;一般用法&lt;/li&gt;
+&lt;li&gt;把驗證方法封裝跟使用&lt;/li&gt;
+&lt;li&gt;常見情境-確認密碼 Confirm Password
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;一般用法&#34;&gt;一般用法&lt;/h1&gt;
+
+&lt;p&gt;在 detail.component.html&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;form [formGroup]=&amp;quot;form&amp;quot;&amp;gt;
+  //account
+  &amp;lt;div&amp;gt;
+    &amp;lt;input type=&amp;quot;text&amp;quot; formControlName=&amp;quot;account&amp;quot;/&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;validation-messages [control]=&amp;quot;form.controls.account&amp;quot;&amp;gt;
+  &amp;lt;/validation-messages&amp;gt;
+
+  //passowrd
+  &amp;lt;div&amp;gt;
+    &amp;lt;input type=&amp;quot;text&amp;quot; formControlName=&amp;quot;passowrd&amp;quot;/&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;validation-messages [control]=&amp;quot;form.controls.passowrd&amp;quot;&amp;gt;
+  &amp;lt;/validation-messages&amp;gt;
+
+  &amp;lt;button mat-button (click)=&amp;quot;enter()&amp;quot; [disabled]=&amp;quot;!form.valid&amp;quot;
+      [ngClass]=&amp;quot;{ disable: !form.valid }&amp;quot;&amp;gt;
+      {{ &amp;quot;enter&amp;quot; | translate }}
+  &amp;lt;/button&amp;gt;
+&amp;lt;/form&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在使用 FormBuilder 的情況下,&lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt;標籤一定要寫,
+並標註&lt;code&gt;[formGroup]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;在 detail.component.ts&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;export class DetailComponent implements OnInit {
+  form: FormGroup;
+
+  constructor(
+    private fb: FormBuilder
+  ) {}
+
+  ngOnInit() {
+    this.createForm();
+  }
+
+   createForm() {
+    let obj = {
+      skype: [&amp;quot;&amp;quot;, [Validators.required]],
+      phone: [&amp;quot;&amp;quot;],
+    };
+    if (this.type==&amp;quot;insert&amp;quot;) {
+      obj[&amp;quot;account&amp;quot;] = [
+        &amp;quot;&amp;quot;,
+        [
+          Validators.required,
+          Validators.minLength(6)
+        ]
+      ];
+      obj[&amp;quot;password&amp;quot;] = [
+        &amp;quot;&amp;quot;,
+        [
+          Validators.required,
+          Validators.minLength(6)
+        ]
+      ];
+    }
+    this.form = this.fb.group(obj);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;通常寫表單功能都會出現在新增或更新頁面,部分欄位是不能跟新的,&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;所以把 Object 動態加上需要的欄位,在塞到 FormGroup 裡&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;常見的必填&lt;code&gt;required&lt;/code&gt;或 長度&lt;code&gt;minLength&lt;/code&gt;以陣列方式放在第二個參數,&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;第一個參數則是預設值&lt;/p&gt;
+
+&lt;h2 id=&#34;改變預設值&#34;&gt;改變預設值&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;第一種方式就是在創建的時候寫好&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;let obj = {
+  skype: [&amp;quot;123456&amp;quot;, [Validators.required]],
+  phone: [&amp;quot;123456&amp;quot;]
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;但常見的情況是在更新資料時接到從後端傳回的封包才能塞值&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;ngOnInit() {
+  this.createForm();
+  if (!!this.data) {
+    this.initSetForm(this.data);
+  }
+}
+
+createForm() {
+  let obj = {
+    skype: [&amp;quot;&amp;quot;, [Validators.required]],
+    phone: [&amp;quot;&amp;quot;],
+  };
+  if (this.type==&amp;quot;insert&amp;quot;) {
+    obj[&amp;quot;account&amp;quot;] = [
+      &amp;quot;&amp;quot;,
+      [
+        Validators.required,
+        Validators.minLength(6)
+      ]
+    ];
+    obj[&amp;quot;password&amp;quot;] = [
+      &amp;quot;&amp;quot;,
+      [
+        Validators.required,
+        Validators.minLength(6)
+      ]
+    ];
+  }
+  this.form = this.fb.group(obj);
+}
+
+initSetForm(r) {
+  if (!!r) {
+    this.form.setValue({
+      skype: r.skype || &amp;quot;&amp;quot;,
+      phone: r.phone || &amp;quot;&amp;quot;,
+    });
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;把驗證方法封裝跟使用&#34;&gt;把驗證方法封裝跟使用&lt;/h1&gt;
+
+&lt;p&gt;因為表單欄位需要驗證的地方很多,
+所以我們會做 service 來裝驗證的方法&lt;/p&gt;
+
+&lt;p&gt;在 validation.service.ts&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;import { FormControl } from &amp;quot;@angular/forms&amp;quot;;
+
+export class ValidationService {
+  static passwordValidator(control: FormControl) {
+    if (
+      !!control.value &amp;amp;&amp;amp;
+      !!control.value.match &amp;amp;&amp;amp;
+      control.value.match(/^(?=.*[0-9])[a-zA-Z0-9!@#$%^&amp;amp;*]{6,100}$/)
+    ) {
+      return null;
+    } else {
+      return { invalid_password: true };
+    }
+  }
+
+  static userValidator(control: FormControl) {
+    //英數字+@
+    if (
+      !!control.value &amp;amp;&amp;amp;
+      !!control.value.match &amp;amp;&amp;amp;
+      control.value.match(/^.[A-Za-z0-9@]+$/)
+    ) {
+      return null;
+    } else {
+      return { invalid_account: true };
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在 detail.component.ts&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;createForm() {
+    let obj = {
+      skype: [&amp;quot;&amp;quot;, [Validators.required]],
+      phone: [&amp;quot;&amp;quot;],
+    };
+    if (this.type==&amp;quot;insert&amp;quot;) {
+      obj[&amp;quot;account&amp;quot;] = [
+        &amp;quot;&amp;quot;,
+        [
+          Validators.required,
+          ValidationService.userValidator,
+          Validators.minLength(6)
+        ]
+      ];
+      obj[&amp;quot;password&amp;quot;] = [
+        &amp;quot;&amp;quot;,
+        [
+          Validators.required,
+          ValidationService.passwordValidator,
+          Validators.minLength(6)
+        ]
+      ];
+    }
+    this.form = this.fb.group(obj);
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在 detail.component.html&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//account
+&amp;lt;div&amp;gt;
+  &amp;lt;input type=&amp;quot;text&amp;quot; formControlName=&amp;quot;account&amp;quot;/&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;validation-messages [control]=&amp;quot;form.controls.account&amp;quot;&amp;gt;
+&amp;lt;/validation-messages&amp;gt;
+
+//passowrd
+&amp;lt;div&amp;gt;
+  &amp;lt;input type=&amp;quot;text&amp;quot; formControlName=&amp;quot;passowrd&amp;quot;/&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;validation-messages [control]=&amp;quot;form.controls.passowrd&amp;quot;&amp;gt;
+&amp;lt;/validation-messages&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;常見情境-確認密碼-confirm-password&#34;&gt;常見情境-確認密碼 Confirm Password&lt;/h1&gt;
+
+&lt;p&gt;在 validation.service.ts&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;import { FormControl } from &amp;quot;@angular/forms&amp;quot;;
+
+export class ValidationService {
+  static passwordValidator(control: FormControl) {
+    if (
+      !!control.value &amp;amp;&amp;amp;
+      !!control.value.match &amp;amp;&amp;amp;
+      control.value.match(/^(?=.*[0-9])[a-zA-Z0-9!@#$%^&amp;amp;*]{6,100}$/)
+    ) {
+      return null;
+    } else {
+      return { invalid_password: true };
+    }
+  }
+
+  static userValidator(control: FormControl) {
+    console.log(control.value);
+    //英數字+@
+    if (
+      !!control.value &amp;amp;&amp;amp;
+      !!control.value.match &amp;amp;&amp;amp;
+      control.value.match(/^.[A-Za-z0-9@]+$/)
+    ) {
+      return null;
+    } else {
+      return { invalid_account: true };
+    }
+  }
+
+  static matchingPasswords(otherControlName: string) {
+    let thisControl: FormControl;
+    let otherControl: FormControl;
+
+    return function matchOtherValidate(control: FormControl) {
+      if (!control.parent) {
+        return null;
+      }
+      if (!thisControl) {
+        thisControl = control;
+        otherControl = control.parent.get(otherControlName) as FormControl;
+        if (!otherControl) {
+          throw new Error(
+            &amp;quot;matchingPasswords(): other control is not found in parent group&amp;quot;
+          );
+        }
+        otherControl.valueChanges.subscribe(() =&amp;gt; {
+          thisControl.updateValueAndValidity();
+        });
+      }
+      if (!otherControl) {
+        return null;
+      }
+      if (otherControl.value !== thisControl.value) {
+        return { invalid_repeat_password: true };
+      }
+      return null;
+    };
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在 user-detail.component.ts&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;createForm() {
+    let obj = {
+      oldP: [
+        &amp;quot;&amp;quot;,
+        [
+          Validators.required,
+          ValidationService.passwordValidator,
+          Validators.minLength(6)
+        ]
+      ],
+      newP: [
+        &amp;quot;&amp;quot;,
+        [
+          Validators.required,
+          ValidationService.passwordValidator,
+          Validators.minLength(6)
+        ]
+      ],
+      repeatP: [
+        &amp;quot;&amp;quot;,
+        [Validators.required, ValidationService.matchingPasswords(&amp;quot;newP&amp;quot;)]
+      ]
+    };
+    this.form = this.fb.group(obj);
+  }
+
+&lt;/code&gt;&lt;/pre&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>表單驗證2-ngModel</title>
+      <link>http://localhost:1313/post/angular/form-model/</link>
+      <pubDate>Mon, 10 Dec 2018 15:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/form-model/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;簡單的 html 驗證&lt;/li&gt;
+&lt;li&gt;用 directive 驗證&lt;/li&gt;
+&lt;li&gt;常見情境-確認密碼 Confirm Password&lt;/li&gt;
+&lt;li&gt;備註:模板變數(#name) ngIf 與 hidden
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;因實作過程中,很多功能模塊都會用到,
+因此顯示錯誤的 function 都會統一放在子組件,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;import { Component, Input } from &amp;quot;@angular/core&amp;quot;;
+import { FormControl } from &amp;quot;@angular/forms&amp;quot;;
+@Component({
+  selector: &amp;quot;validation-messages&amp;quot;,
+  template:
+    &#39;&amp;lt;div class=&amp;quot;error-message&amp;quot; *ngIf=&amp;quot;errorMessage !== null&amp;quot;&amp;gt;{{errorMessage}}&amp;lt;/div&amp;gt;&#39;,
+  styles: [&amp;quot;.error-message{color:#DF7607;font-size: x-small;}&amp;quot;]
+})
+export class ValidationComponent {
+  @Input() control: FormControl;
+  constructor() {}
+  get errorMessage() {
+    if (!!this.control) {
+      for (let propertyName in this.control.errors) {
+        if (
+          this.control.errors.hasOwnProperty(propertyName) &amp;amp;&amp;amp;
+          this.control.touched
+        ) {
+          return propertyName;
+        }
+      }
+    }
+    return null;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;簡單的-html-驗證&#34;&gt;簡單的 html 驗證&lt;/h1&gt;
+
+&lt;p&gt;例如:在 post.component.html&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+&amp;lt;div class=&amp;quot;item-list&amp;quot;&amp;gt;
+  &amp;lt;span&amp;gt;account&amp;lt;/span&amp;gt;
+  &amp;lt;input type=&amp;quot;text&amp;quot; placeholder=&amp;quot;請輸入帳號&amp;quot; [(ngModel)]=&amp;quot;account&amp;quot;
+  name=&amp;quot;account&amp;quot; #aa=&amp;quot;ngModel&amp;quot; minlength=&amp;quot;6&amp;quot;
+  pattern=&amp;quot;^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$&amp;quot; required&amp;gt;
+  &amp;lt;validation-messages [control]=&amp;quot;aa&amp;quot;&amp;gt;&amp;lt;/validation-messages&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;button (click)=&amp;quot;send()&amp;quot; [disabled]=&amp;quot;aa.invalid&amp;quot;&amp;gt;
+  submit
+&amp;lt;/button&amp;gt;
+    
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;要把 input 變成控件,能夠使用 invalid,valid,touch,touched&amp;hellip;等,就是加上模板變數 &lt;code&gt;#aa=&amp;quot;ngModel&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt;標籤可加可不加&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以下例子是有加的&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div&amp;gt;
+  &amp;lt;form #myForm=&amp;quot;ngForm&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;item-list&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;account&amp;lt;/span&amp;gt;
+      &amp;lt;input type=&amp;quot;text&amp;quot; placeholder=&amp;quot;請輸入帳號&amp;quot;
+       [(ngModel)]=&amp;quot;account&amp;quot;
+      name=&amp;quot;account&amp;quot; #aa=&amp;quot;ngModel&amp;quot; minlength=&amp;quot;6&amp;quot;
+      pattern=&amp;quot;^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$&amp;quot; required&amp;gt;
+      &amp;lt;validation-messages [control]=&amp;quot;aa&amp;quot;&amp;gt;&amp;lt;/validation-messages&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;button (click)=&amp;quot;submit(myForm)&amp;quot; [disabled]=&amp;quot;myForm.form.invalid&amp;quot;&amp;gt;submit&amp;lt;/button&amp;gt;
+  &amp;lt;/form&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt;標籤也加上模板變數後,在&lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt;的 disable 就能驗證整個表單內的元素是否都有效&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;用-directive-驗證&#34;&gt;用 directive 驗證&lt;/h1&gt;
+
+&lt;p&gt;我們可能有很多需要自製的驗證方式,
+所以除了原本 html 帶來的驗證方法,
+我們可以使用 directive 來幫目標&lt;code&gt;input&lt;/code&gt;綁定錯誤事件&lt;/p&gt;
+
+&lt;h2 id=&#34;一般寫法&#34;&gt;一般寫法&lt;/h2&gt;
+
+&lt;p&gt;在 fn-validator.directive.ts&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;@Directive({
+  selector: &amp;quot;[fnName]&amp;quot;,
+  providers: [
+    {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() =&amp;gt; fnValidator),
+      multi: true
+    }
+  ]
+})
+export class fnValidator implements Validator {
+  @Input() fnName: string;
+
+  validate(c: AbstractControl): { [key: string]: any } {
+    return fnValidator[this.fnName](c);
+  }
+
+  static passwordValidator(control: FormControl) {
+    if (
+      !!control.value &amp;amp;&amp;amp;
+      !!control.value.match &amp;amp;&amp;amp;
+      control.value.match(/^(?=.*[0-9])[a-zA-Z0-9!@#$%^&amp;amp;*]{6,100}$/)
+    ) {
+      return null;
+    } else {
+      return { invalid_password: true };
+    }
+  }
+
+  static userValidator(control: FormControl) {
+    //英數字+@
+    if (
+      !!control.value &amp;amp;&amp;amp;
+      !!control.value.match &amp;amp;&amp;amp;
+      control.value.match(/^.[A-Za-z0-9@]+$/)
+    ) {
+      return null;
+    } else {
+      return { invalid_account: true };
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在要使用的 html 裡&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;form #myForm=&amp;quot;ngForm&amp;quot;&amp;gt;
+  &amp;lt;div class=&amp;quot;item-list&amp;quot;&amp;gt;
+    &amp;lt;span&amp;gt;account&amp;lt;/span&amp;gt;
+      &amp;lt;input type=&amp;quot;text&amp;quot; placeholder=&amp;quot;請輸入帳號&amp;quot;
+      [(ngModel)]=&amp;quot;account&amp;quot; name=&amp;quot;account&amp;quot; #aa=&amp;quot;ngModel&amp;quot;
+      [fnName]=&amp;quot;&#39;userValidator&#39;&amp;quot;&amp;gt;
+      &amp;lt;validation-messages [control]=&amp;quot;aa&amp;quot;&amp;gt;&amp;lt;/validation-messages&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;item-list&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;password&amp;lt;/span&amp;gt;
+      &amp;lt;input type=&amp;quot;text&amp;quot; placeholder=&amp;quot;請輸入密碼&amp;quot;
+      [(ngModel)]=&amp;quot;password&amp;quot; name=&amp;quot;password&amp;quot; #pp=&amp;quot;ngModel&amp;quot;
+      [fnName]=&amp;quot;&#39;passwordValidator&#39;&amp;quot;&amp;gt;
+      &amp;lt;validation-messages [control]=&amp;quot;pp&amp;quot;&amp;gt;&amp;lt;/validation-messages&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;button (click)=&amp;quot;submit(myForm)&amp;quot;
+    [disabled]=&amp;quot;myForm.form.invalid&amp;quot;&amp;gt;submit&amp;lt;/button&amp;gt;
+  &amp;lt;/form&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;把驗證方法另外封裝&#34;&gt;把驗證方法另外封裝&lt;/h2&gt;
+
+&lt;p&gt;其實驗證的模式很多種,
+我們會把經常用到的方法封裝到 service,
+讓其他模式下也能用&lt;/p&gt;
+
+&lt;p&gt;在 fn-validator.directive.ts&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;import {
+  Input,
+  OnInit,
+  Directive,
+  forwardRef,
+  provide,
+  Attribute
+} from &amp;quot;@angular/core&amp;quot;;
+import { Validator, AbstractControl, NG_VALIDATORS } from &amp;quot;@angular/forms&amp;quot;;
+import { ValidationService } from &amp;quot;../share/validation.service&amp;quot;;
+
+@Directive({
+  selector: &amp;quot;[fnName]&amp;quot;,
+  providers: [
+    {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() =&amp;gt; fnValidator),
+      multi: true
+    }
+  ]
+})
+export class fnValidator implements Validator {
+  @Input() fnName: string;
+
+  validate(c: AbstractControl): { [key: string]: any } {
+    return ValidationService[this.fnName](c);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在 validation.service.ts&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;import { FormControl } from &amp;quot;@angular/forms&amp;quot;;
+
+export class ValidationService {
+  static passwordValidator(control: FormControl) {
+    if (
+      !!control.value &amp;amp;&amp;amp;
+      !!control.value.match &amp;amp;&amp;amp;
+      control.value.match(/^(?=.*[0-9])[a-zA-Z0-9!@#$%^&amp;amp;*]{6,100}$/)
+    ) {
+      return null;
+    } else {
+      return { invalid_password: true };
+    }
+  }
+
+  static userValidator(control: FormControl) {
+    //英數字+@
+    if (
+      !!control.value &amp;amp;&amp;amp;
+      !!control.value.match &amp;amp;&amp;amp;
+      control.value.match(/^.[A-Za-z0-9@]+$/)
+    ) {
+      return null;
+    } else {
+      return { invalid_account: true };
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在要使用的 html 裡&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;form #myForm=&amp;quot;ngForm&amp;quot;&amp;gt;
+  &amp;lt;div class=&amp;quot;item-list&amp;quot;&amp;gt;
+    &amp;lt;span&amp;gt;account&amp;lt;/span&amp;gt;
+      &amp;lt;input type=&amp;quot;text&amp;quot; placeholder=&amp;quot;請輸入帳號&amp;quot;
+      [(ngModel)]=&amp;quot;account&amp;quot; name=&amp;quot;account&amp;quot; #aa=&amp;quot;ngModel&amp;quot;
+      [fnName]=&amp;quot;&#39;userValidator&#39;&amp;quot;&amp;gt;
+      &amp;lt;validation-messages [control]=&amp;quot;aa&amp;quot;&amp;gt;&amp;lt;/validation-messages&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;item-list&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;password&amp;lt;/span&amp;gt;
+      &amp;lt;input type=&amp;quot;text&amp;quot; placeholder=&amp;quot;請輸入密碼&amp;quot;
+      [(ngModel)]=&amp;quot;password&amp;quot; name=&amp;quot;password&amp;quot; #pp=&amp;quot;ngModel&amp;quot;
+      [fnName]=&amp;quot;&#39;passwordValidator&#39;&amp;quot;&amp;gt;
+      &amp;lt;validation-messages [control]=&amp;quot;pp&amp;quot;&amp;gt;&amp;lt;/validation-messages&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;button (click)=&amp;quot;submit(myForm)&amp;quot;
+    [disabled]=&amp;quot;myForm.form.invalid&amp;quot;&amp;gt;submit&amp;lt;/button&amp;gt;
+  &amp;lt;/form&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;常見情境-確認密碼-confirm-password&#34;&gt;常見情境-確認密碼 Confirm Password&lt;/h1&gt;
+
+&lt;p&gt;因為需要一個被比較是否相等的控件,
+所以會另外做指令&lt;/p&gt;
+
+&lt;p&gt;在 equal-validator.directive.ts&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;@Directive({
+  selector: &#39;[validateEqual][formControlName],[validateEqual][formControl],[validateEqual][ngModel]&#39;,
+  providers: [
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() =&amp;gt; EqualValidator), multi: true }
+  ]
+})
+export class EqualValidator implements Validator {
+  constructor(@Attribute(&#39;validateEqual&#39;) public validateEqual: string) {
+  }
+
+  validate(c: AbstractControl): { [key: string]: any } {
+    let v = c.value;
+    let e = c.root.get(this.validateEqual);
+    if (e &amp;amp;&amp;amp; v !== e.value)
+      return { validateEqual: false }
+    return null;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在要使用的 html 裡&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;form #myForm=&amp;quot;ngForm&amp;quot;&amp;gt;
+  &amp;lt;div class=&amp;quot;item-list&amp;quot;&amp;gt;
+    &amp;lt;span&amp;gt;account&amp;lt;/span&amp;gt;
+      &amp;lt;input type=&amp;quot;text&amp;quot; placeholder=&amp;quot;請輸入帳號&amp;quot; [(ngModel)]=&amp;quot;account&amp;quot; name=&amp;quot;account&amp;quot; #aa=&amp;quot;ngModel&amp;quot; 
+      [fnName]=&amp;quot;&#39;userValidator&#39;&amp;quot;&amp;gt;
+      &amp;lt;validation-messages [control]=&amp;quot;aa&amp;quot;&amp;gt;&amp;lt;/validation-messages&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;item-list&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;password&amp;lt;/span&amp;gt;
+      &amp;lt;input type=&amp;quot;text&amp;quot; placeholder=&amp;quot;請輸入密碼&amp;quot; [(ngModel)]=&amp;quot;password&amp;quot; name=&amp;quot;password&amp;quot; #pp=&amp;quot;ngModel&amp;quot;
+      [fnName]=&amp;quot;&#39;passwordValidator&#39;&amp;quot;&amp;gt;
+      &amp;lt;validation-messages [control]=&amp;quot;pp&amp;quot;&amp;gt;&amp;lt;/validation-messages&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;item-list&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;repeat&amp;lt;/span&amp;gt;
+      &amp;lt;input type=&amp;quot;text&amp;quot; placeholder=&amp;quot;請重複密碼&amp;quot; [(ngModel)]=&amp;quot;repeat&amp;quot; name=&amp;quot;repeat&amp;quot; #rr=&amp;quot;ngModel&amp;quot; validateEqual=&amp;quot;password&amp;quot;&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;validation-messages [control]=&amp;quot;rr&amp;quot;&amp;gt;&amp;lt;/validation-messages&amp;gt;
+    &amp;lt;button (click)=&amp;quot;submit(myForm)&amp;quot; [disabled]=&amp;quot;myForm.form.invalid&amp;quot;&amp;gt;submit&amp;lt;/button&amp;gt;
+  &amp;lt;/form&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;模板變數-name-ngif-與-hidden&#34;&gt;模板變數(#name) *ngIf 與 [hidden]&lt;/h1&gt;
+
+&lt;p&gt;網上可以找到很多&lt;code&gt;*ngIf&lt;/code&gt;跟&lt;code&gt;[hidden]&lt;/code&gt;之間的差異,&lt;/p&gt;
+
+&lt;p&gt;簡單說就是&lt;code&gt;*ngIf&lt;/code&gt;是將html元素從Dom加入或移除,&lt;/p&gt;
+
+&lt;p&gt;而&lt;code&gt;[hidden]&lt;/code&gt;它會在Dom裡並沒有被破壞只是看不見而已.&lt;/p&gt;
+
+&lt;p&gt;曾在開發的時候,同個Component因為資料的不同,
+導致需要顯示的input也不盡相同&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div *ngIf=&amp;quot;!topData&amp;quot;&amp;gt;
+ &amp;lt;input type=&amp;quot;text&amp;quot; #account=&amp;quot;ngModel&amp;quot;
+    [(ngModel)]=&amp;quot;AgentAccountSel&amp;quot;
+  /&amp;gt;
+  &amp;lt;validation-messages [control]=&amp;quot;account&amp;quot;&amp;gt;&amp;lt;/validation-messages&amp;gt;
+&amp;lt;/div&amp;gt;
+....
+....
+&amp;lt;button
+  *ngIf=&amp;quot;!topData&amp;quot;
+  (click)=&amp;quot;searchList()&amp;quot;
+  class=&amp;quot;search&amp;quot;
+  [disabled]=&amp;quot;account.invalid&amp;quot;
+  [ngClass]=&amp;quot;{ disabled: account.invalid}&amp;quot;
+&amp;gt;
+&amp;lt;/button&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;此時會出現錯誤,它抓不到&lt;code&gt;account&lt;/code&gt;,沒有辦法判斷&lt;code&gt;account.invalid&lt;/code&gt;,&lt;/p&gt;
+
+&lt;p&gt;上述&lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt;跟&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;他們的&lt;code&gt;*ngIf&lt;/code&gt;條件一樣,&lt;/p&gt;
+
+&lt;p&gt;但因為&lt;code&gt;&amp;lt;div *ngIf=&amp;quot;!topData&amp;quot;&amp;gt;&lt;/code&gt;有可能在Dom上找不到,&lt;/p&gt;
+
+&lt;p&gt;因此要採用&lt;code&gt;[hidden]&lt;/code&gt;的方式&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div [hidden]=&amp;quot;!!topData&amp;quot;&amp;gt;
+ &amp;lt;input type=&amp;quot;text&amp;quot; #account=&amp;quot;ngModel&amp;quot;
+    [(ngModel)]=&amp;quot;AgentAccountSel&amp;quot;
+  /&amp;gt;
+  &amp;lt;validation-messages [control]=&amp;quot;account&amp;quot;&amp;gt;&amp;lt;/validation-messages&amp;gt;
+&amp;lt;/div&amp;gt;
+....
+....
+&amp;lt;button
+  *ngIf=&amp;quot;!topData&amp;quot;
+  (click)=&amp;quot;searchList()&amp;quot;
+  class=&amp;quot;search&amp;quot;
+  [disabled]=&amp;quot;account.invalid&amp;quot;
+  [ngClass]=&amp;quot;{ disabled: account.invalid}&amp;quot;
+&amp;gt;
+&amp;lt;/button&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>表單驗證1</title>
+      <link>http://localhost:1313/post/angular/form-main/</link>
+      <pubDate>Fri, 07 Dec 2018 15:30:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/form-main/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;驗證模式的幾種方式&lt;/li&gt;
+&lt;li&gt;顯示錯誤的幾種寫法
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;驗證模式的幾種方式&#34;&gt;驗證模式的幾種方式&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;ngmodel&#34;&gt;[(ngModel)]&lt;/h2&gt;
+
+&lt;p&gt;例如:在post.component.html&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;    &amp;lt;input type=&amp;quot;text&amp;quot; placeholder=&amp;quot;請輸入帳號&amp;quot; 
+    [(ngModel)]=&amp;quot;account&amp;quot; name=&amp;quot;account&amp;quot; 
+    #aa=&amp;quot;ngModel&amp;quot; minlength=&amp;quot;6&amp;quot; 
+    pattern=&amp;quot;^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$&amp;quot; required&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;PS:
+- 不一定要有&lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt;標籤,但如果有的話,使用[(ngModel)]的input要加上 Name 屬性
+&lt;code&gt;name=&amp;quot;account&amp;quot;&lt;/code&gt;,否則會報錯.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Error: If ngModel is used within a form tag, either the name attribute must be set or the form
+control must be defined as &#39;standalone&#39; in ngModelOptions.&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;[(ngModel)]=&amp;quot;account&amp;quot;&lt;/code&gt;只是雙向綁定資料,須加上&lt;code&gt;#aa=&amp;quot;ngModel&amp;quot;&lt;/code&gt;來控制&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;formbuilder&#34;&gt;FormBuilder&lt;/h2&gt;
+
+&lt;p&gt;例如:&lt;/p&gt;
+
+&lt;p&gt;在component裡&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;export class MasterInsertComponent implements OnInit {
+  form: FormGroup;
+
+  constructor(
+    private fb: FormBuilder
+  ) {}
+
+  ngOnInit() {
+    this.createForm();
+  }
+
+  createForm() {
+    let obj = {
+      account: [
+        &amp;quot;&amp;quot;,
+        [
+          Validators.required,
+          ValidationService.userValidator,
+          Validators.minLength(6)
+        ]
+      ]
+    };
+    this.form = this.fb.group(obj);
+  }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在html裡&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;form [formGroup]=&amp;quot;myForm&amp;quot;&amp;gt;
+  &amp;lt;input type=&amp;quot;text&amp;quot; formControlName=&amp;quot;account&amp;quot;/&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/form&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;formcontrol&#34;&gt;FormControl&lt;/h2&gt;
+
+&lt;p&gt;算是FormBuilder的零件版&lt;/p&gt;
+
+&lt;p&gt;例如:
+在 post.component.ts&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;ipContent = new FormControl(&amp;quot;&amp;quot;, [
+  Validators.required,
+  ValidationService.ipValidator
+]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在 post.component.html&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;&amp;lt;input type=&amp;quot;text&amp;quot; [formControl]=&amp;quot;ipContent&amp;quot;&amp;gt;
+&amp;lt;button (click)=&amp;quot;enter()&amp;quot; [disabled]=&amp;quot;!ipContent.valid&amp;quot;&amp;gt;insert&amp;lt;/button&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;可不使用&lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt;標籤&lt;/li&gt;
+&lt;li&gt;驗證方式一樣&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;顯示錯誤的寫法&#34;&gt;顯示錯誤的寫法&lt;/h1&gt;
+
+&lt;p&gt;主要是判斷目標的 errors 物件&lt;/p&gt;
+
+&lt;h2 id=&#34;寫在-html-上&#34;&gt;寫在 html 上&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;input type=&amp;quot;text&amp;quot; placeholder=&amp;quot;請輸入帳號&amp;quot; 
+[(ngModel)]=&amp;quot;account&amp;quot; name=&amp;quot;account&amp;quot; #aa=&amp;quot;ngModel&amp;quot; 
+minlength=&amp;quot;6&amp;quot; pattern=&amp;quot;^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$&amp;quot; required&amp;gt;
+
+&amp;lt;span *ngIf=&amp;quot;aa.touched &amp;amp;&amp;amp; aa.errors &amp;amp;&amp;amp; aa.errors.minlength&amp;quot; class=&amp;quot;tip&amp;quot;&amp;gt;至少6位數&amp;lt;/span&amp;gt;
+&amp;lt;span *ngIf=&amp;quot;aa.touched &amp;amp;&amp;amp; aa.errors &amp;amp;&amp;amp; aa.errors.required&amp;quot; class=&amp;quot;tip&amp;quot;&amp;gt;必填&amp;lt;/span&amp;gt;
+&amp;lt;span *ngIf=&amp;quot;aa.touched &amp;amp;&amp;amp; aa.errors &amp;amp;&amp;amp; aa.errors.pattern&amp;quot; class=&amp;quot;tip&amp;quot;&amp;gt;格式錯誤&amp;lt;/span&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;常用的就
+aa.touched
+aa.invalid
+以及aa.errors.*
+如:
+aa.errors.minlength
+aa.errors.pattern
+aa.errors.required
+&amp;mdash;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;寫在-component-上&#34;&gt;寫在 component 上&lt;/h2&gt;
+
+&lt;p&gt;在post.component.html&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;input type=&amp;quot;text&amp;quot; placeholder=&amp;quot;請輸入帳號&amp;quot; 
+[(ngModel)]=&amp;quot;account&amp;quot; name=&amp;quot;account&amp;quot; #aa=&amp;quot;ngModel&amp;quot; minlength=&amp;quot;6&amp;quot; required&amp;gt;
+&amp;lt;span *ngIf=&amp;quot;aa.touched &amp;amp;&amp;amp; aa.invalid&amp;quot; class=&amp;quot;tip&amp;quot;&amp;gt;
+    {{errorMessage(aa)}}
+&amp;lt;/span&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在post.component.ts&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;errorMessage(control) {
+    if (!!control.errors) {
+        if (!!control.errors.required) {
+            return &amp;quot;必填&amp;quot;
+        }
+        if (!!control.errors.minlength) {
+            return &amp;quot;至少6位數&amp;quot;
+        }
+        if (!!control.errors.pattern) {
+            return &amp;quot;格式錯誤&amp;quot;
+        }
+    }
+    return null;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;統一放在子組件上&#34;&gt;統一放在子組件上&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;import { Component, Input } from &amp;quot;@angular/core&amp;quot;;
+import { FormControl } from &amp;quot;@angular/forms&amp;quot;;
+@Component({
+  selector: &amp;quot;validation-messages&amp;quot;,
+  template:
+    &#39;&amp;lt;div class=&amp;quot;error-message&amp;quot; *ngIf=&amp;quot;errorMessage !== null&amp;quot;&amp;gt;{{errorMessage}}&amp;lt;/div&amp;gt;&#39;,
+  styles: [&amp;quot;.error-message{color:#DF7607;font-size: x-small;}&amp;quot;]
+})
+export class ValidationComponent {
+  @Input() control: FormControl;
+  constructor() {}
+  get errorMessage() {
+    if (!!this.control) {
+      for (let propertyName in this.control.errors) {
+        if (
+          this.control.errors.hasOwnProperty(propertyName) &amp;amp;&amp;amp;
+          this.control.touched
+        ) {
+          return propertyName;
+        }
+      }
+    }
+    return null;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在需要使用的地方(Html)寫上&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;validation-messages [control]=&amp;quot;aa&amp;quot;&amp;gt;&amp;lt;/validation-messages&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>路由簡介3-延遲子路由</title>
+      <link>http://localhost:1313/post/angular/route-child-lazy/</link>
+      <pubDate>Sat, 27 Oct 2018 12:34:13 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/route-child-lazy/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;路由 - 延遲子路由的寫法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;路由的幾種型態&#34;&gt;路由的幾種型態&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;主路由&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;子路由&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;延遲子路由&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;輔助路由&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;延遲子路由的寫法&#34;&gt;延遲子路由的寫法&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;export const routes: Routes = [
+  {
+    path: &amp;quot;home&amp;quot;,
+    loadChildren: &amp;quot;src/app/cms/home/home.module#HomeModule&amp;quot;
+  },
+];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;PS:若寫了延遲子路由,出現&lt;code&gt;TypeError: __webpack_require__.e is not a function&lt;/code&gt;,
+只要把版本升級即可,至少 &amp;ldquo;@angular/cli&amp;rdquo;: &amp;ldquo;1.7.3&amp;rdquo;,&lt;/li&gt;
+&lt;li&gt;當時在1.7.2一直錯誤,但後續我改成&lt;code&gt;loadChildren: () =&amp;gt; HomeModule
+&lt;/code&gt;就OK&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;注意!下面的寫法在 prod 下無法正常執行&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    { path: &#39;home&#39;, loadChildren: () =&amp;gt; HomeModule }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;請改成&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    import HomeModule from &#39;home-module&#39;;
+
+    export function loadHomeModule() {
+        return HomeModule;
+    }
+
+    export const routes = {
+        path: &#39;home&#39;,
+        loadChildren: loadHomeModule,
+    };
+&lt;/code&gt;&lt;/pre&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>路由簡介2-子路由</title>
+      <link>http://localhost:1313/post/angular/route-child/</link>
+      <pubDate>Sat, 27 Oct 2018 11:34:13 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/route-child/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;路由 - 子路由的寫法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;路由的幾種型態-子路由&#34;&gt;路由的幾種型態 - 子路由&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;主路由&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;子路由&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;延遲子路由&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;輔助路由&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;子路由通常有幾種寫法,而且容易跟其他用途混淆,
+拿兩點做標記來分類
+- 有無自己的module
+- 有無自己的RouteModule&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;沒有自己的module-沒有自己的routemodule&#34;&gt;沒有自己的module &amp;amp;&amp;amp; 沒有自己的RouteModule&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;### 有在AppModule匯入&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;資料夾&lt;/code&gt;
+&lt;code&gt;home沒有 home.module.ts &amp;amp;&amp;amp; 也沒有 home-routing.module.ts&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;app
+    - home
+            - home.component.css
+            - home.component.html
+            - home.component.ts
+    - app.component.html
+    - app.component.ts
+    - app-routing.module.ts
+    - app.module.ts
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;AppRoutingModule&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;const routes: Routes = [
+  {
+    path: &amp;quot;&amp;quot;,
+    redirectTo: &amp;quot;home&amp;quot;,
+    pathMatch: &amp;quot;full&amp;quot;
+  },
+  {
+    path: &amp;quot;home&amp;quot;,
+    component: HomeComponent
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;AppModule&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@NgModule({
+  declarations: [
+    AppComponent,
+    HomeComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;App Html&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;p&amp;gt;
+        App works!
+    &amp;lt;/p&amp;gt;
+&amp;lt;router-outlet&amp;gt;&amp;lt;/router-outlet&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;### 沒在AppRoutingModule匯入 =&amp;gt; 其實這是子組件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;資料夾&lt;/code&gt;(不變)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;app
+    - home
+            - home.component.css
+            - home.component.html
+            - home.component.ts
+    - app.component.html
+    - app.component.ts
+    - app-routing.module.ts
+    - app.module.ts
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;AppRoutingModule&lt;/code&gt;***&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;const routes: Routes = [];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;AppModule&lt;/code&gt;(不變)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@NgModule({
+  declarations: [
+    AppComponent,
+    HomeComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;App Html&lt;/code&gt;***&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;p&amp;gt;
+        App works!
+    &amp;lt;/p&amp;gt;
+&amp;lt;app-home&amp;gt;&amp;lt;/app-home&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;差異在於有無寫在 AppRoutingModule 裡&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;有自己的module&#34;&gt;有自己的module&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;### 有自己的RouteModule&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;資料夾&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;app
+    - post
+            - post.component.css
+            - post.component.html
+            - post.component.ts
+            - post-routing.module.ts
+            - post.module.ts
+    - app.component.html
+    - app.component.ts
+    - app-routing.module.ts
+    - app.module.ts
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;AppRoutingModule&lt;/code&gt;***&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;const routes: Routes = [
+  {
+    path: &amp;quot;post&amp;quot;,
+    component: PostComponent
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;PostRoutingModule&lt;/code&gt;***&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;const routes: Routes = [
+  {
+    path: &amp;quot;&amp;quot;,
+    component: PostComponent
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;PostModule&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@NgModule({
+  imports: [
+    CommonModule,
+    PostRoutingModule
+  ],
+  declarations: [PostComponent],
+  exports:[PostComponent]
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;AppModule&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@NgModule({
+  declarations: [
+    AppComponent,
+  ],
+  imports: [
+    BrowserModule,
+    PostModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;App Html&lt;/code&gt;***&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;p&amp;gt;
+        App works!
+    &amp;lt;/p&amp;gt;
+&amp;lt;router-outlet&amp;gt;&amp;lt;/router-outlet&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;### 沒有自己的RouteModule =&amp;gt; 跟路由無關,通常是拿來做共用模塊的&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;資料夾&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;app
+    - post
+            - post.component.css
+            - post.component.html
+            - post.component.ts
+            - post.service.ts
+            - post.module.ts
+    - app.component.html
+    - app.component.ts
+    - app-routing.module.ts
+    - app.module.ts
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;AppRoutingModule&lt;/code&gt; 沒有RouteModule就已跟路由無關了&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;const routes: Routes = [];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;PostModule&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@NgModule({
+  imports: [
+    CommonModule
+  ],
+  declarations: [PostComponent],
+  exports:[PostComponent]
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;AppModule&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@NgModule({
+  declarations: [
+    AppComponent,
+  ],
+  imports: [
+    BrowserModule,
+    PostModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;App Html&lt;/code&gt; 已跟路由無關了&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;p&amp;gt;
+        App works!
+    &amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;通常ShareModule就是如此,
+或是私有的service 或 指令 混合成的功能組件,
+可方便其他module 匯入來用&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>路由簡介1-主路由</title>
+      <link>http://localhost:1313/post/angular/route-main/</link>
+      <pubDate>Sat, 27 Oct 2018 10:34:13 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/route-main/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;路由 - 主路由的寫法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;路由的幾種型態-主路由&#34;&gt;路由的幾種型態 - 主路由&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;主路由&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;子路由&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;延遲子路由&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;輔助路由&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;可直接在-appmodule-直接寫&#34;&gt;可直接在 AppModule 直接寫&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;const routes: Routes = [
+  {
+    path: &amp;quot;&amp;quot;,
+    redirectTo: &amp;quot;home&amp;quot;,
+    pathMatch: &amp;quot;full&amp;quot;
+  },
+  {
+    path: &amp;quot;home&amp;quot;,
+    component: HomeComponent
+  }
+];
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes)
+  ]
+})
+export class AppModule { }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;可拆到-approutemodule-並在-appmodule-註冊&#34;&gt;可拆到 AppRouteModule ,並在 AppModule 註冊&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;AppRoutingModule&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;const routes: Routes = [
+  {
+    path: &amp;quot;&amp;quot;,
+    redirectTo: &amp;quot;home&amp;quot;,
+    pathMatch: &amp;quot;full&amp;quot;
+  },
+  {
+    path: &amp;quot;home&amp;quot;,
+    component: HomeComponent
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;AppModule&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;@NgModule({
+  declarations: [
+    AppComponent,
+    HomeComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+&lt;/code&gt;&lt;/pre&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>路由導向 navigate</title>
+      <link>http://localhost:1313/post/angular/route-navigate/</link>
+      <pubDate>Fri, 14 Sep 2018 11:44:26 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/route-navigate/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;導向的幾種寫法  &lt;code&gt;Component&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;導向的其他寫法  &lt;code&gt;Html&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;navigate()  和  navigateByUrl()  差異&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;導向的幾種寫法-component&#34;&gt;導向的幾種寫法  &lt;code&gt;Component&lt;/code&gt;&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;以根路由跳轉/login&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    this.router.navigate([&#39;login&#39;]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;設置relativeTo相對當前路由跳轉，route是ActivatedRoute的實例，使用需要導入ActivatedRoute&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    this.router.navigate([&#39;login&#39;],{relativeTo: route});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;路由中傳參數 /login?name=1&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    this.router.navigate([&#39;login&#39;],{ queryParams: { name: 1 } });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;preserveQueryParams默認值為false，設為true，是保留之前路由中的查詢參數，
+例如: /login?name=1 到 /home?name=1&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    this.router.navigate([&#39;home&#39;], { preserveQueryParams: true });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;在Angular 4+中，不推薦使用preserveQueryParams,請用queryParamsHandling。&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;this.router.navigate([&#39;home&#39;], { queryParamsHandling: &amp;quot;preserve&amp;quot; });
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;queryParamsHandling 有三種屬性&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;merge:合併已有的 queryParams 到當前的 queryParams 中
+preserve:儲存當前的 queryParams
+default:僅使用查詢參數
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;路由中錨點跳轉 /home#top&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    this.router.navigate([&#39;home&#39;],{ fragment: &#39;top&#39; });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;preserveFragment默認為false，設為true，是保留之前路由中的錨點，
+例如: /home#top to /role#top&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    this.router.navigate([&#39;/role&#39;], { preserveFragment: true });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;skipLocationChange默認為false，設為true，路由跳轉時瀏覽器中的url會保持不變，
+但是傳入的參數依然有效&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    this.router.navigate([&#39;/home&#39;], { skipLocationChange: true });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;replaceUrl默認為true，設為false，路由不會進行跳轉&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    this.router.navigate([&#39;/home&#39;], { replaceUrl: true });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;若要設定兩個參數以上,可這麼寫&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    this.router.navigate([&#39;/home&#39;], 
+    { queryParams: { &#39;session_id&#39;: sessionId },  fragment: &#39;anchor&#39; });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;    let navigationExtras: NavigationExtras = {
+        queryParams: { &#39;session_id&#39;: sessionId },
+        fragment: &#39;anchor&#39;
+    };
+
+    this.router.navigate([&#39;/login&#39;], navigationExtras);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;navigate() 裡的第一個參數 丟路徑跟params相關的&lt;code&gt;陣列&lt;/code&gt;,&lt;/p&gt;
+
+&lt;h2 id=&#34;第二個參數是丟其他設定或是queryparams相關的-物件&#34;&gt;第二個參數是丟其他設定或是queryParams相關的&lt;code&gt;物件&lt;/code&gt;&lt;/h2&gt;
+
+&lt;h1 id=&#34;導向的其他寫法-html&#34;&gt;導向的其他寫法  &lt;code&gt;Html&lt;/code&gt;&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;a routerLink=&amp;quot;/heroes&amp;quot;&amp;gt;Heroes&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;a [routerLink]=&amp;quot;[&#39;../&#39;]&amp;quot; [queryParams]=&amp;quot;{prop: &#39;xxx&#39;}&amp;quot;&amp;gt;Somewhere&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;a [routerLink]=&amp;quot;[&#39;/main/manage&#39;]&amp;quot; [queryParams]=&amp;quot;{&#39;name&#39;:&amp;quot;Hello&amp;quot;, &#39;num&#39;:10}&amp;quot; [fragment]=&amp;quot;yyy&amp;quot;&amp;gt;Somewhere&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;     &amp;lt;a [routerLink]=&amp;quot;[&#39;data&#39;,{ key : &#39;123&#39; }]&amp;quot; [queryParams]=&amp;quot;{ name : &#39;aaa&#39; }&amp;quot;&amp;gt;go child&amp;lt;/a&amp;gt;
+     // http://somewhere/data;key=123?name=aaa
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;navigate-和-navigatebyurl-差異&#34;&gt;navigate()  和  navigateByUrl()  差異&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;navigateByUrl()是進行絕對路徑,絕對路徑必須先&lt;code&gt;/&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;navigate() 是採用輸入一系列的參數來產生 URL&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;this.router.navigateByUrl(&#39;/login&#39;);
+this.router.navigate([&#39;/login&#39;]);
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;備註&#34;&gt;備註&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&amp;rdquo;/path&amp;rdquo; 表示從 root 開始&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&amp;rdquo;../path&amp;rdquo; 表示從當前route往上(parent)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&amp;ldquo;path&amp;rdquo; 表示從當前往下(child)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;參考至&#34;&gt;參考至&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://hk.saowen.com/a/a921cad029026129e7dc9d0637f0ded431fcaf73311c557d633ba55348f617a8&#34;&gt;https://hk.saowen.com/a/a921cad029026129e7dc9d0637f0ded431fcaf73311c557d633ba55348f617a8&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hk.saowen.com/a/8d173d70f153930b4c6a1e0bbd60934b1d5425ed83e5909f2c1f3ea5fdd34219&#34;&gt;https://hk.saowen.com/a/8d173d70f153930b4c6a1e0bbd60934b1d5425ed83e5909f2c1f3ea5fdd34219&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ifun01.com/8STN9F7.html&#34;&gt;https://ifun01.com/8STN9F7.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>路由參數 params queryParams</title>
+      <link>http://localhost:1313/post/angular/route-param/</link>
+      <pubDate>Fri, 14 Sep 2018 11:42:29 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/route-param/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;params 與 queryParams 區分&lt;/li&gt;
+&lt;li&gt;URL 表達形式&lt;/li&gt;
+&lt;li&gt;讀取 params 的幾種寫法&lt;/li&gt;
+&lt;li&gt;讀取 queryParams 的寫法&lt;/li&gt;
+&lt;li&gt;讀取 fragment 的幾種寫法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;params-與-queryparams-區分&#34;&gt;params 與 queryParams 區分&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;pre&gt;&lt;code&gt;    //路由設定
+    export const MyRoutes: Routes = [
+        {path: &#39;:type&#39;, component: MyComponent}
+    ];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;    //Sample URL
+    http://somewhere/heroes?paramA=1
+    http://somewhere/enemy?paramA=1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;    //讀取
+    this.paramsSubscription = this.route.params.subscribe((param: any) =&amp;gt; {
+        console.log(&#39;type&#39;,param[&#39;type&#39;]);
+        //會印出 heroes or enemy
+
+        let q = this.route.snapshot.queryParams[&amp;quot;paramA&amp;quot;];
+        console.log(&#39;queryParams&#39;,q)
+        //會印出 1
+    })
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在&lt;code&gt;?&lt;/code&gt;前面即為 params, 在&lt;code&gt;?&lt;/code&gt;後面即為 queryParams&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    //路由設定
+    export const MyRoutes: Routes = [
+        {path: &#39;:type&#39;, component: MyComponent}
+        {path: &#39;:type/:id&#39;, component: MyComponent}
+    ];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;    //Sample URL
+    http://somewhere/heroes/5?paramA=1
+    http://somewhere/enemy/3?paramA=1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;    //讀取
+    this.paramsSubscription = this.route.params.subscribe((param: any) =&amp;gt; {
+        console.log(&#39;type&#39;,param[&#39;type&#39;]);
+        console.log(&amp;quot;type&amp;quot;, param[&amp;quot;id&amp;quot;]);
+        //會印出 heroes 5
+        // or
+        // 印出 enemy 3
+    })
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;由上面兩個例子可以看到&lt;code&gt;?前面&lt;/code&gt;的&lt;code&gt;每個/&lt;/code&gt;後面都是params&lt;/p&gt;
+
+&lt;h1 id=&#34;url-表達形式&#34;&gt;URL 表達形式&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;帶有查詢參數的URL： &lt;a href=&#34;http://somewhere/heroes/5?paramA=1&amp;amp;paramB=6542&#34;&gt;http://somewhere/heroes/5?paramA=1&amp;amp;paramB=6542&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;params: &lt;code&gt;heroes/5&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;queryParams: &lt;code&gt;paramA=1&amp;amp;paramB=6542&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;帶有矩陣參數的URL： &lt;a href=&#34;http://somewhere/enemy/3;paramA=1;paramB=6542&#34;&gt;http://somewhere/enemy/3;paramA=1;paramB=6542&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;params: &lt;code&gt;enemy/3;paramA=1;paramB=6542&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;queryParams: &lt;code&gt;無&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;讀取-params-的幾種寫法&#34;&gt;讀取 params 的幾種寫法&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;訂閱方式-observable&#34;&gt;訂閱方式 Observable&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;    this.activatedRoute.params.subscribe((param: any) =&amp;gt; {
+        console.log(&#39;type&#39;,param[&#39;type&#39;]);
+    })
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;快照-snapshot&#34;&gt;快照 Snapshot&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;    this.activatedRoute.snapshot.params
+    or
+    this.activatedRoute.snapshot.params[&#39;type&#39;]
+    or
+    const id = +this.route.snapshot.paramMap.get(&#39;id&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;舉個例子:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    //Sample URL
+    http://somewhere/heroes/5?paramA=1&amp;amp;paramB=6542
+
+    //印出 params
+    console.log(this.activatedRoute.snapshot.params)
+
+    //結果
+    {type: &amp;quot;heroes&amp;quot;, id: &amp;quot;5&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;舉個例子:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    //Sample URL
+    http://somewhere/enemy/3;paramA=1;paramB=6542
+
+    //印出 params
+    console.log(this.activatedRoute.snapshot.params)
+
+    //結果
+    {type: &amp;quot;enemy&amp;quot;, id: &amp;quot;3&amp;quot;, paramA: &amp;quot;1&amp;quot;, paramB: &amp;quot;6542&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;讀取-queryparams-的寫法&#34;&gt;讀取 queryParams 的寫法&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;訂閱方式-observable-1&#34;&gt;訂閱方式 Observable&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;    this.activatedRoute.queryParams.subscribe((param: any)=&amp;gt;{
+        console.log(&#39;paramA&#39;,param[&#39;paramA&#39;]);
+    });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;快照-snapshot-1&#34;&gt;快照 Snapshot&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;    this.activatedRoute.snapshot.queryParams;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;舉個例子:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    //Sample URL
+    http://somewhere/heroes/5?paramA=1&amp;amp;paramB=6542
+
+    //印出 params
+    console.log(this.activatedRoute.snapshot.queryParams)
+
+    //結果
+    {paramA: &amp;quot;1&amp;quot;, paramB: &amp;quot;6542&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;舉個例子:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    //Sample URL
+    http://somewhere/enemy/3;paramA=1;paramB=6542
+
+    //印出 params
+    console.log(this.activatedRoute.snapshot.queryParams)
+
+    //結果
+    {}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;讀取-fragment-的幾種寫法&#34;&gt;讀取 fragment 的幾種寫法&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;fragment 指網址&lt;code&gt;#&lt;/code&gt;後面的參數&lt;/p&gt;
+
+&lt;h2 id=&#34;訂閱方式-observable-2&#34;&gt;訂閱方式 Observable&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;    this.activatedRoute.fragment.subscribe((f))=&amp;gt;{
+        console.log(&#39;f&#39;,f);
+    });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;快照-snapshot-2&#34;&gt;快照 Snapshot&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;    this.activatedRoute.snapshot.fragment;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;備註&#34;&gt;備註&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;因網址傳送跟接收都是用字串,所以如果在讀取&lt;code&gt;params&lt;/code&gt;,&lt;br&gt;
+在常見的抓取&lt;code&gt;:id&lt;/code&gt; 的時候我們會用 &lt;code&gt;+&lt;/code&gt; 號來讓它字串自動轉成數字&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    this.activatedRoute.params.subscribe((param: any) =&amp;gt; {
+        console.log(&#39;type&#39;,+param[&#39;type&#39;]);   //多了+號
+    })
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;ActivatedRoute 可以不需要 unsubscribe，這一個 ng 會智能處理，不過養成取消訂閲的習慣也是很好的&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;如果觸發一個 超連結 或則調用 router.navigate(&amp;hellip;) 但是最終它發現 url 沒變動，那麼什麼不會發生, route event 統統沒有運行.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>angular module概念</title>
+      <link>http://localhost:1313/post/angular/ng-module/</link>
+      <pubDate>Fri, 14 Sep 2018 11:24:46 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/ng-module/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;模塊的多種劃分&lt;/li&gt;
+&lt;li&gt;模塊的匯入順序&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;模塊的多種劃分&#34;&gt;模塊的多種劃分&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;根模塊: 負責全局的路由&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;核心模塊: 負責全局的Service,也可以定義只在根模塊使用的組件,並只能由根模塊引入一次且不再導出&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;共享模塊是定義全局共享的組件,幫助子模塊導入系統模塊,所以子模塊只要導入共享模塊就夠了&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;子模塊內部可以細分自己的子路由跟子組件,以及提供自己的服務等&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;除了頁面入口模塊(非根模塊)之外的其他子模塊盡量寫成惰性加載的模塊&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;當需要一個通用的全局服務時,可以加入到核心模塊,也可以再創建一個只給根模塊引入的特性模塊,甚至可以獨立發布到npm,但需要更強的編碼能力和技術積累了&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;模塊的匯入順序&#34;&gt;模塊的匯入順序&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;pre&gt;&lt;code&gt;    imports: [
+      BrowserModule,
+      FormsModule,
+      HeroesModule,
+      AppRoutingModule
+    ]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;看看該模塊的 imports 數組。注意，AppRoutingModule 是最後一個。&lt;br&gt;
+最重要的是，它位于 HeroesModule 之後。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;如果更換順序的話,如下&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;imports: [
+  BrowserModule,
+  FormsModule,
+  AppRoutingModule,
+  HeroesModule
+]
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;例如, 如果你 app-routing 最後是處理 404 ,&lt;br&gt;
+但是在 app-module 卻把 routing 限於特性模塊 HeroesModule, &lt;br&gt;
+那麼 HeroesModule 的 routing 就進不去了。因為已經被匹配掉了.&lt;/p&gt;
+
+&lt;h1 id=&#34;參考至&#34;&gt;參考至&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;https://www.cnblogs.com/yitim/p/angular2-study-module-framework.html&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>UrlMatcher</title>
+      <link>http://localhost:1313/post/angular/ng-urlmatcher/</link>
+      <pubDate>Fri, 14 Sep 2018 11:15:10 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/ng-urlmatcher/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;UrlMatcher 意義&lt;/li&gt;
+&lt;li&gt;UrlMatcher 寫法&lt;/li&gt;
+&lt;li&gt;備註&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;urlmatcher-意義&#34;&gt;UrlMatcher 意義&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;就是驗證網址跟參數是否有符合規則&lt;/p&gt;
+
+&lt;h1 id=&#34;urlmatcher-實際運用&#34;&gt;UrlMatcher 實際運用&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;在路由中設定&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    const appRoutes: Routes = [
+        {
+            path: &amp;quot;enemy&amp;quot;,
+            component: MyComponent,
+            children: [
+                {
+                    matcher: mymatcher,  //寫這個後就不能再寫path
+                    component: ChildComponent
+                }
+            ]
+        }
+    ];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;    export const mymatcher = (url: UrlSegment[]): UrlMatchResult =&amp;gt; {
+        console.log(&amp;quot;url&amp;quot;, url);
+        if (!!url[0] &amp;amp;&amp;amp; url[0].toString() !== &amp;quot;bbb&amp;quot;) {
+            return null;
+        }
+        return {
+            consumed: url,
+        };
+    };
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;當網址 &lt;code&gt;enemy/bbb&lt;/code&gt; 將匹配成功
+&lt;code&gt;enemy/aaa&lt;/code&gt;  就會跳出錯誤訊息 &lt;code&gt;Error: Cannot match any routes.&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;備註&#34;&gt;備註&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;pre&gt;&lt;code&gt;    @NgModule({
+        imports: [RouterModule.forChild([
+            {
+                matcher : matcher, //這裏不要使用匿名方法或則箭頭函數哦, aot 不過
+                component : FirstComponent,
+                children : []
+            }
+        ])],
+        exports: [RouterModule],
+    })
+&lt;/code&gt;&lt;/pre&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>ng-directive</title>
+      <link>http://localhost:1313/post/angular/ng-directive/</link>
+      <pubDate>Fri, 14 Sep 2018 11:04:22 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/ng-directive/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;ngStyle的幾種寫法&lt;/li&gt;
+&lt;li&gt;ngClass的幾種寫法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;ngstyle&#34;&gt;ngStyle&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;後面要指定的參數通常是 &lt;code&gt;CSS屬性&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;div [ngStyle]=&amp;quot;{&#39;background-color&#39;:&#39;green&#39;}&amp;quot;&amp;gt;&amp;lt;/&amp;lt;div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;也可以這樣寫&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;div [style.background]=&amp;quot;green}&amp;quot;&amp;gt;&amp;lt;/&amp;lt;div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;也可以使用三元運算子&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;div [ngStyle]=&amp;quot;{&#39;background-color&#39;:person.country === &#39;UK&#39; ? &#39;green&#39; : &#39;red&#39; }&amp;quot;&amp;gt;&amp;lt;/&amp;lt;div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;若要指定 &lt;code&gt;function&lt;/code&gt; 的寫法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    [style.color]=&amp;quot;getColor(person.country)&amp;quot;
+
+    getColor(color:string){
+        if(color == &#39;UK&#39;){
+            return &#39;green&#39;
+        }
+        return &#39;red&#39;
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;ngclass&#34;&gt;ngClass&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;第一个參數為Class類名稱，
+第二个參數為boolean值，
+如果為true就添加第一个参數的類&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    [ngClass]=&amp;quot;{&#39;text-success&#39;:true}&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;也可以這樣寫&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    [class.text-success]=&amp;quot;person.country === &#39;UK&#39;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;可以一次新增多Class&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    [ngClass]=&amp;quot;{
+        &#39;text-success&#39;:person.country === &#39;UK&#39;,
+        &#39;text-primary&#39;:person.country === &#39;USA&#39;,
+        &#39;text-danger&#39;:person.country === &#39;HK&#39;
+    }&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>ngModel</title>
+      <link>http://localhost:1313/post/angular/ng-ngmodel/</link>
+      <pubDate>Fri, 14 Sep 2018 10:49:17 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/ng-ngmodel/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;ngModel 幾種寫法&lt;/li&gt;
+&lt;li&gt;在 &lt;code&gt;&amp;lt;select&amp;gt;&lt;/code&gt; 裡的差異&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;寫法&#34;&gt;寫法&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;    [(ngModel)]=&amp;quot;personalEmail&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;    [ngModel]=&amp;quot;personalEmail&amp;quot; 
+    (ngModelChange)=&amp;quot;personalEmail = $event&amp;quot;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;    [ngModel]=&amp;quot;personalEmail || &#39;default&#39;&amp;quot; (ngModelChange)=&amp;quot;personalEmail = $event&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;在-select-裡的差異&#34;&gt;在 &lt;code&gt;&amp;lt;select&amp;gt;&lt;/code&gt; 裡的差異&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;select id=&amp;quot;se&amp;quot; [ngModel]=&amp;quot;seID&amp;quot; (ngModelChange)=&amp;quot;seID = $event&amp;quot;&amp;gt;
+        &amp;lt;option *ngFor=&amp;quot;let s of ss&amp;quot; [value]=&amp;quot;s.id&amp;quot;&amp;gt;{{ s.name }}&amp;lt;/option&amp;gt;
+    &amp;lt;/select&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;因Angular 內部會自己將處理 $event.target.value, 所以可合一 [(ngModel)]=&amp;ldquo;seID&amp;rdquo;, 如下所示&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;select id=&amp;quot;se&amp;quot; [(ngModel)]=&amp;quot;seID&amp;quot;&amp;gt;
+        &amp;lt;option *ngFor=&amp;quot;let s of ss&amp;quot; [value]=&amp;quot;s.id&amp;quot;&amp;gt;{{ s.name }}&amp;lt;/option&amp;gt;
+    &amp;lt;/select&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果不單只是數據變動還要做其他處理時,可用 &lt;code&gt;(change)&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;select id=&amp;quot;se&amp;quot; [(ngModel)]=&amp;quot;seID&amp;quot; (change)=&amp;quot;saveStatus(member.ID,$event)&amp;quot;&amp;gt;
+        &amp;lt;option *ngFor=&amp;quot;let s of ss&amp;quot; [value]=&amp;quot;s.id&amp;quot;&amp;gt;{{ s.name }}&amp;lt;/option&amp;gt;
+    &amp;lt;/select&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;可在&lt;code&gt;(change)&lt;/code&gt;指令下自訂義function, 但要注意接進來的 $event 並未被angular內部處理&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;    saveStatus(id: number, event) {
+        let o = {
+            ID: id,
+            status: parseInt(event.target.value)
+        };
+        this.dataService.sendModel(&amp;quot;customer&amp;quot;, &amp;quot;status&amp;quot;, &amp;quot;&amp;quot;, o);
+    }
+&lt;/code&gt;&lt;/pre&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>ng-template</title>
+      <link>http://localhost:1313/post/angular/ng-template/</link>
+      <pubDate>Fri, 14 Sep 2018 10:42:25 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/ng-template/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;ng-template的使用 -ngFor&lt;/li&gt;
+&lt;li&gt;ng-template的使用 -ngIf&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;ng-template的使用&#34;&gt;ng-template的使用&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;原先的&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;    &amp;lt;tbody&amp;gt;
+    &amp;lt;tr *ngFor=&amp;quot;let element of data; let i = index&amp;quot;&amp;gt;
+       &amp;lt;td&amp;gt;...&amp;lt;td&amp;gt;
+    &amp;lt;/tr&amp;gt;
+    &amp;lt;/tbody&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;想再加一行&lt;code&gt;&amp;lt;tr&amp;gt;&lt;/code&gt;,也要拿 data迴圈資料&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;    &amp;lt;tbody&amp;gt;
+    &amp;lt;tr *ngFor=&amp;quot;let element of data; let i = index&amp;quot;&amp;gt;
+       &amp;lt;td&amp;gt;...&amp;lt;td&amp;gt;
+    &amp;lt;/tr&amp;gt;
+    &amp;lt;tr *ngFor=&amp;quot;let element of data; let i = index&amp;quot;&amp;gt;
+       &amp;lt;td&amp;gt;...&amp;lt;td&amp;gt;
+    &amp;lt;/tr&amp;gt;
+    &amp;lt;/tbody&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;只要使用 ng-template&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;    &amp;lt;ng-template ngFor let-element [ngForOf]=&amp;quot;data&amp;quot; let-i=&amp;quot;index&amp;quot;&amp;gt;
+        &amp;lt;tr&amp;gt;...&amp;lt;/tr&amp;gt;
+        &amp;lt;tr&amp;gt;...&amp;lt;/tr&amp;gt;
+    &amp;lt;/ng-template&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;若有想要 ngFor跟ngIf 同時出現,可寫成&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;    &amp;lt;ng-template [ngIf]=&amp;quot;!!result&amp;quot;&amp;gt;
+        &amp;lt;div *ngFor=&amp;quot;let ip of result;let i = index&amp;quot;&amp;gt;
+            {{ip}}
+        &amp;lt;/div&amp;gt;
+    &amp;lt;/ng-template&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

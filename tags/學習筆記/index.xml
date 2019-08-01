@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>學習筆記 on Emma Blog</title>
+    <link>http://localhost:1313/tags/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/</link>
+    <description>Recent content in 學習筆記 on Emma Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <copyright>Emma Chang</copyright>
+    <lastBuildDate>Sat, 27 Oct 2018 12:34:13 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>路由簡介3-延遲子路由</title>
+      <link>http://localhost:1313/post/angular/route-child-lazy/</link>
+      <pubDate>Sat, 27 Oct 2018 12:34:13 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/route-child-lazy/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;路由 - 延遲子路由的寫法&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>路由簡介2-子路由</title>
+      <link>http://localhost:1313/post/angular/route-child/</link>
+      <pubDate>Sat, 27 Oct 2018 11:34:13 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/route-child/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;路由 - 子路由的寫法&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>路由簡介1-主路由</title>
+      <link>http://localhost:1313/post/angular/route-main/</link>
+      <pubDate>Sat, 27 Oct 2018 10:34:13 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/route-main/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;路由 - 主路由的寫法&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>路由導向 navigate</title>
+      <link>http://localhost:1313/post/angular/route-navigate/</link>
+      <pubDate>Fri, 14 Sep 2018 11:44:26 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/route-navigate/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;導向的幾種寫法  &lt;code&gt;Component&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;導向的其他寫法  &lt;code&gt;Html&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;navigate()  和  navigateByUrl()  差異&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>路由參數 params queryParams</title>
+      <link>http://localhost:1313/post/angular/route-param/</link>
+      <pubDate>Fri, 14 Sep 2018 11:42:29 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/route-param/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;params 與 queryParams 區分&lt;/li&gt;
+&lt;li&gt;URL 表達形式&lt;/li&gt;
+&lt;li&gt;讀取 params 的幾種寫法&lt;/li&gt;
+&lt;li&gt;讀取 queryParams 的寫法&lt;/li&gt;
+&lt;li&gt;讀取 fragment 的幾種寫法&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>angular module概念</title>
+      <link>http://localhost:1313/post/angular/ng-module/</link>
+      <pubDate>Fri, 14 Sep 2018 11:24:46 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/ng-module/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;模塊的多種劃分&lt;/li&gt;
+&lt;li&gt;模塊的匯入順序&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>UrlMatcher</title>
+      <link>http://localhost:1313/post/angular/ng-urlmatcher/</link>
+      <pubDate>Fri, 14 Sep 2018 11:15:10 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/ng-urlmatcher/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;UrlMatcher 意義&lt;/li&gt;
+&lt;li&gt;UrlMatcher 寫法&lt;/li&gt;
+&lt;li&gt;備註&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>ng-directive</title>
+      <link>http://localhost:1313/post/angular/ng-directive/</link>
+      <pubDate>Fri, 14 Sep 2018 11:04:22 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/ng-directive/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;ngStyle的幾種寫法&lt;/li&gt;
+&lt;li&gt;ngClass的幾種寫法&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>ngModel</title>
+      <link>http://localhost:1313/post/angular/ng-ngmodel/</link>
+      <pubDate>Fri, 14 Sep 2018 10:49:17 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/ng-ngmodel/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;ngModel 幾種寫法&lt;/li&gt;
+&lt;li&gt;在 &lt;code&gt;&amp;lt;select&amp;gt;&lt;/code&gt; 裡的差異&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>ng-template</title>
+      <link>http://localhost:1313/post/angular/ng-template/</link>
+      <pubDate>Fri, 14 Sep 2018 10:42:25 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/ng-template/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;ng-template的使用 -ngFor&lt;/li&gt;
+&lt;li&gt;ng-template的使用 -ngIf&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>angular-cli 相關指令</title>
+      <link>http://localhost:1313/post/angular/ng-cli/</link>
+      <pubDate>Wed, 12 Sep 2018 16:44:13 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/angular/ng-cli/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;CLI指令&lt;/li&gt;
+&lt;li&gt;如何新增檔案卻不新增 spec 的幾種方式&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
