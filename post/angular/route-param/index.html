@@ -82,7 +82,7 @@ URL 表達形式
 
 <meta itemprop="datePublished" content="2018-09-14T11:42:29&#43;00:00" />
 <meta itemprop="dateModified" content="2018-09-14T11:42:29&#43;00:00" />
-<meta itemprop="wordCount" content="548">
+<meta itemprop="wordCount" content="631">
 
 
 
@@ -398,53 +398,103 @@ URL 表達形式
 <h1 id="params-與-queryparams-區分">params 與 queryParams 區分</h1>
 
 <hr />
-
-<pre><code>    //路由設定
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    //路由設定
     export const MyRoutes: Routes = [
-        {path: ':type', component: MyComponent}
-    ];
-</code></pre>
-
-<pre><code>    //Sample URL
+        {path: &#39;:type&#39;, component: MyComponent}
+    ];</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    //Sample URL
     http://somewhere/heroes?paramA=1
-    http://somewhere/enemy?paramA=1
-</code></pre>
-
-<pre><code>    //讀取
+    http://somewhere/enemy?paramA=1</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    //讀取
     this.paramsSubscription = this.route.params.subscribe((param: any) =&gt; {
-        console.log('type',param['type']);
+        console.log(&#39;type&#39;,param[&#39;type&#39;]);
         //會印出 heroes or enemy
 
-        let q = this.route.snapshot.queryParams[&quot;paramA&quot;];
-        console.log('queryParams',q)
+        let q = this.route.snapshot.queryParams[&#34;paramA&#34;];
+        console.log(&#39;queryParams&#39;,q)
         //會印出 1
-    })
-</code></pre>
-
+    })</pre></td></tr></table>
+</div>
+</div>
 <p>在<code>?</code>前面即為 params, 在<code>?</code>後面即為 queryParams</p>
-
-<pre><code>    //路由設定
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    //路由設定
     export const MyRoutes: Routes = [
-        {path: ':type', component: MyComponent}
-        {path: ':type/:id', component: MyComponent}
-    ];
-</code></pre>
-
-<pre><code>    //Sample URL
+        {path: &#39;:type&#39;, component: MyComponent}
+        {path: &#39;:type/:id&#39;, component: MyComponent}
+    ];</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    //Sample URL
     http://somewhere/heroes/5?paramA=1
-    http://somewhere/enemy/3?paramA=1
-</code></pre>
-
-<pre><code>    //讀取
+    http://somewhere/enemy/3?paramA=1</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    //讀取
     this.paramsSubscription = this.route.params.subscribe((param: any) =&gt; {
-        console.log('type',param['type']);
-        console.log(&quot;type&quot;, param[&quot;id&quot;]);
+        console.log(&#39;type&#39;,param[&#39;type&#39;]);
+        console.log(&#34;type&#34;, param[&#34;id&#34;]);
         //會印出 heroes 5
         // or
         // 印出 enemy 3
-    })
-</code></pre>
-
+    })</pre></td></tr></table>
+</div>
+</div>
 <p>由上面兩個例子可以看到<code>?前面</code>的<code>每個/</code>後面都是params</p>
 
 <h1 id="url-表達形式">URL 表達形式</h1>
@@ -470,85 +520,153 @@ URL 表達形式
 <hr />
 
 <h2 id="訂閱方式-observable">訂閱方式 Observable</h2>
-
-<pre><code>    this.activatedRoute.params.subscribe((param: any) =&gt; {
-        console.log('type',param['type']);
-    })
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    this.activatedRoute.params.subscribe((param: any) =&gt; {
+        console.log(&#39;type&#39;,param[&#39;type&#39;]);
+    })</pre></td></tr></table>
+</div>
+</div>
 <h2 id="快照-snapshot">快照 Snapshot</h2>
-
-<pre><code>    this.activatedRoute.snapshot.params
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    this.activatedRoute.snapshot.params
     or
-    this.activatedRoute.snapshot.params['type']
+    this.activatedRoute.snapshot.params[&#39;type&#39;]
     or
-    const id = +this.route.snapshot.paramMap.get('id');
-</code></pre>
-
+    const id = +this.route.snapshot.paramMap.get(&#39;id&#39;);</pre></td></tr></table>
+</div>
+</div>
 <p>舉個例子:</p>
-
-<pre><code>    //Sample URL
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    //Sample URL
     http://somewhere/heroes/5?paramA=1&amp;paramB=6542
 
     //印出 params
     console.log(this.activatedRoute.snapshot.params)
 
     //結果
-    {type: &quot;heroes&quot;, id: &quot;5&quot;}
-</code></pre>
-
+    {type: &#34;heroes&#34;, id: &#34;5&#34;}</pre></td></tr></table>
+</div>
+</div>
 <p>舉個例子:</p>
-
-<pre><code>    //Sample URL
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    //Sample URL
     http://somewhere/enemy/3;paramA=1;paramB=6542
 
     //印出 params
     console.log(this.activatedRoute.snapshot.params)
 
     //結果
-    {type: &quot;enemy&quot;, id: &quot;3&quot;, paramA: &quot;1&quot;, paramB: &quot;6542&quot;}
-</code></pre>
-
+    {type: &#34;enemy&#34;, id: &#34;3&#34;, paramA: &#34;1&#34;, paramB: &#34;6542&#34;}</pre></td></tr></table>
+</div>
+</div>
 <h1 id="讀取-queryparams-的寫法">讀取 queryParams 的寫法</h1>
 
 <hr />
 
 <h2 id="訂閱方式-observable-1">訂閱方式 Observable</h2>
-
-<pre><code>    this.activatedRoute.queryParams.subscribe((param: any)=&gt;{
-        console.log('paramA',param['paramA']);
-    });
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    this.activatedRoute.queryParams.subscribe((param: any)=&gt;{
+        console.log(&#39;paramA&#39;,param[&#39;paramA&#39;]);
+    });</pre></td></tr></table>
+</div>
+</div>
 <h2 id="快照-snapshot-1">快照 Snapshot</h2>
-
-<pre><code>    this.activatedRoute.snapshot.queryParams;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    this.activatedRoute.snapshot.queryParams;</pre></td></tr></table>
+</div>
+</div>
 <p>舉個例子:</p>
-
-<pre><code>    //Sample URL
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    //Sample URL
     http://somewhere/heroes/5?paramA=1&amp;paramB=6542
 
     //印出 params
     console.log(this.activatedRoute.snapshot.queryParams)
 
     //結果
-    {paramA: &quot;1&quot;, paramB: &quot;6542&quot;}
-</code></pre>
-
+    {paramA: &#34;1&#34;, paramB: &#34;6542&#34;}</pre></td></tr></table>
+</div>
+</div>
 <p>舉個例子:</p>
-
-<pre><code>    //Sample URL
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    //Sample URL
     http://somewhere/enemy/3;paramA=1;paramB=6542
 
     //印出 params
     console.log(this.activatedRoute.snapshot.queryParams)
 
     //結果
-    {}
-</code></pre>
-
+    {}</pre></td></tr></table>
+</div>
+</div>
 <h1 id="讀取-fragment-的幾種寫法">讀取 fragment 的幾種寫法</h1>
 
 <hr />
@@ -556,29 +674,46 @@ URL 表達形式
 <p>fragment 指網址<code>#</code>後面的參數</p>
 
 <h2 id="訂閱方式-observable-2">訂閱方式 Observable</h2>
-
-<pre><code class="language-js">    this.activatedRoute.fragment.subscribe((f))=&gt;{
-        console.log('f',f);
-    });
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js">    <span class="k">this</span><span class="p">.</span><span class="nx">activatedRoute</span><span class="p">.</span><span class="nx">fragment</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">f</span><span class="p">))=&gt;{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="nx">f</span><span class="p">);</span>
+    <span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <h2 id="快照-snapshot-2">快照 Snapshot</h2>
-
-<pre><code>    this.activatedRoute.snapshot.fragment;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    this.activatedRoute.snapshot.fragment;</pre></td></tr></table>
+</div>
+</div>
 <h1 id="備註">備註</h1>
 
 <hr />
 
 <p>因網址傳送跟接收都是用字串,所以如果在讀取<code>params</code>,<br>
 在常見的抓取<code>:id</code> 的時候我們會用 <code>+</code> 號來讓它字串自動轉成數字</p>
-
-<pre><code>    this.activatedRoute.params.subscribe((param: any) =&gt; {
-        console.log('type',+param['type']);   //多了+號
-    })
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    this.activatedRoute.params.subscribe((param: any) =&gt; {
+        console.log(&#39;type&#39;,+param[&#39;type&#39;]);   //多了+號
+    })</pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li><p>ActivatedRoute 可以不需要 unsubscribe，這一個 ng 會智能處理，不過養成取消訂閲的習慣也是很好的</p></li>
 
@@ -649,6 +784,7 @@ URL 表達形式
 
   
 
+  
   
 
     

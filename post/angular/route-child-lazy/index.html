@@ -74,7 +74,7 @@
 
 <meta itemprop="datePublished" content="2018-10-27T12:34:13&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-27T12:34:13&#43;00:00" />
-<meta itemprop="wordCount" content="184">
+<meta itemprop="wordCount" content="201">
 
 
 
@@ -380,15 +380,24 @@
 </ul>
 
 <h2 id="延遲子路由的寫法">延遲子路由的寫法</h2>
-
-<pre><code>export const routes: Routes = [
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">export const routes: Routes = [
   {
-    path: &quot;home&quot;,
-    loadChildren: &quot;src/app/cms/home/home.module#HomeModule&quot;
+    path: &#34;home&#34;,
+    loadChildren: &#34;src/app/cms/home/home.module#HomeModule&#34;
   },
-];
-</code></pre>
-
+];</pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>PS:若寫了延遲子路由,出現<code>TypeError: __webpack_require__.e is not a function</code>,
 只要把版本升級即可,至少 &ldquo;@angular/cli&rdquo;: &ldquo;1.7.3&rdquo;,</li>
@@ -399,23 +408,41 @@
 <hr />
 
 <p>注意!下面的寫法在 prod 下無法正常執行</p>
-
-<pre><code>    { path: 'home', loadChildren: () =&gt; HomeModule }
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    { path: &#39;home&#39;, loadChildren: () =&gt; HomeModule }</pre></td></tr></table>
+</div>
+</div>
 <p>請改成</p>
-
-<pre><code>    import HomeModule from 'home-module';
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    import HomeModule from &#39;home-module&#39;;
 
     export function loadHomeModule() {
         return HomeModule;
     }
 
     export const routes = {
-        path: 'home',
+        path: &#39;home&#39;,
         loadChildren: loadHomeModule,
-    };
-</code></pre>
+    };</pre></td></tr></table>
+</div>
+</div>
     </div>
 
     
@@ -481,6 +508,7 @@
 
   
 
+  
   
 
     

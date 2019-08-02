@@ -78,7 +78,7 @@ navigate()  和  navigateByUrl()  差異
 
 <meta itemprop="datePublished" content="2018-09-14T11:44:26&#43;00:00" />
 <meta itemprop="dateModified" content="2018-09-14T11:44:26&#43;00:00" />
-<meta itemprop="wordCount" content="708">
+<meta itemprop="wordCount" content="735">
 
 
 
@@ -382,99 +382,173 @@ navigate()  和  navigateByUrl()  差異
 <hr />
 
 <p>以根路由跳轉/login</p>
-
-<pre><code>    this.router.navigate(['login']);
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    this.router.navigate([&#39;login&#39;]);</pre></td></tr></table>
+</div>
+</div>
 <p>設置relativeTo相對當前路由跳轉，route是ActivatedRoute的實例，使用需要導入ActivatedRoute</p>
-
-<pre><code>    this.router.navigate(['login'],{relativeTo: route});
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    this.router.navigate([&#39;login&#39;],{relativeTo: route});</pre></td></tr></table>
+</div>
+</div>
 <p>路由中傳參數 /login?name=1</p>
-
-<pre><code>    this.router.navigate(['login'],{ queryParams: { name: 1 } });
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    this.router.navigate([&#39;login&#39;],{ queryParams: { name: 1 } });</pre></td></tr></table>
+</div>
+</div>
 <hr />
 
 <p>preserveQueryParams默認值為false，設為true，是保留之前路由中的查詢參數，
 例如: /login?name=1 到 /home?name=1</p>
-
-<pre><code>    this.router.navigate(['home'], { preserveQueryParams: true });
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    this.router.navigate([&#39;home&#39;], { preserveQueryParams: true });</pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li><p><code>在Angular 4+中，不推薦使用preserveQueryParams,請用queryParamsHandling。</code></p>
-
-<pre><code>this.router.navigate(['home'], { queryParamsHandling: &quot;preserve&quot; });
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">this.router.navigate([&#39;home&#39;], { queryParamsHandling: &#34;preserve&#34; });</pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p><code>queryParamsHandling 有三種屬性</code></p>
-
-<pre><code>merge:合併已有的 queryParams 到當前的 queryParams 中
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">merge:合併已有的 queryParams 到當前的 queryParams 中
 preserve:儲存當前的 queryParams
-default:僅使用查詢參數
-</code></pre>
-
+default:僅使用查詢參數</pre></td></tr></table>
+</div>
+</div>
 <hr /></li>
 </ul>
 
 <p>路由中錨點跳轉 /home#top</p>
-
-<pre><code>    this.router.navigate(['home'],{ fragment: 'top' });
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    this.router.navigate([&#39;home&#39;],{ fragment: &#39;top&#39; });</pre></td></tr></table>
+</div>
+</div>
 <p>preserveFragment默認為false，設為true，是保留之前路由中的錨點，
 例如: /home#top to /role#top</p>
-
-<pre><code>    this.router.navigate(['/role'], { preserveFragment: true });
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    this.router.navigate([&#39;/role&#39;], { preserveFragment: true });</pre></td></tr></table>
+</div>
+</div>
 <p>skipLocationChange默認為false，設為true，路由跳轉時瀏覽器中的url會保持不變，
 但是傳入的參數依然有效</p>
-
-<pre><code>    this.router.navigate(['/home'], { skipLocationChange: true });
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    this.router.navigate([&#39;/home&#39;], { skipLocationChange: true });</pre></td></tr></table>
+</div>
+</div>
 <p>replaceUrl默認為true，設為false，路由不會進行跳轉</p>
-
-<pre><code>    this.router.navigate(['/home'], { replaceUrl: true });
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    this.router.navigate([&#39;/home&#39;], { replaceUrl: true });</pre></td></tr></table>
+</div>
+</div>
 <p>若要設定兩個參數以上,可這麼寫</p>
-
-<pre><code>    this.router.navigate(['/home'], 
-    { queryParams: { 'session_id': sessionId },  fragment: 'anchor' });
-</code></pre>
-
-<pre><code>    let navigationExtras: NavigationExtras = {
-        queryParams: { 'session_id': sessionId },
-        fragment: 'anchor'
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    this.router.navigate([&#39;/home&#39;], 
+    { queryParams: { &#39;session_id&#39;: sessionId },  fragment: &#39;anchor&#39; });</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    let navigationExtras: NavigationExtras = {
+        queryParams: { &#39;session_id&#39;: sessionId },
+        fragment: &#39;anchor&#39;
     };
 
-    this.router.navigate(['/login'], navigationExtras);
-</code></pre>
-
+    this.router.navigate([&#39;/login&#39;], navigationExtras);</pre></td></tr></table>
+</div>
+</div>
 <p>navigate() 裡的第一個參數 丟路徑跟params相關的<code>陣列</code>,</p>
 
 <h2 id="第二個參數是丟其他設定或是queryparams相關的-物件">第二個參數是丟其他設定或是queryParams相關的<code>物件</code></h2>
 
 <h1 id="導向的其他寫法-html">導向的其他寫法  <code>Html</code></h1>
-
-<pre><code>    &lt;a routerLink=&quot;/heroes&quot;&gt;Heroes&lt;/a&gt;
-</code></pre>
-
-<pre><code>    &lt;a [routerLink]=&quot;['../']&quot; [queryParams]=&quot;{prop: 'xxx'}&quot;&gt;Somewhere&lt;/a&gt;
-</code></pre>
-
-<pre><code>    &lt;a [routerLink]=&quot;['/main/manage']&quot; [queryParams]=&quot;{'name':&quot;Hello&quot;, 'num':10}&quot; [fragment]=&quot;yyy&quot;&gt;Somewhere&lt;/a&gt;
-</code></pre>
-
-<pre><code>     &lt;a [routerLink]=&quot;['data',{ key : '123' }]&quot; [queryParams]=&quot;{ name : 'aaa' }&quot;&gt;go child&lt;/a&gt;
-     // http://somewhere/data;key=123?name=aaa
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;a routerLink=&#34;/heroes&#34;&gt;Heroes&lt;/a&gt;</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;a [routerLink]=&#34;[&#39;../&#39;]&#34; [queryParams]=&#34;{prop: &#39;xxx&#39;}&#34;&gt;Somewhere&lt;/a&gt;</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;a [routerLink]=&#34;[&#39;/main/manage&#39;]&#34; [queryParams]=&#34;{&#39;name&#39;:&#34;Hello&#34;, &#39;num&#39;:10}&#34; [fragment]=&#34;yyy&#34;&gt;Somewhere&lt;/a&gt;</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">     &lt;a [routerLink]=&#34;[&#39;data&#39;,{ key : &#39;123&#39; }]&#34; [queryParams]=&#34;{ name : &#39;aaa&#39; }&#34;&gt;go child&lt;/a&gt;
+     // http://somewhere/data;key=123?name=aaa</pre></td></tr></table>
+</div>
+</div>
 <hr />
 
 <h1 id="navigate-和-navigatebyurl-差異">navigate()  和  navigateByUrl()  差異</h1>
@@ -483,10 +557,16 @@ default:僅使用查詢參數
 <li><p>navigateByUrl()是進行絕對路徑,絕對路徑必須先<code>/</code></p></li>
 
 <li><p>navigate() 是採用輸入一系列的參數來產生 URL</p>
-
-<pre><code>this.router.navigateByUrl('/login');
-this.router.navigate(['/login']);
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">this.router.navigateByUrl(&#39;/login&#39;);
+this.router.navigate([&#39;/login&#39;]);</pre></td></tr></table>
+</div>
+</div></li>
 </ul>
 
 <hr />
@@ -577,6 +657,7 @@ this.router.navigate(['/login']);
 
   
 
+  
   
 
     

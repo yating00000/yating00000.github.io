@@ -78,7 +78,7 @@ UrlMatcher 寫法
 
 <meta itemprop="datePublished" content="2018-09-14T11:15:10&#43;00:00" />
 <meta itemprop="dateModified" content="2018-09-14T11:15:10&#43;00:00" />
-<meta itemprop="wordCount" content="167">
+<meta itemprop="wordCount" content="198">
 
 
 
@@ -383,10 +383,25 @@ UrlMatcher 寫法
 <hr />
 
 <p>在路由中設定</p>
-
-<pre><code>    const appRoutes: Routes = [
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    const appRoutes: Routes = [
         {
-            path: &quot;enemy&quot;,
+            path: &#34;enemy&#34;,
             component: MyComponent,
             children: [
                 {
@@ -395,28 +410,54 @@ UrlMatcher 寫法
                 }
             ]
         }
-    ];
-</code></pre>
-
-<pre><code class="language-js">    export const mymatcher = (url: UrlSegment[]): UrlMatchResult =&gt; {
-        console.log(&quot;url&quot;, url);
-        if (!!url[0] &amp;&amp; url[0].toString() !== &quot;bbb&quot;) {
-            return null;
-        }
-        return {
-            consumed: url,
-        };
-    };
-</code></pre>
-
+    ];</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js">    <span class="k">export</span> <span class="k">const</span> <span class="nx">mymatcher</span> <span class="o">=</span> <span class="p">(</span><span class="nx">url</span><span class="o">:</span> <span class="nx">UrlSegment</span><span class="p">[])</span><span class="o">:</span> <span class="nx">UrlMatchResult</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;url&#34;</span><span class="p">,</span> <span class="nx">url</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!!</span><span class="nx">url</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="nx">url</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toString</span><span class="p">()</span> <span class="o">!==</span> <span class="s2">&#34;bbb&#34;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="nx">consumed</span><span class="o">:</span> <span class="nx">url</span><span class="p">,</span>
+        <span class="p">};</span>
+    <span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>當網址 <code>enemy/bbb</code> 將匹配成功
 <code>enemy/aaa</code>  就會跳出錯誤訊息 <code>Error: Cannot match any routes.</code></p>
 
 <h1 id="備註">備註</h1>
 
 <hr />
-
-<pre><code>    @NgModule({
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    @NgModule({
         imports: [RouterModule.forChild([
             {
                 matcher : matcher, //這裏不要使用匿名方法或則箭頭函數哦, aot 不過
@@ -425,8 +466,9 @@ UrlMatcher 寫法
             }
         ])],
         exports: [RouterModule],
-    })
-</code></pre>
+    })</pre></td></tr></table>
+</div>
+</div>
     </div>
 
     
@@ -492,6 +534,7 @@ UrlMatcher 寫法
 
   
 
+  
   
 
     

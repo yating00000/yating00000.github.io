@@ -76,7 +76,7 @@ ngClass的幾種寫法
 
 <meta itemprop="datePublished" content="2018-09-14T11:04:22&#43;00:00" />
 <meta itemprop="dateModified" content="2018-09-14T11:04:22&#43;00:00" />
-<meta itemprop="wordCount" content="170">
+<meta itemprop="wordCount" content="188">
 
 
 
@@ -372,32 +372,55 @@ ngClass的幾種寫法
 <hr />
 
 <p>後面要指定的參數通常是 <code>CSS屬性</code></p>
-
-<pre><code>    &lt;div [ngStyle]=&quot;{'background-color':'green'}&quot;&gt;&lt;/&lt;div&gt;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;div [ngStyle]=&#34;{&#39;background-color&#39;:&#39;green&#39;}&#34;&gt;&lt;/&lt;div&gt;</pre></td></tr></table>
+</div>
+</div>
 <p>也可以這樣寫</p>
-
-<pre><code>    &lt;div [style.background]=&quot;green}&quot;&gt;&lt;/&lt;div&gt;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;div [style.background]=&#34;green}&#34;&gt;&lt;/&lt;div&gt;</pre></td></tr></table>
+</div>
+</div>
 <p>也可以使用三元運算子</p>
-
-<pre><code>    &lt;div [ngStyle]=&quot;{'background-color':person.country === 'UK' ? 'green' : 'red' }&quot;&gt;&lt;/&lt;div&gt;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;div [ngStyle]=&#34;{&#39;background-color&#39;:person.country === &#39;UK&#39; ? &#39;green&#39; : &#39;red&#39; }&#34;&gt;&lt;/&lt;div&gt;</pre></td></tr></table>
+</div>
+</div>
 <p>若要指定 <code>function</code> 的寫法</p>
-
-<pre><code>    [style.color]=&quot;getColor(person.country)&quot;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    [style.color]=&#34;getColor(person.country)&#34;
 
     getColor(color:string){
-        if(color == 'UK'){
-            return 'green'
+        if(color == &#39;UK&#39;){
+            return &#39;green&#39;
         }
-        return 'red'
-    }
-</code></pre>
-
+        return &#39;red&#39;
+    }</pre></td></tr></table>
+</div>
+</div>
 <h1 id="ngclass">ngClass</h1>
 
 <hr />
@@ -405,23 +428,40 @@ ngClass的幾種寫法
 <p>第一个參數為Class類名稱，
 第二个參數為boolean值，
 如果為true就添加第一个参數的類</p>
-
-<pre><code>    [ngClass]=&quot;{'text-success':true}&quot;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    [ngClass]=&#34;{&#39;text-success&#39;:true}&#34;</pre></td></tr></table>
+</div>
+</div>
 <p>也可以這樣寫</p>
-
-<pre><code>    [class.text-success]=&quot;person.country === 'UK'&quot;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    [class.text-success]=&#34;person.country === &#39;UK&#39;&#34;</pre></td></tr></table>
+</div>
+</div>
 <p>可以一次新增多Class</p>
-
-<pre><code>    [ngClass]=&quot;{
-        'text-success':person.country === 'UK',
-        'text-primary':person.country === 'USA',
-        'text-danger':person.country === 'HK'
-    }&quot;
-</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    [ngClass]=&#34;{
+        &#39;text-success&#39;:person.country === &#39;UK&#39;,
+        &#39;text-primary&#39;:person.country === &#39;USA&#39;,
+        &#39;text-danger&#39;:person.country === &#39;HK&#39;
+    }&#34;</pre></td></tr></table>
+</div>
+</div>
     </div>
 
     
@@ -487,6 +527,7 @@ ngClass的幾種寫法
 
   
 
+  
   
 
     

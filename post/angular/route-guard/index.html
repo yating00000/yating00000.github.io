@@ -76,7 +76,7 @@
 
 <meta itemprop="datePublished" content="2018-12-14T15:19:09&#43;00:00" />
 <meta itemprop="dateModified" content="2018-12-14T15:19:09&#43;00:00" />
-<meta itemprop="wordCount" content="356">
+<meta itemprop="wordCount" content="460">
 
 
 
@@ -372,54 +372,105 @@
 <p>其實網路上有好多教學文,</p>
 
 <p>我簡單寫個紀錄.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="err">@</span><span class="nx">Injectable</span><span class="p">()</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">GuardService</span> <span class="kr">implements</span> <span class="nx">CanActivate</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span>
+      <span class="kr">private</span> <span class="nx">service</span><span class="o">:</span> <span class="nx">AppService</span><span class="p">,</span>
+      <span class="kr">public</span> <span class="nx">loginService</span><span class="o">:</span> <span class="nx">loginService</span>
+    <span class="p">)</span> <span class="p">{}</span>
 
-<pre><code class="language-js">@Injectable()
-export class GuardService implements CanActivate {
-    constructor(
-      private service: AppService,
-      public loginService: loginService
-    ) {}
+  <span class="nx">canActivate</span><span class="p">()</span><span class="o">:</span> <span class="kr">boolean</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">loginService</span><span class="p">.</span><span class="nx">isLogin</span><span class="p">())</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">service</span><span class="p">.</span><span class="nx">backLogin</span><span class="p">();</span>
+      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="err">@</span><span class="nx">Injectable</span><span class="p">()</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">AppService</span> <span class="p">{</span>
 
-  canActivate(): boolean {
-    if (!this.loginService.isLogin()) {
-      this.service.backLogin();
-      return false;
-    }
-    return true;
-  }
-}
-</code></pre>
+  <span class="nx">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">router</span><span class="o">:</span> <span class="nx">Router</span><span class="p">)</span> <span class="p">{}</span>
 
-<pre><code class="language-js">@Injectable()
-export class AppService {
-
-  constructor(private router: Router) {}
-
-  backLogin(){
-    this.router.navigate(['login']);
-  }
-}
-</code></pre>
-
+  <span class="nx">backLogin</span><span class="p">(){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">navigate</span><span class="p">([</span><span class="s1">&#39;login&#39;</span><span class="p">]);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>在RouteModule裡</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">const</span> <span class="nx">routes</span><span class="o">:</span> <span class="nx">Routes</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s2">&#34;cms&#34;</span><span class="p">,</span>
+    <span class="nx">component</span><span class="o">:</span> <span class="nx">CoreComponent</span><span class="p">,</span>
+    <span class="nx">canActivate</span><span class="o">:</span> <span class="p">[</span><span class="nx">GuardService</span><span class="p">],</span>
+    <span class="nx">children</span><span class="o">:</span> <span class="nx">CmsRouting</span>
+  <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="nx">redirectTo</span><span class="o">:</span> <span class="s2">&#34;cms/home&#34;</span><span class="p">,</span> <span class="nx">pathMatch</span><span class="o">:</span> <span class="s2">&#34;full&#34;</span> <span class="p">}</span>
+<span class="p">];</span>
 
-<pre><code class="language-js">const routes: Routes = [
-  {
-    path: &quot;cms&quot;,
-    component: CoreComponent,
-    canActivate: [GuardService],
-    children: CmsRouting
-  },
-  { path: &quot;&quot;, redirectTo: &quot;cms/home&quot;, pathMatch: &quot;full&quot; }
-];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class CoreRoutingModule {}
-</code></pre>
-
+<span class="err">@</span><span class="nx">NgModule</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span><span class="nx">RouterModule</span><span class="p">.</span><span class="nx">forChild</span><span class="p">(</span><span class="nx">routes</span><span class="p">)],</span>
+  <span class="nx">exports</span><span class="o">:</span> <span class="p">[</span><span class="nx">RouterModule</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">CoreRoutingModule</span> <span class="p">{}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <hr />
 
 <h1 id="以-observable-方式回傳">以<code>Observable</code>方式回傳</h1>
@@ -428,83 +479,165 @@ export class CoreRoutingModule {}
 才能確定裡面內容都可以看,
 至於何時送回來呢
 guard.service 以訂閱的方式來接</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//login service
+</span><span class="c1"></span><span class="err">@</span><span class="nx">Injectable</span><span class="p">()</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">LoginService</span> <span class="p">{</span>
+  <span class="kr">private</span> <span class="nx">loginSubject</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Subject</span><span class="o">&lt;</span><span class="kr">boolean</span><span class="o">&gt;</span><span class="p">();</span>
 
-<pre><code class="language-js">//login service
-@Injectable()
-export class LoginService {
-  private loginSubject = new Subject&lt;boolean&gt;();
+  <span class="nx">loginState</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">loginSubject</span><span class="p">.</span><span class="nx">asObservable</span><span class="p">();</span>
 
-  loginState = this.loginSubject.asObservable();
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{}</span>
 
-  constructor() {}
+  <span class="nx">login</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">loginSubject</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+  <span class="p">}</span>
 
-  login() {
-    this.loginSubject.next(true);
-  }
+  <span class="nx">logout</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">loginSubject</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//app component
+</span><span class="c1"></span><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
+  <span class="nx">selector</span><span class="o">:</span> <span class="s2">&#34;app-root&#34;</span><span class="p">,</span>
+  <span class="nx">templateUrl</span><span class="o">:</span> <span class="s2">&#34;./app.component.html&#34;</span><span class="p">,</span>
+  <span class="nx">styleUrls</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;./app.component.css&#34;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">AppComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">loginService</span><span class="o">:</span> <span class="nx">LoginService</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
+       <span class="k">this</span><span class="p">.</span><span class="nx">dataService</span><span class="p">.</span><span class="nx">ObWsModel</span><span class="p">(</span><span class="nx">obj</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">val</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!!</span><span class="nx">val</span> <span class="o">&amp;&amp;</span> <span class="o">!!</span><span class="nx">val</span><span class="p">.</span><span class="nx">Status</span> <span class="o">&amp;&amp;</span> <span class="nx">val</span><span class="p">.</span><span class="nx">Status</span><span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">loginService</span><span class="p">.</span><span class="nx">login</span><span class="p">();</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">loginService</span><span class="p">.</span><span class="nx">logout</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="err">@</span><span class="nx">Injectable</span><span class="p">()</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">AppService</span> <span class="p">{</span>
 
-  logout() {
-    this.loginSubject.next(false);
-  }
-}
-</code></pre>
+  <span class="nx">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">router</span><span class="o">:</span> <span class="nx">Router</span><span class="p">)</span> <span class="p">{}</span>
 
-<pre><code class="language-js">//app component
-@Component({
-  selector: &quot;app-root&quot;,
-  templateUrl: &quot;./app.component.html&quot;,
-  styleUrls: [&quot;./app.component.css&quot;]
-})
-export class AppComponent implements OnInit {
-  constructor(private loginService: LoginService) {}
-  ngOnInit() {
-       this.dataService.ObWsModel(obj).subscribe(val =&gt; {
-        if (!!val &amp;&amp; !!val.Status &amp;&amp; val.Status== 1) {
-            this.loginService.login();
-        } else {
-            this.loginService.logout();
-        }
-    });
-  }
-}
-</code></pre>
-
-<pre><code class="language-js">@Injectable()
-export class AppService {
-
-  constructor(private router: Router) {}
-
-  backLogin(){
-    this.router.navigate(['login']);
-  }
-}
-</code></pre>
-
+  <span class="nx">backLogin</span><span class="p">(){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">navigate</span><span class="p">([</span><span class="s1">&#39;login&#39;</span><span class="p">]);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>以上述例子來說如果後端送回來的使用者狀態為1,</p>
 
 <p>代表有權限登入,並觸發訂閱</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//guard service
+</span><span class="c1"></span><span class="err">@</span><span class="nx">Injectable</span><span class="p">()</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">GuardService</span> <span class="kr">implements</span> <span class="nx">CanActivate</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span>
+      <span class="kr">private</span> <span class="nx">service</span><span class="o">:</span> <span class="nx">AppService</span><span class="p">,</span>
+      <span class="kr">private</span> <span class="nx">loginService</span><span class="o">:</span> <span class="nx">loginService</span>
+    <span class="p">)</span> <span class="p">{}</span>
 
-<pre><code class="language-js">//guard service
-@Injectable()
-export class GuardService implements CanActivate {
-    constructor(
-      private service: AppService,
-      private loginService: loginService
-    ) {}
-
-  canActivate(): Observable&lt;boolean&gt; {
-    return this.loginService.loginState
-      .map(e =&gt; {
-        if (e) {
-          return true;
-        }
-      })
-      .catch(() =&gt; {
-        this.service.backLogin();
-        return Observable.of(false);
-      });
-  }
-}
-</code></pre>
+  <span class="nx">canActivate</span><span class="p">()</span><span class="o">:</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="kr">boolean</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">loginService</span><span class="p">.</span><span class="nx">loginState</span>
+      <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">e</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">})</span>
+      <span class="p">.</span><span class="k">catch</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">service</span><span class="p">.</span><span class="nx">backLogin</span><span class="p">();</span>
+        <span class="k">return</span> <span class="nx">Observable</span><span class="p">.</span><span class="k">of</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+      <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     
@@ -570,6 +703,7 @@ export class GuardService implements CanActivate {
 
   
 
+  
   
 
     

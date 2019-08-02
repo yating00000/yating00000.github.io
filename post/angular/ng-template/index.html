@@ -76,7 +76,7 @@ ng-template的使用 -ngIf
 
 <meta itemprop="datePublished" content="2018-09-14T10:42:25&#43;00:00" />
 <meta itemprop="dateModified" content="2018-09-14T10:42:25&#43;00:00" />
-<meta itemprop="wordCount" content="159">
+<meta itemprop="wordCount" content="181">
 
 
 
@@ -371,42 +371,77 @@ ng-template的使用 -ngIf
 <hr />
 
 <p>原先的</p>
-
-<pre><code class="language-bash">    &lt;tbody&gt;
-    &lt;tr *ngFor=&quot;let element of data; let i = index&quot;&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">    &lt;tbody&gt;
+    &lt;tr *ngFor<span class="o">=</span><span class="s2">&#34;let element of data; let i = index&#34;</span>&gt;
        &lt;td&gt;...&lt;td&gt;
     &lt;/tr&gt;
-    &lt;/tbody&gt;
-</code></pre>
-
+    &lt;/tbody&gt;</code></pre></td></tr></table>
+</div>
+</div>
 <p>想再加一行<code>&lt;tr&gt;</code>,也要拿 data迴圈資料</p>
-
-<pre><code class="language-bash">    &lt;tbody&gt;
-    &lt;tr *ngFor=&quot;let element of data; let i = index&quot;&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">    &lt;tbody&gt;
+    &lt;tr *ngFor<span class="o">=</span><span class="s2">&#34;let element of data; let i = index&#34;</span>&gt;
        &lt;td&gt;...&lt;td&gt;
     &lt;/tr&gt;
-    &lt;tr *ngFor=&quot;let element of data; let i = index&quot;&gt;
+    &lt;tr *ngFor<span class="o">=</span><span class="s2">&#34;let element of data; let i = index&#34;</span>&gt;
        &lt;td&gt;...&lt;td&gt;
     &lt;/tr&gt;
-    &lt;/tbody&gt;
-</code></pre>
-
+    &lt;/tbody&gt;</code></pre></td></tr></table>
+</div>
+</div>
 <p>只要使用 ng-template</p>
-
-<pre><code class="language-bash">    &lt;ng-template ngFor let-element [ngForOf]=&quot;data&quot; let-i=&quot;index&quot;&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">    &lt;ng-template ngFor let-element <span class="o">[</span>ngForOf<span class="o">]=</span><span class="s2">&#34;data&#34;</span> let-i<span class="o">=</span><span class="s2">&#34;index&#34;</span>&gt;
         &lt;tr&gt;...&lt;/tr&gt;
         &lt;tr&gt;...&lt;/tr&gt;
-    &lt;/ng-template&gt;
-</code></pre>
-
+    &lt;/ng-template&gt;</code></pre></td></tr></table>
+</div>
+</div>
 <p>若有想要 ngFor跟ngIf 同時出現,可寫成</p>
-
-<pre><code class="language-bash">    &lt;ng-template [ngIf]=&quot;!!result&quot;&gt;
-        &lt;div *ngFor=&quot;let ip of result;let i = index&quot;&gt;
-            {{ip}}
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">    &lt;ng-template <span class="o">[</span>ngIf<span class="o">]=</span><span class="s2">&#34;!!result&#34;</span>&gt;
+        &lt;div *ngFor<span class="o">=</span><span class="s2">&#34;let ip of result;let i = index&#34;</span>&gt;
+            <span class="o">{{</span>ip<span class="o">}}</span>
         &lt;/div&gt;
-    &lt;/ng-template&gt;
-</code></pre>
+    &lt;/ng-template&gt;</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     
@@ -472,6 +507,7 @@ ng-template的使用 -ngIf
 
   
 
+  
   
 
     

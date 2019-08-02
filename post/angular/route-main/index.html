@@ -74,7 +74,7 @@
 
 <meta itemprop="datePublished" content="2018-10-27T10:34:13&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-27T10:34:13&#43;00:00" />
-<meta itemprop="wordCount" content="137">
+<meta itemprop="wordCount" content="184">
 
 
 
@@ -383,67 +383,127 @@
 <hr />
 
 <h2 id="可直接在-appmodule-直接寫">可直接在 AppModule 直接寫</h2>
-
-<pre><code class="language-js">const routes: Routes = [
-  {
-    path: &quot;&quot;,
-    redirectTo: &quot;home&quot;,
-    pathMatch: &quot;full&quot;
-  },
-  {
-    path: &quot;home&quot;,
-    component: HomeComponent
-  }
-];
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes)
-  ]
-})
-export class AppModule { }
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">const</span> <span class="nx">routes</span><span class="o">:</span> <span class="nx">Routes</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+    <span class="nx">redirectTo</span><span class="o">:</span> <span class="s2">&#34;home&#34;</span><span class="p">,</span>
+    <span class="nx">pathMatch</span><span class="o">:</span> <span class="s2">&#34;full&#34;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s2">&#34;home&#34;</span><span class="p">,</span>
+    <span class="nx">component</span><span class="o">:</span> <span class="nx">HomeComponent</span>
+  <span class="p">}</span>
+<span class="p">];</span>
+<span class="err">@</span><span class="nx">NgModule</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span>
+    <span class="nx">RouterModule</span><span class="p">.</span><span class="nx">forRoot</span><span class="p">(</span><span class="nx">routes</span><span class="p">)</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">AppModule</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <hr />
 
 <h2 id="可拆到-approutemodule-並在-appmodule-註冊">可拆到 AppRouteModule ,並在 AppModule 註冊</h2>
 
 <p><code>AppRoutingModule</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">const</span> <span class="nx">routes</span><span class="o">:</span> <span class="nx">Routes</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+    <span class="nx">redirectTo</span><span class="o">:</span> <span class="s2">&#34;home&#34;</span><span class="p">,</span>
+    <span class="nx">pathMatch</span><span class="o">:</span> <span class="s2">&#34;full&#34;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s2">&#34;home&#34;</span><span class="p">,</span>
+    <span class="nx">component</span><span class="o">:</span> <span class="nx">HomeComponent</span>
+  <span class="p">}</span>
+<span class="p">];</span>
 
-<pre><code class="language-js">const routes: Routes = [
-  {
-    path: &quot;&quot;,
-    redirectTo: &quot;home&quot;,
-    pathMatch: &quot;full&quot;
-  },
-  {
-    path: &quot;home&quot;,
-    component: HomeComponent
-  }
-];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {}
-</code></pre>
-
+<span class="err">@</span><span class="nx">NgModule</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span><span class="nx">RouterModule</span><span class="p">.</span><span class="nx">forRoot</span><span class="p">(</span><span class="nx">routes</span><span class="p">)],</span>
+  <span class="nx">exports</span><span class="o">:</span> <span class="p">[</span><span class="nx">RouterModule</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">AppRoutingModule</span> <span class="p">{}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p><code>AppModule</code></p>
-
-<pre><code class="language-js">@NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
-</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="err">@</span><span class="nx">NgModule</span><span class="p">({</span>
+  <span class="nx">declarations</span><span class="o">:</span> <span class="p">[</span>
+    <span class="nx">AppComponent</span><span class="p">,</span>
+    <span class="nx">HomeComponent</span><span class="p">,</span>
+  <span class="p">],</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span>
+    <span class="nx">BrowserModule</span><span class="p">,</span>
+    <span class="nx">AppRoutingModule</span>
+  <span class="p">],</span>
+  <span class="nx">providers</span><span class="o">:</span> <span class="p">[],</span>
+  <span class="nx">bootstrap</span><span class="o">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">AppModule</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     
@@ -509,6 +569,7 @@ export class AppModule { }
 
   
 
+  
   
 
     

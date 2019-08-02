@@ -80,7 +80,7 @@
 
 <meta itemprop="datePublished" content="2018-12-11T17:38:48&#43;00:00" />
 <meta itemprop="dateModified" content="2018-12-11T17:38:48&#43;00:00" />
-<meta itemprop="wordCount" content="753">
+<meta itemprop="wordCount" content="1001">
 
 
 
@@ -382,73 +382,136 @@
 <h1 id="一般用法">一般用法</h1>
 
 <p>在 detail.component.html</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">form</span> <span class="p">[</span><span class="nx">formGroup</span><span class="p">]</span><span class="o">=</span><span class="s2">&#34;form&#34;</span><span class="o">&gt;</span>
+  <span class="c1">//account
+</span><span class="c1"></span>  <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;text&#34;</span> <span class="nx">formControlName</span><span class="o">=</span><span class="s2">&#34;account&#34;</span><span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="err">/div&gt;</span>
+  <span class="o">&lt;</span><span class="nx">validation</span><span class="o">-</span><span class="nx">messages</span> <span class="p">[</span><span class="nx">control</span><span class="p">]</span><span class="o">=</span><span class="s2">&#34;form.controls.account&#34;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="err">/validation-messages&gt;</span>
 
-<pre><code>&lt;form [formGroup]=&quot;form&quot;&gt;
-  //account
-  &lt;div&gt;
-    &lt;input type=&quot;text&quot; formControlName=&quot;account&quot;/&gt;
-  &lt;/div&gt;
-  &lt;validation-messages [control]=&quot;form.controls.account&quot;&gt;
-  &lt;/validation-messages&gt;
+  <span class="c1">//passowrd
+</span><span class="c1"></span>  <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;text&#34;</span> <span class="nx">formControlName</span><span class="o">=</span><span class="s2">&#34;passowrd&#34;</span><span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="err">/div&gt;</span>
+  <span class="o">&lt;</span><span class="nx">validation</span><span class="o">-</span><span class="nx">messages</span> <span class="p">[</span><span class="nx">control</span><span class="p">]</span><span class="o">=</span><span class="s2">&#34;form.controls.passowrd&#34;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="err">/validation-messages&gt;</span>
 
-  //passowrd
-  &lt;div&gt;
-    &lt;input type=&quot;text&quot; formControlName=&quot;passowrd&quot;/&gt;
-  &lt;/div&gt;
-  &lt;validation-messages [control]=&quot;form.controls.passowrd&quot;&gt;
-  &lt;/validation-messages&gt;
-
-  &lt;button mat-button (click)=&quot;enter()&quot; [disabled]=&quot;!form.valid&quot;
-      [ngClass]=&quot;{ disable: !form.valid }&quot;&gt;
-      {{ &quot;enter&quot; | translate }}
-  &lt;/button&gt;
-&lt;/form&gt;
-</code></pre>
-
+  <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">mat</span><span class="o">-</span><span class="nx">button</span> <span class="p">(</span><span class="nx">click</span><span class="p">)</span><span class="o">=</span><span class="s2">&#34;enter()&#34;</span> <span class="p">[</span><span class="nx">disabled</span><span class="p">]</span><span class="o">=</span><span class="s2">&#34;!form.valid&#34;</span>
+      <span class="p">[</span><span class="nx">ngClass</span><span class="p">]</span><span class="o">=</span><span class="s2">&#34;{ disable: !form.valid }&#34;</span><span class="o">&gt;</span>
+      <span class="p">{{</span> <span class="s2">&#34;enter&#34;</span> <span class="o">|</span> <span class="nx">translate</span> <span class="p">}}</span>
+  <span class="o">&lt;</span><span class="err">/button&gt;</span>
+<span class="o">&lt;</span><span class="err">/form&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>在使用 FormBuilder 的情況下,<code>&lt;form&gt;</code>標籤一定要寫,
 並標註<code>[formGroup]</code></li>
 </ul>
 
 <p>在 detail.component.ts</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">export</span> <span class="k">class</span> <span class="nx">DetailComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
+  <span class="nx">form</span><span class="o">:</span> <span class="nx">FormGroup</span><span class="p">;</span>
 
-<pre><code class="language-js">export class DetailComponent implements OnInit {
-  form: FormGroup;
+  <span class="nx">constructor</span><span class="p">(</span>
+    <span class="kr">private</span> <span class="nx">fb</span><span class="o">:</span> <span class="nx">FormBuilder</span>
+  <span class="p">)</span> <span class="p">{}</span>
 
-  constructor(
-    private fb: FormBuilder
-  ) {}
+  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">createForm</span><span class="p">();</span>
+  <span class="p">}</span>
 
-  ngOnInit() {
-    this.createForm();
-  }
-
-   createForm() {
-    let obj = {
-      skype: [&quot;&quot;, [Validators.required]],
-      phone: [&quot;&quot;],
-    };
-    if (this.type==&quot;insert&quot;) {
-      obj[&quot;account&quot;] = [
-        &quot;&quot;,
-        [
-          Validators.required,
-          Validators.minLength(6)
-        ]
-      ];
-      obj[&quot;password&quot;] = [
-        &quot;&quot;,
-        [
-          Validators.required,
-          Validators.minLength(6)
-        ]
-      ];
-    }
-    this.form = this.fb.group(obj);
-  }
-}
-</code></pre>
-
+   <span class="nx">createForm</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">skype</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">]],</span>
+      <span class="nx">phone</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;&#34;</span><span class="p">],</span>
+    <span class="p">};</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">type</span><span class="o">==</span><span class="s2">&#34;insert&#34;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">obj</span><span class="p">[</span><span class="s2">&#34;account&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&#34;&#34;</span><span class="p">,</span>
+        <span class="p">[</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">,</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">minLength</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+        <span class="p">]</span>
+      <span class="p">];</span>
+      <span class="nx">obj</span><span class="p">[</span><span class="s2">&#34;password&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&#34;&#34;</span><span class="p">,</span>
+        <span class="p">[</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">,</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">minLength</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+        <span class="p">]</span>
+      <span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">form</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">fb</span><span class="p">.</span><span class="nx">group</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>通常寫表單功能都會出現在新增或更新頁面,部分欄位是不能跟新的,</li>
 </ul>
@@ -466,58 +529,109 @@
 <ul>
 <li>第一種方式就是在創建的時候寫好</li>
 </ul>
-
-<pre><code class="language-js">let obj = {
-  skype: [&quot;123456&quot;, [Validators.required]],
-  phone: [&quot;123456&quot;]
-};
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">skype</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;123456&#34;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">]],</span>
+  <span class="nx">phone</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;123456&#34;</span><span class="p">]</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>但常見的情況是在更新資料時接到從後端傳回的封包才能塞值</li>
 </ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">createForm</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!!</span><span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">initSetForm</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 
-<pre><code class="language-js">ngOnInit() {
-  this.createForm();
-  if (!!this.data) {
-    this.initSetForm(this.data);
-  }
-}
+<span class="nx">createForm</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">skype</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">]],</span>
+    <span class="nx">phone</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;&#34;</span><span class="p">],</span>
+  <span class="p">};</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">type</span><span class="o">==</span><span class="s2">&#34;insert&#34;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">obj</span><span class="p">[</span><span class="s2">&#34;account&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="s2">&#34;&#34;</span><span class="p">,</span>
+      <span class="p">[</span>
+        <span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">,</span>
+        <span class="nx">Validators</span><span class="p">.</span><span class="nx">minLength</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+      <span class="p">]</span>
+    <span class="p">];</span>
+    <span class="nx">obj</span><span class="p">[</span><span class="s2">&#34;password&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="s2">&#34;&#34;</span><span class="p">,</span>
+      <span class="p">[</span>
+        <span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">,</span>
+        <span class="nx">Validators</span><span class="p">.</span><span class="nx">minLength</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+      <span class="p">]</span>
+    <span class="p">];</span>
+  <span class="p">}</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">form</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">fb</span><span class="p">.</span><span class="nx">group</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+<span class="p">}</span>
 
-createForm() {
-  let obj = {
-    skype: [&quot;&quot;, [Validators.required]],
-    phone: [&quot;&quot;],
-  };
-  if (this.type==&quot;insert&quot;) {
-    obj[&quot;account&quot;] = [
-      &quot;&quot;,
-      [
-        Validators.required,
-        Validators.minLength(6)
-      ]
-    ];
-    obj[&quot;password&quot;] = [
-      &quot;&quot;,
-      [
-        Validators.required,
-        Validators.minLength(6)
-      ]
-    ];
-  }
-  this.form = this.fb.group(obj);
-}
-
-initSetForm(r) {
-  if (!!r) {
-    this.form.setValue({
-      skype: r.skype || &quot;&quot;,
-      phone: r.phone || &quot;&quot;,
-    });
-  }
-}
-</code></pre>
-
+<span class="nx">initSetForm</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!!</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">setValue</span><span class="p">({</span>
+      <span class="nx">skype</span><span class="o">:</span> <span class="nx">r</span><span class="p">.</span><span class="nx">skype</span> <span class="o">||</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+      <span class="nx">phone</span><span class="o">:</span> <span class="nx">r</span><span class="p">.</span><span class="nx">phone</span> <span class="o">||</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <hr />
 
 <h1 id="把驗證方法封裝跟使用">把驗證方法封裝跟使用</h1>
@@ -526,179 +640,348 @@ initSetForm(r) {
 所以我們會做 service 來裝驗證的方法</p>
 
 <p>在 validation.service.ts</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">import</span> <span class="p">{</span> <span class="nx">FormControl</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;@angular/forms&#34;</span><span class="p">;</span>
 
-<pre><code class="language-js">import { FormControl } from &quot;@angular/forms&quot;;
+<span class="k">export</span> <span class="k">class</span> <span class="nx">ValidationService</span> <span class="p">{</span>
+  <span class="kr">static</span> <span class="nx">passwordValidator</span><span class="p">(</span><span class="nx">control</span><span class="o">:</span> <span class="nx">FormControl</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span>
+      <span class="o">!!</span><span class="nx">control</span><span class="p">.</span><span class="nx">value</span> <span class="o">&amp;&amp;</span>
+      <span class="o">!!</span><span class="nx">control</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">match</span> <span class="o">&amp;&amp;</span>
+      <span class="nx">control</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^(?=.*[0-9])[a-zA-Z0-9!@#$%^&amp;*]{6,100}$/</span><span class="p">)</span>
+    <span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span> <span class="nx">invalid_password</span><span class="o">:</span> <span class="kc">true</span> <span class="p">};</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
 
-export class ValidationService {
-  static passwordValidator(control: FormControl) {
-    if (
-      !!control.value &amp;&amp;
-      !!control.value.match &amp;&amp;
-      control.value.match(/^(?=.*[0-9])[a-zA-Z0-9!@#$%^&amp;*]{6,100}$/)
-    ) {
-      return null;
-    } else {
-      return { invalid_password: true };
-    }
-  }
-
-  static userValidator(control: FormControl) {
-    //英數字+@
-    if (
-      !!control.value &amp;&amp;
-      !!control.value.match &amp;&amp;
-      control.value.match(/^.[A-Za-z0-9@]+$/)
-    ) {
-      return null;
-    } else {
-      return { invalid_account: true };
-    }
-  }
-}
-</code></pre>
-
+  <span class="kr">static</span> <span class="nx">userValidator</span><span class="p">(</span><span class="nx">control</span><span class="o">:</span> <span class="nx">FormControl</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//英數字+@
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span>
+      <span class="o">!!</span><span class="nx">control</span><span class="p">.</span><span class="nx">value</span> <span class="o">&amp;&amp;</span>
+      <span class="o">!!</span><span class="nx">control</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">match</span> <span class="o">&amp;&amp;</span>
+      <span class="nx">control</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^.[A-Za-z0-9@]+$/</span><span class="p">)</span>
+    <span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span> <span class="nx">invalid_account</span><span class="o">:</span> <span class="kc">true</span> <span class="p">};</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>在 detail.component.ts</p>
-
-<pre><code class="language-js">createForm() {
-    let obj = {
-      skype: [&quot;&quot;, [Validators.required]],
-      phone: [&quot;&quot;],
-    };
-    if (this.type==&quot;insert&quot;) {
-      obj[&quot;account&quot;] = [
-        &quot;&quot;,
-        [
-          Validators.required,
-          ValidationService.userValidator,
-          Validators.minLength(6)
-        ]
-      ];
-      obj[&quot;password&quot;] = [
-        &quot;&quot;,
-        [
-          Validators.required,
-          ValidationService.passwordValidator,
-          Validators.minLength(6)
-        ]
-      ];
-    }
-    this.form = this.fb.group(obj);
-  }
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">createForm</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">skype</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">]],</span>
+      <span class="nx">phone</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;&#34;</span><span class="p">],</span>
+    <span class="p">};</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">type</span><span class="o">==</span><span class="s2">&#34;insert&#34;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">obj</span><span class="p">[</span><span class="s2">&#34;account&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&#34;&#34;</span><span class="p">,</span>
+        <span class="p">[</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">,</span>
+          <span class="nx">ValidationService</span><span class="p">.</span><span class="nx">userValidator</span><span class="p">,</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">minLength</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+        <span class="p">]</span>
+      <span class="p">];</span>
+      <span class="nx">obj</span><span class="p">[</span><span class="s2">&#34;password&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&#34;&#34;</span><span class="p">,</span>
+        <span class="p">[</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">,</span>
+          <span class="nx">ValidationService</span><span class="p">.</span><span class="nx">passwordValidator</span><span class="p">,</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">minLength</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+        <span class="p">]</span>
+      <span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">form</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">fb</span><span class="p">.</span><span class="nx">group</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>在 detail.component.html</p>
-
-<pre><code>//account
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">//account
 &lt;div&gt;
-  &lt;input type=&quot;text&quot; formControlName=&quot;account&quot;/&gt;
+  &lt;input type=&#34;text&#34; formControlName=&#34;account&#34;/&gt;
 &lt;/div&gt;
-&lt;validation-messages [control]=&quot;form.controls.account&quot;&gt;
+&lt;validation-messages [control]=&#34;form.controls.account&#34;&gt;
 &lt;/validation-messages&gt;
 
 //passowrd
 &lt;div&gt;
-  &lt;input type=&quot;text&quot; formControlName=&quot;passowrd&quot;/&gt;
+  &lt;input type=&#34;text&#34; formControlName=&#34;passowrd&#34;/&gt;
 &lt;/div&gt;
-&lt;validation-messages [control]=&quot;form.controls.passowrd&quot;&gt;
-&lt;/validation-messages&gt;
-</code></pre>
-
+&lt;validation-messages [control]=&#34;form.controls.passowrd&#34;&gt;
+&lt;/validation-messages&gt;</pre></td></tr></table>
+</div>
+</div>
 <hr />
 
 <h1 id="常見情境-確認密碼-confirm-password">常見情境-確認密碼 Confirm Password</h1>
 
 <p>在 validation.service.ts</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">import</span> <span class="p">{</span> <span class="nx">FormControl</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;@angular/forms&#34;</span><span class="p">;</span>
 
-<pre><code class="language-js">import { FormControl } from &quot;@angular/forms&quot;;
+<span class="k">export</span> <span class="k">class</span> <span class="nx">ValidationService</span> <span class="p">{</span>
+  <span class="kr">static</span> <span class="nx">passwordValidator</span><span class="p">(</span><span class="nx">control</span><span class="o">:</span> <span class="nx">FormControl</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span>
+      <span class="o">!!</span><span class="nx">control</span><span class="p">.</span><span class="nx">value</span> <span class="o">&amp;&amp;</span>
+      <span class="o">!!</span><span class="nx">control</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">match</span> <span class="o">&amp;&amp;</span>
+      <span class="nx">control</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^(?=.*[0-9])[a-zA-Z0-9!@#$%^&amp;*]{6,100}$/</span><span class="p">)</span>
+    <span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span> <span class="nx">invalid_password</span><span class="o">:</span> <span class="kc">true</span> <span class="p">};</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
 
-export class ValidationService {
-  static passwordValidator(control: FormControl) {
-    if (
-      !!control.value &amp;&amp;
-      !!control.value.match &amp;&amp;
-      control.value.match(/^(?=.*[0-9])[a-zA-Z0-9!@#$%^&amp;*]{6,100}$/)
-    ) {
-      return null;
-    } else {
-      return { invalid_password: true };
-    }
-  }
+  <span class="kr">static</span> <span class="nx">userValidator</span><span class="p">(</span><span class="nx">control</span><span class="o">:</span> <span class="nx">FormControl</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">control</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+    <span class="c1">//英數字+@
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span>
+      <span class="o">!!</span><span class="nx">control</span><span class="p">.</span><span class="nx">value</span> <span class="o">&amp;&amp;</span>
+      <span class="o">!!</span><span class="nx">control</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">match</span> <span class="o">&amp;&amp;</span>
+      <span class="nx">control</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^.[A-Za-z0-9@]+$/</span><span class="p">)</span>
+    <span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span> <span class="nx">invalid_account</span><span class="o">:</span> <span class="kc">true</span> <span class="p">};</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
 
-  static userValidator(control: FormControl) {
-    console.log(control.value);
-    //英數字+@
-    if (
-      !!control.value &amp;&amp;
-      !!control.value.match &amp;&amp;
-      control.value.match(/^.[A-Za-z0-9@]+$/)
-    ) {
-      return null;
-    } else {
-      return { invalid_account: true };
-    }
-  }
+  <span class="kr">static</span> <span class="nx">matchingPasswords</span><span class="p">(</span><span class="nx">otherControlName</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">thisControl</span><span class="o">:</span> <span class="nx">FormControl</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">otherControl</span><span class="o">:</span> <span class="nx">FormControl</span><span class="p">;</span>
 
-  static matchingPasswords(otherControlName: string) {
-    let thisControl: FormControl;
-    let otherControl: FormControl;
-
-    return function matchOtherValidate(control: FormControl) {
-      if (!control.parent) {
-        return null;
-      }
-      if (!thisControl) {
-        thisControl = control;
-        otherControl = control.parent.get(otherControlName) as FormControl;
-        if (!otherControl) {
-          throw new Error(
-            &quot;matchingPasswords(): other control is not found in parent group&quot;
-          );
-        }
-        otherControl.valueChanges.subscribe(() =&gt; {
-          thisControl.updateValueAndValidity();
-        });
-      }
-      if (!otherControl) {
-        return null;
-      }
-      if (otherControl.value !== thisControl.value) {
-        return { invalid_repeat_password: true };
-      }
-      return null;
-    };
-  }
-}
-</code></pre>
-
+    <span class="k">return</span> <span class="kd">function</span> <span class="nx">matchOtherValidate</span><span class="p">(</span><span class="nx">control</span><span class="o">:</span> <span class="nx">FormControl</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">control</span><span class="p">.</span><span class="nx">parent</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">thisControl</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">thisControl</span> <span class="o">=</span> <span class="nx">control</span><span class="p">;</span>
+        <span class="nx">otherControl</span> <span class="o">=</span> <span class="nx">control</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">otherControlName</span><span class="p">)</span> <span class="nx">as</span> <span class="nx">FormControl</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">otherControl</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span>
+            <span class="s2">&#34;matchingPasswords(): other control is not found in parent group&#34;</span>
+          <span class="p">);</span>
+        <span class="p">}</span>
+        <span class="nx">otherControl</span><span class="p">.</span><span class="nx">valueChanges</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+          <span class="nx">thisControl</span><span class="p">.</span><span class="nx">updateValueAndValidity</span><span class="p">();</span>
+        <span class="p">});</span>
+      <span class="p">}</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">otherControl</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">otherControl</span><span class="p">.</span><span class="nx">value</span> <span class="o">!==</span> <span class="nx">thisControl</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span> <span class="nx">invalid_repeat_password</span><span class="o">:</span> <span class="kc">true</span> <span class="p">};</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>在 user-detail.component.ts</p>
-
-<pre><code class="language-js">createForm() {
-    let obj = {
-      oldP: [
-        &quot;&quot;,
-        [
-          Validators.required,
-          ValidationService.passwordValidator,
-          Validators.minLength(6)
-        ]
-      ],
-      newP: [
-        &quot;&quot;,
-        [
-          Validators.required,
-          ValidationService.passwordValidator,
-          Validators.minLength(6)
-        ]
-      ],
-      repeatP: [
-        &quot;&quot;,
-        [Validators.required, ValidationService.matchingPasswords(&quot;newP&quot;)]
-      ]
-    };
-    this.form = this.fb.group(obj);
-  }
-
-</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">createForm</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">oldP</span><span class="o">:</span> <span class="p">[</span>
+        <span class="s2">&#34;&#34;</span><span class="p">,</span>
+        <span class="p">[</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">,</span>
+          <span class="nx">ValidationService</span><span class="p">.</span><span class="nx">passwordValidator</span><span class="p">,</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">minLength</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+        <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="nx">newP</span><span class="o">:</span> <span class="p">[</span>
+        <span class="s2">&#34;&#34;</span><span class="p">,</span>
+        <span class="p">[</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">,</span>
+          <span class="nx">ValidationService</span><span class="p">.</span><span class="nx">passwordValidator</span><span class="p">,</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">minLength</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+        <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="nx">repeatP</span><span class="o">:</span> <span class="p">[</span>
+        <span class="s2">&#34;&#34;</span><span class="p">,</span>
+        <span class="p">[</span><span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">,</span> <span class="nx">ValidationService</span><span class="p">.</span><span class="nx">matchingPasswords</span><span class="p">(</span><span class="s2">&#34;newP&#34;</span><span class="p">)]</span>
+      <span class="p">]</span>
+    <span class="p">};</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">form</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">fb</span><span class="p">.</span><span class="nx">group</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     
@@ -764,6 +1047,7 @@ export class ValidationService {
 
   
 
+  
   
 
     

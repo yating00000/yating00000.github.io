@@ -76,7 +76,7 @@ ngModel 幾種寫法
 
 <meta itemprop="datePublished" content="2018-09-14T10:49:17&#43;00:00" />
 <meta itemprop="dateModified" content="2018-09-14T10:49:17&#43;00:00" />
-<meta itemprop="wordCount" content="185">
+<meta itemprop="wordCount" content="205">
 
 
 
@@ -370,51 +370,96 @@ ngModel 幾種寫法
 <h1 id="寫法">寫法</h1>
 
 <hr />
-
-<pre><code class="language-js">    [(ngModel)]=&quot;personalEmail&quot;
-</code></pre>
-
-<pre><code class="language-js">    [ngModel]=&quot;personalEmail&quot; 
-    (ngModelChange)=&quot;personalEmail = $event&quot;
-
-</code></pre>
-
-<pre><code class="language-js">    [ngModel]=&quot;personalEmail || 'default'&quot; (ngModelChange)=&quot;personalEmail = $event&quot;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js">    <span class="p">[(</span><span class="nx">ngModel</span><span class="p">)]</span><span class="o">=</span><span class="s2">&#34;personalEmail&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js">    <span class="p">[</span><span class="nx">ngModel</span><span class="p">]</span><span class="o">=</span><span class="s2">&#34;personalEmail&#34;</span> 
+    <span class="p">(</span><span class="nx">ngModelChange</span><span class="p">)</span><span class="o">=</span><span class="s2">&#34;personalEmail = $event&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js">    <span class="p">[</span><span class="nx">ngModel</span><span class="p">]</span><span class="o">=</span><span class="s2">&#34;personalEmail || &#39;default&#39;&#34;</span> <span class="p">(</span><span class="nx">ngModelChange</span><span class="p">)</span><span class="o">=</span><span class="s2">&#34;personalEmail = $event&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <h1 id="在-select-裡的差異">在 <code>&lt;select&gt;</code> 裡的差異</h1>
 
 <hr />
-
-<pre><code>    &lt;select id=&quot;se&quot; [ngModel]=&quot;seID&quot; (ngModelChange)=&quot;seID = $event&quot;&gt;
-        &lt;option *ngFor=&quot;let s of ss&quot; [value]=&quot;s.id&quot;&gt;{{ s.name }}&lt;/option&gt;
-    &lt;/select&gt;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;select id=&#34;se&#34; [ngModel]=&#34;seID&#34; (ngModelChange)=&#34;seID = $event&#34;&gt;
+        &lt;option *ngFor=&#34;let s of ss&#34; [value]=&#34;s.id&#34;&gt;{{ s.name }}&lt;/option&gt;
+    &lt;/select&gt;</pre></td></tr></table>
+</div>
+</div>
 <p>因Angular 內部會自己將處理 $event.target.value, 所以可合一 [(ngModel)]=&ldquo;seID&rdquo;, 如下所示</p>
-
-<pre><code>    &lt;select id=&quot;se&quot; [(ngModel)]=&quot;seID&quot;&gt;
-        &lt;option *ngFor=&quot;let s of ss&quot; [value]=&quot;s.id&quot;&gt;{{ s.name }}&lt;/option&gt;
-    &lt;/select&gt;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;select id=&#34;se&#34; [(ngModel)]=&#34;seID&#34;&gt;
+        &lt;option *ngFor=&#34;let s of ss&#34; [value]=&#34;s.id&#34;&gt;{{ s.name }}&lt;/option&gt;
+    &lt;/select&gt;</pre></td></tr></table>
+</div>
+</div>
 <p>如果不單只是數據變動還要做其他處理時,可用 <code>(change)</code></p>
-
-<pre><code>    &lt;select id=&quot;se&quot; [(ngModel)]=&quot;seID&quot; (change)=&quot;saveStatus(member.ID,$event)&quot;&gt;
-        &lt;option *ngFor=&quot;let s of ss&quot; [value]=&quot;s.id&quot;&gt;{{ s.name }}&lt;/option&gt;
-    &lt;/select&gt;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;select id=&#34;se&#34; [(ngModel)]=&#34;seID&#34; (change)=&#34;saveStatus(member.ID,$event)&#34;&gt;
+        &lt;option *ngFor=&#34;let s of ss&#34; [value]=&#34;s.id&#34;&gt;{{ s.name }}&lt;/option&gt;
+    &lt;/select&gt;</pre></td></tr></table>
+</div>
+</div>
 <p>可在<code>(change)</code>指令下自訂義function, 但要注意接進來的 $event 並未被angular內部處理</p>
-
-<pre><code class="language-js">    saveStatus(id: number, event) {
-        let o = {
-            ID: id,
-            status: parseInt(event.target.value)
-        };
-        this.dataService.sendModel(&quot;customer&quot;, &quot;status&quot;, &quot;&quot;, o);
-    }
-</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js">    <span class="nx">saveStatus</span><span class="p">(</span><span class="nx">id</span><span class="o">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="nx">ID</span><span class="o">:</span> <span class="nx">id</span><span class="p">,</span>
+            <span class="nx">status</span><span class="o">:</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
+        <span class="p">};</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">dataService</span><span class="p">.</span><span class="nx">sendModel</span><span class="p">(</span><span class="s2">&#34;customer&#34;</span><span class="p">,</span> <span class="s2">&#34;status&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="nx">o</span><span class="p">);</span>
+    <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     
@@ -480,6 +525,7 @@ ngModel 幾種寫法
 
   
 
+  
   
 
     

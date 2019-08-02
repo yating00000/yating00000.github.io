@@ -78,7 +78,7 @@
 
 <meta itemprop="datePublished" content="2018-12-07T15:30:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-12-07T15:30:00&#43;00:00" />
-<meta itemprop="wordCount" content="870">
+<meta itemprop="wordCount" content="942">
 
 
 
@@ -388,13 +388,21 @@
 <h2 id="ngmodel">[(ngModel)]</h2>
 
 <p>例如:在post.component.html</p>
-
-<pre><code class="language-js">    &lt;input type=&quot;text&quot; placeholder=&quot;請輸入帳號&quot; 
-    [(ngModel)]=&quot;account&quot; name=&quot;account&quot; 
-    #aa=&quot;ngModel&quot; minlength=&quot;6&quot; 
-    pattern=&quot;^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$&quot; required&gt;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js">    <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;text&#34;</span> <span class="nx">placeholder</span><span class="o">=</span><span class="s2">&#34;請輸入帳號&#34;</span> 
+    <span class="p">[(</span><span class="nx">ngModel</span><span class="p">)]</span><span class="o">=</span><span class="s2">&#34;account&#34;</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&#34;account&#34;</span> 
+    <span class="err">#</span><span class="nx">aa</span><span class="o">=</span><span class="s2">&#34;ngModel&#34;</span> <span class="nx">minlength</span><span class="o">=</span><span class="s2">&#34;6&#34;</span> 
+    <span class="nx">pattern</span><span class="o">=</span><span class="s2">&#34;^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$&#34;</span> <span class="nx">required</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>PS:
 - 不一定要有<code>&lt;form&gt;</code>標籤,但如果有的話,使用[(ngModel)]的input要加上 Name 屬性
 <code>name=&quot;account&quot;</code>,否則會報錯.</p>
@@ -413,42 +421,76 @@ control must be defined as 'standalone' in ngModelOptions.</code></p>
 <p>例如:</p>
 
 <p>在component裡</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">export</span> <span class="k">class</span> <span class="nx">MasterInsertComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
+  <span class="nx">form</span><span class="o">:</span> <span class="nx">FormGroup</span><span class="p">;</span>
 
-<pre><code class="language-js">export class MasterInsertComponent implements OnInit {
-  form: FormGroup;
+  <span class="nx">constructor</span><span class="p">(</span>
+    <span class="kr">private</span> <span class="nx">fb</span><span class="o">:</span> <span class="nx">FormBuilder</span>
+  <span class="p">)</span> <span class="p">{}</span>
 
-  constructor(
-    private fb: FormBuilder
-  ) {}
+  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">createForm</span><span class="p">();</span>
+  <span class="p">}</span>
 
-  ngOnInit() {
-    this.createForm();
-  }
-
-  createForm() {
-    let obj = {
-      account: [
-        &quot;&quot;,
-        [
-          Validators.required,
-          ValidationService.userValidator,
-          Validators.minLength(6)
-        ]
-      ]
-    };
-    this.form = this.fb.group(obj);
-  }
-}
-
-</code></pre>
-
+  <span class="nx">createForm</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">account</span><span class="o">:</span> <span class="p">[</span>
+        <span class="s2">&#34;&#34;</span><span class="p">,</span>
+        <span class="p">[</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">,</span>
+          <span class="nx">ValidationService</span><span class="p">.</span><span class="nx">userValidator</span><span class="p">,</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">minLength</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+        <span class="p">]</span>
+      <span class="p">]</span>
+    <span class="p">};</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">form</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">fb</span><span class="p">.</span><span class="nx">group</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>在html裡</p>
-
-<pre><code>&lt;form [formGroup]=&quot;myForm&quot;&gt;
-  &lt;input type=&quot;text&quot; formControlName=&quot;account&quot;/&gt;&lt;/div&gt;
-&lt;/form&gt;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;form [formGroup]=&#34;myForm&#34;&gt;
+  &lt;input type=&#34;text&#34; formControlName=&#34;account&#34;/&gt;&lt;/div&gt;
+&lt;/form&gt;</pre></td></tr></table>
+</div>
+</div>
 <hr />
 
 <h2 id="formcontrol">FormControl</h2>
@@ -457,19 +499,33 @@ control must be defined as 'standalone' in ngModelOptions.</code></p>
 
 <p>例如:
 在 post.component.ts</p>
-
-<pre><code class="language-js">ipContent = new FormControl(&quot;&quot;, [
-  Validators.required,
-  ValidationService.ipValidator
-]);
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">ipContent</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormControl</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="p">[</span>
+  <span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">,</span>
+  <span class="nx">ValidationService</span><span class="p">.</span><span class="nx">ipValidator</span>
+<span class="p">]);</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>在 post.component.html</p>
-
-<pre><code class="language-js">&lt;input type=&quot;text&quot; [formControl]=&quot;ipContent&quot;&gt;
-&lt;button (click)=&quot;enter()&quot; [disabled]=&quot;!ipContent.valid&quot;&gt;insert&lt;/button&gt;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;text&#34;</span> <span class="p">[</span><span class="nx">formControl</span><span class="p">]</span><span class="o">=</span><span class="s2">&#34;ipContent&#34;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">button</span> <span class="p">(</span><span class="nx">click</span><span class="p">)</span><span class="o">=</span><span class="s2">&#34;enter()&#34;</span> <span class="p">[</span><span class="nx">disabled</span><span class="p">]</span><span class="o">=</span><span class="s2">&#34;!ipContent.valid&#34;</span><span class="o">&gt;</span><span class="nx">insert</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>可不使用<code>&lt;form&gt;</code>標籤</li>
 <li>驗證方式一樣</li>
@@ -482,16 +538,26 @@ control must be defined as 'standalone' in ngModelOptions.</code></p>
 <p>主要是判斷目標的 errors 物件</p>
 
 <h2 id="寫在-html-上">寫在 html 上</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;input type=&#34;text&#34; placeholder=&#34;請輸入帳號&#34; 
+[(ngModel)]=&#34;account&#34; name=&#34;account&#34; #aa=&#34;ngModel&#34; 
+minlength=&#34;6&#34; pattern=&#34;^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$&#34; required&gt;
 
-<pre><code>&lt;input type=&quot;text&quot; placeholder=&quot;請輸入帳號&quot; 
-[(ngModel)]=&quot;account&quot; name=&quot;account&quot; #aa=&quot;ngModel&quot; 
-minlength=&quot;6&quot; pattern=&quot;^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$&quot; required&gt;
-
-&lt;span *ngIf=&quot;aa.touched &amp;&amp; aa.errors &amp;&amp; aa.errors.minlength&quot; class=&quot;tip&quot;&gt;至少6位數&lt;/span&gt;
-&lt;span *ngIf=&quot;aa.touched &amp;&amp; aa.errors &amp;&amp; aa.errors.required&quot; class=&quot;tip&quot;&gt;必填&lt;/span&gt;
-&lt;span *ngIf=&quot;aa.touched &amp;&amp; aa.errors &amp;&amp; aa.errors.pattern&quot; class=&quot;tip&quot;&gt;格式錯誤&lt;/span&gt;
-</code></pre>
-
+&lt;span *ngIf=&#34;aa.touched &amp;&amp; aa.errors &amp;&amp; aa.errors.minlength&#34; class=&#34;tip&#34;&gt;至少6位數&lt;/span&gt;
+&lt;span *ngIf=&#34;aa.touched &amp;&amp; aa.errors &amp;&amp; aa.errors.required&#34; class=&#34;tip&#34;&gt;必填&lt;/span&gt;
+&lt;span *ngIf=&#34;aa.touched &amp;&amp; aa.errors &amp;&amp; aa.errors.pattern&#34; class=&#34;tip&#34;&gt;格式錯誤&lt;/span&gt;</pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>常用的就
 aa.touched
@@ -507,68 +573,127 @@ aa.errors.required
 <h2 id="寫在-component-上">寫在 component 上</h2>
 
 <p>在post.component.html</p>
-
-<pre><code>&lt;input type=&quot;text&quot; placeholder=&quot;請輸入帳號&quot; 
-[(ngModel)]=&quot;account&quot; name=&quot;account&quot; #aa=&quot;ngModel&quot; minlength=&quot;6&quot; required&gt;
-&lt;span *ngIf=&quot;aa.touched &amp;&amp; aa.invalid&quot; class=&quot;tip&quot;&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;input type=&#34;text&#34; placeholder=&#34;請輸入帳號&#34; 
+[(ngModel)]=&#34;account&#34; name=&#34;account&#34; #aa=&#34;ngModel&#34; minlength=&#34;6&#34; required&gt;
+&lt;span *ngIf=&#34;aa.touched &amp;&amp; aa.invalid&#34; class=&#34;tip&#34;&gt;
     {{errorMessage(aa)}}
-&lt;/span&gt;
-
-</code></pre>
-
+&lt;/span&gt;</pre></td></tr></table>
+</div>
+</div>
 <p>在post.component.ts</p>
-
-<pre><code class="language-js">errorMessage(control) {
-    if (!!control.errors) {
-        if (!!control.errors.required) {
-            return &quot;必填&quot;
-        }
-        if (!!control.errors.minlength) {
-            return &quot;至少6位數&quot;
-        }
-        if (!!control.errors.pattern) {
-            return &quot;格式錯誤&quot;
-        }
-    }
-    return null;
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">errorMessage</span><span class="p">(</span><span class="nx">control</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!!</span><span class="nx">control</span><span class="p">.</span><span class="nx">errors</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!!</span><span class="nx">control</span><span class="p">.</span><span class="nx">errors</span><span class="p">.</span><span class="nx">required</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s2">&#34;必填&#34;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!!</span><span class="nx">control</span><span class="p">.</span><span class="nx">errors</span><span class="p">.</span><span class="nx">minlength</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s2">&#34;至少6位數&#34;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!!</span><span class="nx">control</span><span class="p">.</span><span class="nx">errors</span><span class="p">.</span><span class="nx">pattern</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s2">&#34;格式錯誤&#34;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <hr />
 
 <h2 id="統一放在子組件上">統一放在子組件上</h2>
-
-<pre><code class="language-js">import { Component, Input } from &quot;@angular/core&quot;;
-import { FormControl } from &quot;@angular/forms&quot;;
-@Component({
-  selector: &quot;validation-messages&quot;,
-  template:
-    '&lt;div class=&quot;error-message&quot; *ngIf=&quot;errorMessage !== null&quot;&gt;{{errorMessage}}&lt;/div&gt;',
-  styles: [&quot;.error-message{color:#DF7607;font-size: x-small;}&quot;]
-})
-export class ValidationComponent {
-  @Input() control: FormControl;
-  constructor() {}
-  get errorMessage() {
-    if (!!this.control) {
-      for (let propertyName in this.control.errors) {
-        if (
-          this.control.errors.hasOwnProperty(propertyName) &amp;&amp;
-          this.control.touched
-        ) {
-          return propertyName;
-        }
-      }
-    }
-    return null;
-  }
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">Input</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;@angular/core&#34;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">FormControl</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;@angular/forms&#34;</span><span class="p">;</span>
+<span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
+  <span class="nx">selector</span><span class="o">:</span> <span class="s2">&#34;validation-messages&#34;</span><span class="p">,</span>
+  <span class="nx">template</span><span class="o">:</span>
+    <span class="s1">&#39;&lt;div class=&#34;error-message&#34; *ngIf=&#34;errorMessage !== null&#34;&gt;{{errorMessage}}&lt;/div&gt;&#39;</span><span class="p">,</span>
+  <span class="nx">styles</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;.error-message{color:#DF7607;font-size: x-small;}&#34;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">ValidationComponent</span> <span class="p">{</span>
+  <span class="err">@</span><span class="nx">Input</span><span class="p">()</span> <span class="nx">control</span><span class="o">:</span> <span class="nx">FormControl</span><span class="p">;</span>
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{}</span>
+  <span class="nx">get</span> <span class="nx">errorMessage</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!!</span><span class="k">this</span><span class="p">.</span><span class="nx">control</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">propertyName</span> <span class="k">in</span> <span class="k">this</span><span class="p">.</span><span class="nx">control</span><span class="p">.</span><span class="nx">errors</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">control</span><span class="p">.</span><span class="nx">errors</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">propertyName</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">control</span><span class="p">.</span><span class="nx">touched</span>
+        <span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="nx">propertyName</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>在需要使用的地方(Html)寫上</p>
-
-<pre><code>&lt;validation-messages [control]=&quot;aa&quot;&gt;&lt;/validation-messages&gt;
-</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;validation-messages [control]=&#34;aa&#34;&gt;&lt;/validation-messages&gt;</pre></td></tr></table>
+</div>
+</div>
     </div>
 
     
@@ -634,6 +759,7 @@ export class ValidationComponent {
 
   
 
+  
   
 
     

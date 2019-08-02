@@ -76,7 +76,7 @@
 
 <meta itemprop="datePublished" content="2018-09-14T11:24:46&#43;00:00" />
 <meta itemprop="dateModified" content="2018-09-14T11:24:46&#43;00:00" />
-<meta itemprop="wordCount" content="395">
+<meta itemprop="wordCount" content="407">
 
 
 
@@ -389,28 +389,47 @@
 <h1 id="模塊的匯入順序">模塊的匯入順序</h1>
 
 <hr />
-
-<pre><code>    imports: [
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    imports: [
       BrowserModule,
       FormsModule,
       HeroesModule,
       AppRoutingModule
-    ]
-</code></pre>
-
+    ]</pre></td></tr></table>
+</div>
+</div>
 <p>看看該模塊的 imports 數組。注意，AppRoutingModule 是最後一個。<br>
 最重要的是，它位于 HeroesModule 之後。</p>
 
 <ul>
 <li><p>如果更換順序的話,如下</p>
-
-<pre><code>imports: [
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">imports: [
   BrowserModule,
   FormsModule,
   AppRoutingModule,
   HeroesModule
-]
-</code></pre></li>
+]</pre></td></tr></table>
+</div>
+</div></li>
 </ul>
 
 <p>例如, 如果你 app-routing 最後是處理 404 ,<br>
@@ -489,6 +508,7 @@
 
   
 
+  
   
 
     

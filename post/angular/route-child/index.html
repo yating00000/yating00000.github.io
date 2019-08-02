@@ -74,7 +74,7 @@
 
 <meta itemprop="datePublished" content="2018-10-27T11:34:13&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-27T11:34:13&#43;00:00" />
-<meta itemprop="wordCount" content="664">
+<meta itemprop="wordCount" content="836">
 
 
 
@@ -395,8 +395,20 @@
 
 <p><code>資料夾</code>
 <code>home沒有 home.module.ts &amp;&amp; 也沒有 home-routing.module.ts</code></p>
-
-<pre><code>app
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">app
     - home
             - home.component.css
             - home.component.html
@@ -404,19 +416,38 @@
     - app.component.html
     - app.component.ts
     - app-routing.module.ts
-    - app.module.ts
-</code></pre>
-
+    - app.module.ts</pre></td></tr></table>
+</div>
+</div>
 <p><code>AppRoutingModule</code></p>
-
-<pre><code>const routes: Routes = [
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">const routes: Routes = [
   {
-    path: &quot;&quot;,
-    redirectTo: &quot;home&quot;,
-    pathMatch: &quot;full&quot;
+    path: &#34;&#34;,
+    redirectTo: &#34;home&#34;,
+    pathMatch: &#34;full&#34;
   },
   {
-    path: &quot;home&quot;,
+    path: &#34;home&#34;,
     component: HomeComponent
   }
 ];
@@ -424,12 +455,28 @@
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
-})
-</code></pre>
-
+})</pre></td></tr></table>
+</div>
+</div>
 <p><code>AppModule</code></p>
-
-<pre><code>@NgModule({
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">@NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
@@ -441,17 +488,24 @@
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
-</code></pre>
-
+export class AppModule { }</pre></td></tr></table>
+</div>
+</div>
 <p><code>App Html</code></p>
-
-<pre><code>    &lt;p&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;p&gt;
         App works!
     &lt;/p&gt;
-&lt;router-outlet&gt;&lt;/router-outlet&gt;
-</code></pre>
-
+&lt;router-outlet&gt;&lt;/router-outlet&gt;</pre></td></tr></table>
+</div>
+</div>
 <hr />
 
 <ul>
@@ -459,8 +513,20 @@ export class AppModule { }
 </ul>
 
 <p><code>資料夾</code>(不變)</p>
-
-<pre><code>app
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">app
     - home
             - home.component.css
             - home.component.html
@@ -468,22 +534,47 @@ export class AppModule { }
     - app.component.html
     - app.component.ts
     - app-routing.module.ts
-    - app.module.ts
-</code></pre>
-
+    - app.module.ts</pre></td></tr></table>
+</div>
+</div>
 <p><code>AppRoutingModule</code>***</p>
-
-<pre><code>const routes: Routes = [];
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
-})
-</code></pre>
-
+})</pre></td></tr></table>
+</div>
+</div>
 <p><code>AppModule</code>(不變)</p>
-
-<pre><code>@NgModule({
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">@NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
@@ -495,17 +586,24 @@ export class AppModule { }
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
-</code></pre>
-
+export class AppModule { }</pre></td></tr></table>
+</div>
+</div>
 <p><code>App Html</code>***</p>
-
-<pre><code>    &lt;p&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;p&gt;
         App works!
     &lt;/p&gt;
-&lt;app-home&gt;&lt;/app-home&gt;
-</code></pre>
-
+&lt;app-home&gt;&lt;/app-home&gt;</pre></td></tr></table>
+</div>
+</div>
 <blockquote>
 <p>差異在於有無寫在 AppRoutingModule 裡</p>
 </blockquote>
@@ -519,8 +617,22 @@ export class AppModule { }
 </ul>
 
 <p><code>資料夾</code></p>
-
-<pre><code>app
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">app
     - post
             - post.component.css
             - post.component.html
@@ -530,14 +642,28 @@ export class AppModule { }
     - app.component.html
     - app.component.ts
     - app-routing.module.ts
-    - app.module.ts
-</code></pre>
-
+    - app.module.ts</pre></td></tr></table>
+</div>
+</div>
 <p><code>AppRoutingModule</code>***</p>
-
-<pre><code>const routes: Routes = [
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">const routes: Routes = [
   {
-    path: &quot;post&quot;,
+    path: &#34;post&#34;,
     component: PostComponent
   }
 ];
@@ -545,14 +671,28 @@ export class AppModule { }
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
-})
-</code></pre>
-
+})</pre></td></tr></table>
+</div>
+</div>
 <p><code>PostRoutingModule</code>***</p>
-
-<pre><code>const routes: Routes = [
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">const routes: Routes = [
   {
-    path: &quot;&quot;,
+    path: &#34;&#34;,
     component: PostComponent
   }
 ];
@@ -560,24 +700,51 @@ export class AppModule { }
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
-})
-</code></pre>
-
+})</pre></td></tr></table>
+</div>
+</div>
 <p><code>PostModule</code></p>
-
-<pre><code>@NgModule({
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">@NgModule({
   imports: [
     CommonModule,
     PostRoutingModule
   ],
   declarations: [PostComponent],
   exports:[PostComponent]
-})
-</code></pre>
-
+})</pre></td></tr></table>
+</div>
+</div>
 <p><code>AppModule</code></p>
-
-<pre><code>@NgModule({
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">@NgModule({
   declarations: [
     AppComponent,
   ],
@@ -589,17 +756,24 @@ export class AppModule { }
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
-</code></pre>
-
+export class AppModule { }</pre></td></tr></table>
+</div>
+</div>
 <p><code>App Html</code>***</p>
-
-<pre><code>    &lt;p&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;p&gt;
         App works!
     &lt;/p&gt;
-&lt;router-outlet&gt;&lt;/router-outlet&gt;
-</code></pre>
-
+&lt;router-outlet&gt;&lt;/router-outlet&gt;</pre></td></tr></table>
+</div>
+</div>
 <hr />
 
 <ul>
@@ -607,8 +781,22 @@ export class AppModule { }
 </ul>
 
 <p><code>資料夾</code></p>
-
-<pre><code>app
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">app
     - post
             - post.component.css
             - post.component.html
@@ -618,33 +806,68 @@ export class AppModule { }
     - app.component.html
     - app.component.ts
     - app-routing.module.ts
-    - app.module.ts
-</code></pre>
-
+    - app.module.ts</pre></td></tr></table>
+</div>
+</div>
 <p><code>AppRoutingModule</code> 沒有RouteModule就已跟路由無關了</p>
-
-<pre><code>const routes: Routes = [];
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
-})
-</code></pre>
-
+})</pre></td></tr></table>
+</div>
+</div>
 <p><code>PostModule</code></p>
-
-<pre><code>@NgModule({
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">@NgModule({
   imports: [
     CommonModule
   ],
   declarations: [PostComponent],
   exports:[PostComponent]
-})
-</code></pre>
-
+})</pre></td></tr></table>
+</div>
+</div>
 <p><code>AppModule</code></p>
-
-<pre><code>@NgModule({
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">@NgModule({
   declarations: [
     AppComponent,
   ],
@@ -656,16 +879,22 @@ export class AppModule { }
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
-</code></pre>
-
+export class AppModule { }</pre></td></tr></table>
+</div>
+</div>
 <p><code>App Html</code> 已跟路由無關了</p>
-
-<pre><code>    &lt;p&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;p&gt;
         App works!
-    &lt;/p&gt;
-</code></pre>
-
+    &lt;/p&gt;</pre></td></tr></table>
+</div>
+</div>
 <blockquote>
 <p>通常ShareModule就是如此,
 或是私有的service 或 指令 混合成的功能組件,
@@ -736,6 +965,7 @@ export class AppModule { }
 
   
 
+  
   
 
     

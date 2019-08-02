@@ -78,7 +78,7 @@
 
 <meta itemprop="datePublished" content="2018-12-14T16:03:23&#43;00:00" />
 <meta itemprop="dateModified" content="2018-12-14T16:03:23&#43;00:00" />
-<meta itemprop="wordCount" content="976">
+<meta itemprop="wordCount" content="1188">
 
 
 
@@ -385,117 +385,227 @@
 <li>data.service.ts :接收前端要送給後端的數據,
 以及把後端的數據傳給有訂閱的 component</li>
 </ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//web.service.ts
+</span><span class="c1"></span>
+<span class="err">@</span><span class="nx">Injectable</span><span class="p">()</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">SocketService</span> <span class="p">{</span>
+  <span class="kr">private</span> <span class="nx">subject</span><span class="o">:</span> <span class="nx">Subject</span><span class="o">&lt;</span><span class="nx">MessageEvent</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="kr">private</span> <span class="nx">url</span><span class="o">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
 
-<pre><code class="language-js">//web.service.ts
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{}</span>
 
-@Injectable()
-export class SocketService {
-  private subject: Subject&lt;MessageEvent&gt;;
-  private url: string = &quot;&quot;;
+  <span class="kr">public</span> <span class="nx">setUrl</span><span class="p">(</span><span class="nx">wsUrl</span><span class="o">:</span> <span class="nx">string</span><span class="p">,</span> <span class="nx">token</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">url</span> <span class="o">=</span> <span class="sb">`wss://</span><span class="si">${</span><span class="nx">wsUrl</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">token</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+  <span class="p">}</span>
 
-  constructor() {}
+  <span class="kr">public</span> <span class="nx">connect</span><span class="p">()</span><span class="o">:</span> <span class="nx">Subject</span><span class="o">&lt;</span><span class="nx">MessageEvent</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">subject</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">subject</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">subject</span><span class="p">;</span>
+  <span class="p">}</span>
 
-  public setUrl(wsUrl: string, token: string) {
-    this.url = `wss://${wsUrl}/${token}`;
-  }
+  <span class="kr">private</span> <span class="nx">create</span><span class="p">()</span><span class="o">:</span> <span class="nx">Subject</span><span class="o">&lt;</span><span class="nx">MessageEvent</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="nx">ws</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebSocket</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
+    <span class="k">const</span> <span class="nx">observable</span> <span class="o">=</span> <span class="nx">Observable</span><span class="p">.</span><span class="nx">create</span><span class="p">((</span><span class="nx">obs</span><span class="o">:</span> <span class="nx">Observer</span><span class="o">&lt;</span><span class="nx">MessageEvent</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">ws</span><span class="p">.</span><span class="nx">onmessage</span> <span class="o">=</span> <span class="nx">obs</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">obs</span><span class="p">);</span>
+      <span class="nx">ws</span><span class="p">.</span><span class="nx">onerror</span> <span class="o">=</span> <span class="nx">obs</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">obs</span><span class="p">);</span>
+      <span class="nx">ws</span><span class="p">.</span><span class="nx">onclose</span> <span class="o">=</span> <span class="nx">obs</span><span class="p">.</span><span class="nx">complete</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">obs</span><span class="p">);</span>
+      <span class="k">return</span> <span class="nx">ws</span><span class="p">.</span><span class="nx">close</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">ws</span><span class="p">);</span>
+    <span class="p">});</span>
+    <span class="k">const</span> <span class="nx">observer</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">next</span><span class="o">:</span> <span class="p">(</span><span class="nx">data</span><span class="o">:</span> <span class="nb">Object</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">ws</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="nx">WebSocket</span><span class="p">.</span><span class="nx">OPEN</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="nx">Subject</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">observer</span><span class="p">,</span> <span class="nx">observable</span><span class="p">).</span><span class="nx">share</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//data.service.ts
+</span><span class="c1"></span>
+<span class="err">@</span><span class="nx">Injectable</span><span class="p">()</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">DataService</span> <span class="p">{</span>
+    <span class="kr">private</span> <span class="nx">wsDatas</span><span class="o">:</span> <span class="nx">BehaviorSubject</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="p">;</span>
 
-  public connect(): Subject&lt;MessageEvent&gt; {
-    if (!this.subject) {
-      this.subject = this.create();
-    }
-    return this.subject;
-  }
+    <span class="nx">constructor</span><span class="p">(</span>
+        <span class="kr">private</span> <span class="nx">logger</span><span class="o">:</span> <span class="nx">LoggerService</span><span class="p">,</span>
+        <span class="kr">private</span> <span class="nx">wsService</span><span class="o">:</span> <span class="nx">WebService</span>
+    <span class="p">)</span> <span class="p">{}</span>
 
-  private create(): Subject&lt;MessageEvent&gt; {
-    const ws = new WebSocket(this.url);
-    const observable = Observable.create((obs: Observer&lt;MessageEvent&gt;) =&gt; {
-      ws.onmessage = obs.next.bind(obs);
-      ws.onerror = obs.error.bind(obs);
-      ws.onclose = obs.complete.bind(obs);
-      return ws.close.bind(ws);
-    });
-    const observer = {
-      next: (data: Object) =&gt; {
-        if (ws.readyState === WebSocket.OPEN) {
-          ws.send(JSON.stringify(data));
-        }
-      }
-    };
-    return Subject.create(observer, observable).share();
-  }
-}
+    <span class="nx">webConnet</span><span class="p">()</span> <span class="p">{</span>
+         <span class="k">this</span><span class="p">.</span><span class="nx">wsDatas</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">BehaviorSubject</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;&gt;</span><span class="k">this</span><span class="p">.</span><span class="nx">wsService</span><span class="p">.</span><span class="nx">connect</span><span class="p">()</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+            <span class="nx">map</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">logger</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&#34;response&#34;</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+                <span class="k">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+                <span class="k">return</span> <span class="nx">data</span><span class="p">;</span>
+            <span class="p">})</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
 
-</code></pre>
+    <span class="nx">sendWs</span><span class="p">(</span><span class="nx">obj</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">logger</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&#34;next ws&#34;</span><span class="p">,</span> <span class="nx">obj</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">wsDatas</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+    <span class="p">}</span>
 
-<pre><code class="language-js">//data.service.ts
-
-@Injectable()
-export class DataService {
-    private wsDatas: BehaviorSubject&lt;any&gt;;
-
-    constructor(
-        private logger: LoggerService,
-        private wsService: WebService
-    ) {}
-
-    webConnet() {
-         this.wsDatas = &lt;BehaviorSubject&lt;any&gt;&gt;this.wsService.connect()
-        .pipe(
-            map(response =&gt; {
-                this.logger.print(&quot;response&quot;, response);
-                const data = JSON.parse(response.data);
-                return data;
-            })
-        );
-    }
-
-    sendWs(obj: any) {
-        this.logger.print(&quot;next ws&quot;, obj);
-        this.wsDatas.next(obj);
-    }
-
-    isWebSocketIn(): Observable&lt;any&gt; {
-        return this.wsDatas.asObservable();
-    }
-}
-
-</code></pre>
-
+    <span class="nx">isWebSocketIn</span><span class="p">()</span><span class="o">:</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">wsDatas</span><span class="p">.</span><span class="nx">asObservable</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>接下來就是開始跟後端連線</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//app.component.ts
+</span><span class="c1"></span>
+<span class="nx">login</span><span class="p">(){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">dataService</span><span class="p">.</span><span class="nx">webConnet</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">dataService</span><span class="p">.</span><span class="nx">isWebSocketIn</span><span class="p">().</span><span class="nx">subscribe</span><span class="p">(</span>
+        <span class="p">(</span><span class="nx">val</span><span class="o">:</span> <span class="nx">Event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">val</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="s2">&#34;open&#34;</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">//當ws連接上時,會回傳&#34;open&#34;狀態
+</span><span class="c1"></span>                <span class="k">this</span><span class="p">.</span><span class="nx">sendUser</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+<span class="p">}</span>
 
-<pre><code class="language-js">//app.component.ts
-
-login(){
-    this.dataService.webConnet();
-    this.dataService.isWebSocketIn().subscribe(
-        (val: Event) =&gt; {
-            if (val.type == &quot;open&quot;) {
-                //當ws連接上時,會回傳&quot;open&quot;狀態
-                this.sendUser();
-            }
-        }
-    );
-}
-
-sendUser() {
-    //下面這個訂閱者只要收到一次值就會關閉(take(1))
-    this.dataService
-        .isWebSocketIn()
-        .pipe(
-            filter(val =&gt; {
-                return val.t == &quot;user&quot; &amp;&amp; val.m == &quot;one&quot;;
-            })
-        )
-        .take(1)
-        .subscribe((val: UserMain) =&gt; {
-            if (!!val.c) {
-            this.service.setUser(val);
-            }
-        });
-    this.dataService.sendModel(&quot;user&quot;, &quot;one&quot;, &quot;request&quot;);
- }
-</code></pre>
-
+<span class="nx">sendUser</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//下面這個訂閱者只要收到一次值就會關閉(take(1))
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">dataService</span>
+        <span class="p">.</span><span class="nx">isWebSocketIn</span><span class="p">()</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+            <span class="nx">filter</span><span class="p">(</span><span class="nx">val</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">val</span><span class="p">.</span><span class="nx">t</span> <span class="o">==</span> <span class="s2">&#34;user&#34;</span> <span class="o">&amp;&amp;</span> <span class="nx">val</span><span class="p">.</span><span class="nx">m</span> <span class="o">==</span> <span class="s2">&#34;one&#34;</span><span class="p">;</span>
+            <span class="p">})</span>
+        <span class="p">)</span>
+        <span class="p">.</span><span class="nx">take</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">val</span><span class="o">:</span> <span class="nx">UserMain</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!!</span><span class="nx">val</span><span class="p">.</span><span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">service</span><span class="p">.</span><span class="nx">setUser</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">dataService</span><span class="p">.</span><span class="nx">sendModel</span><span class="p">(</span><span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;one&#34;</span><span class="p">,</span> <span class="s2">&#34;request&#34;</span><span class="p">);</span>
+ <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <h2 id="接值的方式-1">接值的方式 1</h2>
 
 <p>如上面例子,我如果想請求使用者的資訊</p>
@@ -511,72 +621,131 @@ sendUser() {
 <p>但後端會把你所請求的傳給你,
 可是我們要怎麼分辨哪個數據是商品列表,
 所以上面的例子用過濾的方式</p>
-
-<pre><code>.pipe(
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">.pipe(
     filter(val =&gt; {
-        return val.t == &quot;product&quot; &amp;&amp; val.m == &quot;list&quot;;
+        return val.t == &#34;product&#34; &amp;&amp; val.m == &#34;list&#34;;
     })
 )
-.take(1)
-</code></pre>
-
+.take(1)</pre></td></tr></table>
+</div>
+</div>
 <h1 id="接值的方式-2">接值的方式 2</h1>
 
 <p>其實上面的方式可能不太好,
 因為可能要先過濾掉好幾個不是自己這個模塊要的數據,
 應該是我 next 出去給後端,它立即性的回應我這個請求,
 所以我們可以修改成</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//data.service.ts
+</span><span class="c1"></span>
+<span class="err">@</span><span class="nx">Injectable</span><span class="p">()</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">DataService</span> <span class="p">{</span>
+    <span class="kr">private</span> <span class="nx">wsDatas</span><span class="o">:</span> <span class="nx">BehaviorSubject</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="kr">private</span> <span class="nx">selfSubject</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Subject</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="kr">private</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-<pre><code class="language-js">//data.service.ts
+    <span class="nx">constructor</span><span class="p">(</span>
+        <span class="kr">private</span> <span class="nx">logger</span><span class="o">:</span> <span class="nx">LoggerService</span><span class="p">,</span>
+        <span class="kr">private</span> <span class="nx">wsService</span><span class="o">:</span> <span class="nx">WebService</span>
+    <span class="p">)</span> <span class="p">{}</span>
 
-@Injectable()
-export class DataService {
-    private wsDatas: BehaviorSubject&lt;any&gt;;
-    private selfSubject = new Subject&lt;any&gt;();
-    private count = 0;
+    <span class="nx">webConnet</span><span class="p">()</span> <span class="p">{</span>
+         <span class="k">this</span><span class="p">.</span><span class="nx">wsDatas</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">BehaviorSubject</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;&gt;</span><span class="k">this</span><span class="p">.</span><span class="nx">wsService</span><span class="p">.</span><span class="nx">connect</span><span class="p">()</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+            <span class="nx">map</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">logger</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&#34;response&#34;</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="o">!!</span><span class="k">this</span><span class="p">.</span><span class="nx">selfSubject</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">this</span><span class="p">.</span><span class="nx">selfSubject</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="nx">response</span><span class="p">;</span>
+            <span class="p">})</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
 
-    constructor(
-        private logger: LoggerService,
-        private wsService: WebService
-    ) {}
+    <span class="nx">sendWs</span><span class="p">(</span><span class="nx">obj</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">logger</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&#34;next ws&#34;</span><span class="p">,</span> <span class="nx">obj</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">wsDatas</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+    <span class="p">}</span>
 
-    webConnet() {
-         this.wsDatas = &lt;BehaviorSubject&lt;any&gt;&gt;this.wsService.connect()
-        .pipe(
-            map(response =&gt; {
-                this.logger.print(&quot;response&quot;, response);
-                if (!!this.selfSubject) {
-                    this.selfSubject.next(response);
-                }
-                return response;
-            })
-        );
-    }
+    <span class="nx">isWebSocketIn</span><span class="p">()</span><span class="o">:</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">wsDatas</span><span class="p">.</span><span class="nx">asObservable</span><span class="p">();</span>
+    <span class="p">}</span>
 
-    sendWs(obj: any) {
-        this.logger.print(&quot;next ws&quot;, obj);
-        this.wsDatas.next(obj);
-    }
-
-    isWebSocketIn(): Observable&lt;any&gt; {
-        return this.wsDatas.asObservable();
-    }
-
-    ObWsModel(obj): Observable&lt;any&gt; {
-        const c = this.count++;
-        obj.s += c;
-        this.logger.print(&quot;next ws&quot;, obj);
-        this.wsDatas.next(obj);
-        return this.selfSubject.pipe(
-            filter(val =&gt; {
-                return val.s === obj.s;
-            })
-        );
-    }
-}
-
-</code></pre>
-
+    <span class="nx">ObWsModel</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span><span class="o">:</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="k">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+        <span class="nx">obj</span><span class="p">.</span><span class="nx">s</span> <span class="o">+=</span> <span class="nx">c</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">logger</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&#34;next ws&#34;</span><span class="p">,</span> <span class="nx">obj</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">wsDatas</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">selfSubject</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+            <span class="nx">filter</span><span class="p">(</span><span class="nx">val</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">val</span><span class="p">.</span><span class="nx">s</span> <span class="o">===</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">s</span><span class="p">;</span>
+            <span class="p">})</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>把後端接回來的值,
 我另外再用selfSubject去裝
 <code>count</code>是辨識碼,
@@ -593,73 +762,141 @@ export class DataService {
 <p>所以在開發的時候,
 後端使用二進制的方式送來,
 而前端傳送過去的也要包成二進制</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//web.service.ts
+</span><span class="c1"></span>
+<span class="err">@</span><span class="nx">Injectable</span><span class="p">()</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">SocketService</span> <span class="p">{</span>
+  <span class="kr">private</span> <span class="nx">subject</span><span class="o">:</span> <span class="nx">Subject</span><span class="o">&lt;</span><span class="nx">MessageEvent</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="kr">private</span> <span class="nx">url</span><span class="o">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
 
-<pre><code class="language-js">//web.service.ts
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{}</span>
 
-@Injectable()
-export class SocketService {
-  private subject: Subject&lt;MessageEvent&gt;;
-  private url: string = &quot;&quot;;
+  <span class="kr">public</span> <span class="nx">setUrl</span><span class="p">(</span><span class="nx">wsUrl</span><span class="o">:</span> <span class="nx">string</span><span class="p">,</span> <span class="nx">token</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">url</span> <span class="o">=</span> <span class="sb">`wss://</span><span class="si">${</span><span class="nx">wsUrl</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">token</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+  <span class="p">}</span>
 
-  constructor() {}
+  <span class="kr">public</span> <span class="nx">connect</span><span class="p">()</span><span class="o">:</span> <span class="nx">Subject</span><span class="o">&lt;</span><span class="nx">MessageEvent</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">subject</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">subject</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">subject</span><span class="p">;</span>
+  <span class="p">}</span>
 
-  public setUrl(wsUrl: string, token: string) {
-    this.url = `wss://${wsUrl}/${token}`;
-  }
+  <span class="kr">private</span> <span class="nx">create</span><span class="p">()</span><span class="o">:</span> <span class="nx">Subject</span><span class="o">&lt;</span><span class="nx">MessageEvent</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="nx">ws</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebSocket</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
+    <span class="k">const</span> <span class="nx">observable</span> <span class="o">=</span> <span class="nx">Observable</span><span class="p">.</span><span class="nx">create</span><span class="p">((</span><span class="nx">obs</span><span class="o">:</span> <span class="nx">Observer</span><span class="o">&lt;</span><span class="nx">MessageEvent</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">ws</span><span class="p">.</span><span class="nx">onopen</span> <span class="o">=</span> <span class="nx">obs</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">obs</span><span class="p">);</span>
+      <span class="nx">ws</span><span class="p">.</span><span class="nx">onmessage</span> <span class="o">=</span> <span class="nx">e</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="c1">//讀取後端數據
+</span><span class="c1"></span>        <span class="k">const</span> <span class="nx">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FileReader</span><span class="p">();</span>
+        <span class="nx">reader</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+          <span class="kd">let</span> <span class="nx">r</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">string</span><span class="o">&gt;</span><span class="nx">reader</span><span class="p">.</span><span class="nx">result</span><span class="p">;</span>
+          <span class="k">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">r</span><span class="p">);</span>
+          <span class="nx">obs</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+        <span class="p">};</span>
+        <span class="nx">reader</span><span class="p">.</span><span class="nx">readAsBinaryString</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+      <span class="p">};</span>
 
-  public connect(): Subject&lt;MessageEvent&gt; {
-    if (!this.subject) {
-      this.subject = this.create();
-    }
-    return this.subject;
-  }
-
-  private create(): Subject&lt;MessageEvent&gt; {
-    const ws = new WebSocket(this.url);
-    const observable = Observable.create((obs: Observer&lt;MessageEvent&gt;) =&gt; {
-      ws.onopen = obs.next.bind(obs);
-      ws.onmessage = e =&gt; {
-        //讀取後端數據
-        const reader = new FileReader();
-        reader.onload = () =&gt; {
-          let r = &lt;string&gt;reader.result;
-          const data = JSON.parse(r);
-          obs.next(data);
-        };
-        reader.readAsBinaryString(e.data);
-      };
-
-      ws.onerror = obs.error.bind(obs);
-      ws.onclose = obs.complete.bind(obs);
-      return ws.close.bind(ws);
-    });
-    const observer = {
-      //傳送數據到後端
-      next: (data: Object) =&gt; {
-        if (ws.readyState === WebSocket.OPEN) {
-          ws.send(new Blob([JSON.stringify(data)]));
-        }
-      }
-    };
-    return Subject.create(observer, observable).share();
-  }
-}
-
-</code></pre>
-
-<pre><code class="language-js">//data.service.ts
-
-webConnet() {
-        this.wsDatas = &lt;BehaviorSubject&lt;any&gt;&gt;this.wsService.connect()
-    .pipe(
-        map(response =&gt; {
-            this.logger.print(&quot;response&quot;, response);
-            return response;
-        })
-    );
-}
-</code></pre>
-
+      <span class="nx">ws</span><span class="p">.</span><span class="nx">onerror</span> <span class="o">=</span> <span class="nx">obs</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">obs</span><span class="p">);</span>
+      <span class="nx">ws</span><span class="p">.</span><span class="nx">onclose</span> <span class="o">=</span> <span class="nx">obs</span><span class="p">.</span><span class="nx">complete</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">obs</span><span class="p">);</span>
+      <span class="k">return</span> <span class="nx">ws</span><span class="p">.</span><span class="nx">close</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">ws</span><span class="p">);</span>
+    <span class="p">});</span>
+    <span class="k">const</span> <span class="nx">observer</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="c1">//傳送數據到後端
+</span><span class="c1"></span>      <span class="nx">next</span><span class="o">:</span> <span class="p">(</span><span class="nx">data</span><span class="o">:</span> <span class="nb">Object</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">ws</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="nx">WebSocket</span><span class="p">.</span><span class="nx">OPEN</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="k">new</span> <span class="nx">Blob</span><span class="p">([</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">)]));</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="nx">Subject</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">observer</span><span class="p">,</span> <span class="nx">observable</span><span class="p">).</span><span class="nx">share</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//data.service.ts
+</span><span class="c1"></span>
+<span class="nx">webConnet</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">wsDatas</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">BehaviorSubject</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;&gt;</span><span class="k">this</span><span class="p">.</span><span class="nx">wsService</span><span class="p">.</span><span class="nx">connect</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+        <span class="nx">map</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">logger</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&#34;response&#34;</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+            <span class="k">return</span> <span class="nx">response</span><span class="p">;</span>
+        <span class="p">})</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>接下來打開 F12 開發者工具,就會看不到資料了</p>
 
 <p><img src="/img/service_ws1.png" alt="" /></p>
@@ -728,6 +965,7 @@ webConnet() {
 
   
 
+  
   
 
     

@@ -78,7 +78,7 @@
 
 <meta itemprop="datePublished" content="2018-12-17T09:28:45&#43;00:00" />
 <meta itemprop="dateModified" content="2018-12-17T09:28:45&#43;00:00" />
-<meta itemprop="wordCount" content="799">
+<meta itemprop="wordCount" content="992">
 
 
 
@@ -376,71 +376,143 @@
 
 <p>其實網上好多教學,
 所以簡單紀錄</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">npm</span> <span class="nx">install</span> <span class="err">@</span><span class="nx">ngx</span><span class="o">-</span><span class="nx">translate</span><span class="o">/</span><span class="nx">core</span> <span class="o">--</span><span class="nx">save</span>
+<span class="nx">npm</span> <span class="nx">install</span> <span class="err">@</span><span class="nx">ngx</span><span class="o">-</span><span class="nx">translate</span><span class="o">/</span><span class="nx">http</span><span class="o">-</span><span class="nx">loader</span> <span class="o">--</span><span class="nx">save</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//app.module.ts
+</span><span class="c1"></span>
+<span class="k">export</span> <span class="kd">function</span> <span class="nx">createTranslateLoader</span><span class="p">(</span><span class="nx">http</span><span class="o">:</span> <span class="nx">HttpClient</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//i18n的資料夾位置
+</span><span class="c1"></span>    <span class="k">return</span> <span class="k">new</span> <span class="nx">TranslateHttpLoader</span><span class="p">(</span><span class="nx">http</span><span class="p">,</span> <span class="s2">&#34;./assets/i18n/&#34;</span><span class="p">,</span> <span class="s2">&#34;.json&#34;</span><span class="p">);</span>
+<span class="p">}</span>
 
-<pre><code class="language-js">npm install @ngx-translate/core --save
-npm install @ngx-translate/http-loader --save
-</code></pre>
+<span class="err">@</span><span class="nx">NgModule</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span>
+    <span class="nx">BrowserAnimationsModule</span><span class="p">,</span> 
+    <span class="nx">PostModule</span><span class="p">,</span> 
+    <span class="nx">HttpClientModule</span><span class="p">,</span>
+    <span class="nx">TranslateModule</span><span class="p">.</span><span class="nx">forRoot</span><span class="p">({</span>
+        <span class="nx">loader</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">provide</span><span class="o">:</span> <span class="nx">TranslateLoader</span><span class="p">,</span>
+        <span class="nx">useFactory</span><span class="o">:</span> <span class="nx">createTranslateLoader</span><span class="p">,</span>
+        <span class="nx">deps</span><span class="o">:</span> <span class="p">[</span><span class="nx">HttpClient</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}),</span> 
+    <span class="nx">AppRoutingModule</span>
+    <span class="p">],</span>
+    <span class="nx">declarations</span><span class="o">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">],</span>
+    <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span><span class="nx">AppService</span><span class="p">],</span>
+    <span class="nx">bootstrap</span><span class="o">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">AppModule</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//share.module.ts
+</span><span class="c1"></span>
+<span class="err">@</span><span class="nx">NgModule</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span>
+    <span class="nx">CommonModule</span><span class="p">,</span>
+    <span class="nx">FormsModule</span><span class="p">,</span>
+    <span class="nx">ReactiveFormsModule</span><span class="p">,</span>
+    <span class="nx">TranslateModule</span>
+  <span class="p">],</span>
+  <span class="nx">exports</span><span class="o">:</span> <span class="p">[</span>
+    <span class="nx">CommonModule</span><span class="p">,</span>
+    <span class="nx">FormsModule</span><span class="p">,</span>
+    <span class="nx">ReactiveFormsModule</span><span class="p">,</span>
+    <span class="nx">TranslateModule</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">SharedModule</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//app.component.ts
+</span><span class="c1"></span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">AppComponent</span>  <span class="p">{</span>
+  <span class="nx">defaultLang</span> <span class="o">=</span> <span class="s2">&#34;en&#34;</span><span class="p">;</span>
 
-<pre><code class="language-js">//app.module.ts
-
-export function createTranslateLoader(http: HttpClient) {
-    //i18n的資料夾位置
-    return new TranslateHttpLoader(http, &quot;./assets/i18n/&quot;, &quot;.json&quot;);
-}
-
-@NgModule({
-  imports: [
-    BrowserAnimationsModule, 
-    PostModule, 
-    HttpClientModule,
-    TranslateModule.forRoot({
-        loader: {
-        provide: TranslateLoader,
-        useFactory: createTranslateLoader,
-        deps: [HttpClient]
-        }
-    }), 
-    AppRoutingModule
-    ],
-    declarations: [AppComponent],
-    providers: [AppService],
-    bootstrap: [AppComponent]
-})
-export class AppModule { }
-</code></pre>
-
-<pre><code class="language-js">//share.module.ts
-
-@NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    TranslateModule
-  ],
-  exports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    TranslateModule
-  ]
-})
-export class SharedModule { }
-</code></pre>
-
-<pre><code class="language-js">//app.component.ts
-
-export class AppComponent  {
-  defaultLang = &quot;en&quot;;
-
-  constructor(public translate: TranslateService){
-    translate.addLangs([&quot;en&quot; ,&quot;tw&quot;]);
-    translate.setDefaultLang(this.defaultLang);
-    translate.use(this.defaultLang);
-  }
-}
-</code></pre>
-
+  <span class="nx">constructor</span><span class="p">(</span><span class="kr">public</span> <span class="nx">translate</span><span class="o">:</span> <span class="nx">TranslateService</span><span class="p">){</span>
+    <span class="nx">translate</span><span class="p">.</span><span class="nx">addLangs</span><span class="p">([</span><span class="s2">&#34;en&#34;</span> <span class="p">,</span><span class="s2">&#34;tw&#34;</span><span class="p">]);</span>
+    <span class="nx">translate</span><span class="p">.</span><span class="nx">setDefaultLang</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">defaultLang</span><span class="p">);</span>
+    <span class="nx">translate</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">defaultLang</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <hr />
 
 <h1 id="一般用法">一般用法</h1>
@@ -448,44 +520,79 @@ export class AppComponent  {
 <ul>
 <li>在需要使用的功能模塊</li>
 </ul>
-
-<pre><code class="language-js">@Component({
-  selector: &quot;app-post&quot;,
-  template: `
-    &lt;p&gt;{{'welcome' | translate}}&lt;/p&gt;
-    &lt;button (click)=&quot;changeTranslate('tw')&quot;&gt;繁體&lt;/button&gt;
-    &lt;button (click)=&quot;changeTranslate('en')&quot;&gt;英文&lt;/button&gt;
-  `
-})
-export class PostComponent implements OnInit {
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
+  <span class="nx">selector</span><span class="o">:</span> <span class="s2">&#34;app-post&#34;</span><span class="p">,</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="sb">`
+</span><span class="sb">    &lt;p&gt;{{&#39;welcome&#39; | translate}}&lt;/p&gt;
+</span><span class="sb">    &lt;button (click)=&#34;changeTranslate(&#39;tw&#39;)&#34;&gt;繁體&lt;/button&gt;
+</span><span class="sb">    &lt;button (click)=&#34;changeTranslate(&#39;en&#39;)&#34;&gt;英文&lt;/button&gt;
+</span><span class="sb">  `</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">PostComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
  
-  constructor(public translate: TranslateService) {}
+  <span class="nx">constructor</span><span class="p">(</span><span class="kr">public</span> <span class="nx">translate</span><span class="o">:</span> <span class="nx">TranslateService</span><span class="p">)</span> <span class="p">{}</span>
 
-  ngOnInit() {}
+  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{}</span>
 
-  changeTranslate(lang){
-    this.translate.use(lang);
-  }
-}
-</code></pre>
-
+  <span class="nx">changeTranslate</span><span class="p">(</span><span class="nx">lang</span><span class="p">){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">translate</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">lang</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li><p>placeholder</p>
-
-<pre><code>&lt;input type=&quot;text&quot; [placeholder]=&quot;'import_account' | translate&quot;&gt;
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;input type=&#34;text&#34; [placeholder]=&#34;&#39;import_account&#39; | translate&#34;&gt;</pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>可直接在Component裡翻譯字串</p></li>
 </ul>
-
-<pre><code class="language-js">constructor(private translate: TranslateService) {}
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">translate</span><span class="o">:</span> <span class="nx">TranslateService</span><span class="p">)</span> <span class="p">{}</span>
   
-translate(str:string):string{
-    return this.translate.instant(str);
-}
-
-</code></pre>
-
+<span class="nx">translate</span><span class="p">(</span><span class="nx">str</span><span class="o">:</span><span class="nx">string</span><span class="p">)</span><span class="o">:</span><span class="nx">string</span><span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">translate</span><span class="p">.</span><span class="nx">instant</span><span class="p">(</span><span class="nx">str</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <hr />
 
 <h1 id="mat-paginator-的翻譯"><code>mat-paginator</code>的翻譯</h1>
@@ -495,29 +602,76 @@ translate(str:string):string{
 <p><code>Paginator</code>安裝過程請參照官網,</p>
 
 <p>然後在shareModule裡</p>
-
-<pre><code class="language-js">@NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatPaginatorModule,
-    TranslateModule
-  ],
-  exports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatPaginatorModule,
-    TranslateModule
-  ]
-})
-export class SharedModule { }
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="err">@</span><span class="nx">NgModule</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span>
+    <span class="nx">CommonModule</span><span class="p">,</span>
+    <span class="nx">FormsModule</span><span class="p">,</span>
+    <span class="nx">ReactiveFormsModule</span><span class="p">,</span>
+    <span class="nx">MatPaginatorModule</span><span class="p">,</span>
+    <span class="nx">TranslateModule</span>
+  <span class="p">],</span>
+  <span class="nx">exports</span><span class="o">:</span> <span class="p">[</span>
+    <span class="nx">CommonModule</span><span class="p">,</span>
+    <span class="nx">FormsModule</span><span class="p">,</span>
+    <span class="nx">ReactiveFormsModule</span><span class="p">,</span>
+    <span class="nx">MatPaginatorModule</span><span class="p">,</span>
+    <span class="nx">TranslateModule</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">SharedModule</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>在需要的模塊上使用</p>
-
-<pre><code>//post.component.ts
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">//post.component.ts
 
 export class PostComponent implements OnInit {
   PAGESIZEOPTIONS=[5,10,15]
@@ -533,15 +687,15 @@ export class PostComponent implements OnInit {
 //post.component.html
 
 &lt;mat-paginator
-      [pageIndex]=&quot;1&quot;
-      [length]=&quot;0&quot;
-      [pageSize]=&quot;10&quot;
-      [pageSizeOptions]=&quot;PAGESIZEOPTIONS&quot;
-      (page)=&quot;setPage($event)&quot;
+      [pageIndex]=&#34;1&#34;
+      [length]=&#34;0&#34;
+      [pageSize]=&#34;10&#34;
+      [pageSizeOptions]=&#34;PAGESIZEOPTIONS&#34;
+      (page)=&#34;setPage($event)&#34;
 &gt;
-&lt;/mat-paginator&gt;
-</code></pre>
-
+&lt;/mat-paginator&gt;</pre></td></tr></table>
+</div>
+</div>
 <p><img src="/img/translate_1.png" alt="" /></p>
 
 <p>那很多功能模塊都會有頁碼,</p>
@@ -551,92 +705,175 @@ export class PostComponent implements OnInit {
 <p>加上實務上經常會切換語系,</p>
 
 <p>所以會用到</p>
-
-<pre><code class="language-js">this.translate.onLangChange.subscribe((e: Event) =&gt; {
-     //do something
-});
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">this</span><span class="p">.</span><span class="nx">translate</span><span class="p">.</span><span class="nx">onLangChange</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">e</span><span class="o">:</span> <span class="nx">Event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+     <span class="c1">//do something
+</span><span class="c1"></span><span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>onLangChange能監聽語言變化,不管哪個模塊切了語系,</p>
 
 <p>其他模塊都會跟著切換.</p>
 
 <p>所以我們客製 MatPaginatorIntl</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">import</span> <span class="p">{</span><span class="nx">TranslateService</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@ngx-translate/core&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span><span class="nx">MatPaginatorIntl</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@angular/material&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span><span class="nx">Injectable</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
 
-<pre><code class="language-js">import {TranslateService} from '@ngx-translate/core';
-import {MatPaginatorIntl} from '@angular/material';
-import {Injectable} from '@angular/core';
+<span class="err">@</span><span class="nx">Injectable</span><span class="p">()</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">CustomMatPaginatorIntl</span> <span class="k">extends</span> <span class="nx">MatPaginatorIntl</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">translate</span><span class="o">:</span> <span class="nx">TranslateService</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">();</span>
 
-@Injectable()
-export class CustomMatPaginatorIntl extends MatPaginatorIntl {
-  constructor(private translate: TranslateService) {
-    super();
+    <span class="k">this</span><span class="p">.</span><span class="nx">translate</span><span class="p">.</span><span class="nx">onLangChange</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">e</span><span class="o">:</span> <span class="nx">Event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">getAndInitTranslations</span><span class="p">();</span>
+    <span class="p">});</span>
 
-    this.translate.onLangChange.subscribe((e: Event) =&gt; {
-      this.getAndInitTranslations();
-    });
+    <span class="k">this</span><span class="p">.</span><span class="nx">getAndInitTranslations</span><span class="p">();</span>
+  <span class="p">}</span>
 
-    this.getAndInitTranslations();
-  }
+  <span class="nx">getAndInitTranslations</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">translate</span><span class="p">.</span><span class="nx">get</span><span class="p">([</span><span class="s1">&#39;items_per_page&#39;</span><span class="p">,</span> <span class="s1">&#39;next_page&#39;</span><span class="p">,</span> <span class="s1">&#39;previous_page&#39;</span><span class="p">,</span> <span class="s1">&#39;of_label&#39;</span><span class="p">]).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">translation</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">itemsPerPageLabel</span> <span class="o">=</span> <span class="nx">translation</span><span class="p">[</span><span class="s1">&#39;items_per_page&#39;</span><span class="p">];</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">nextPageLabel</span> <span class="o">=</span> <span class="nx">translation</span><span class="p">[</span><span class="s1">&#39;next_page&#39;</span><span class="p">];</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">previousPageLabel</span> <span class="o">=</span> <span class="nx">translation</span><span class="p">[</span><span class="s1">&#39;previous_page&#39;</span><span class="p">];</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">changes</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
 
-  getAndInitTranslations() {
-    this.translate.get(['items_per_page', 'next_page', 'previous_page', 'of_label']).subscribe(translation =&gt; {
-      this.itemsPerPageLabel = translation['items_per_page'];
-      this.nextPageLabel = translation['next_page'];
-      this.previousPageLabel = translation['previous_page'];
-      this.changes.next();
-    });
-  }
-
- getRangeLabel = (page: number, pageSize: number, length: number) =&gt;  {
-    if (length === 0 || pageSize === 0) {
-      return `0 / ${length}`;
-    }
-    length = Math.max(length, 0);
-    const startIndex = page * pageSize;
-    const endIndex = startIndex &lt; length ? Math.min(startIndex + pageSize, length) : startIndex + pageSize;
-    return `${startIndex + 1} - ${endIndex} / ${length}`;
-  }
-}
-</code></pre>
-
-<pre><code class="language-js">//./assets/i18n/tw.json
-
-  &quot;items_per_page&quot;: &quot;筆數&quot;,
-  &quot;next_page&quot;: &quot;下一頁&quot;,
-  &quot;previous_page&quot;: &quot;上一頁&quot;,
-  &quot;of_label&quot;: &quot;of&quot;,
-
-</code></pre>
-
-<pre><code class="language-js">//share.module.ts
-
-@NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    TranslateModule,
-    MatPaginatorModule,
-  ],
-  exports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    TranslateModule,
-    MatPaginatorModule,  
-  ],
-  providers: [
-    {
-      provide: MatPaginatorIntl,
-      useClass: CustomMatPaginatorIntl
-    }
-  ]
-})
-export class SharedModule {}
-
-</code></pre>
-
+ <span class="nx">getRangeLabel</span> <span class="o">=</span> <span class="p">(</span><span class="nx">page</span><span class="o">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">pageSize</span><span class="o">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">length</span><span class="o">:</span> <span class="nx">number</span><span class="p">)</span> <span class="p">=&gt;</span>  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">pageSize</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="sb">`0 / </span><span class="si">${</span><span class="nx">length</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">length</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">length</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">const</span> <span class="nx">startIndex</span> <span class="o">=</span> <span class="nx">page</span> <span class="o">*</span> <span class="nx">pageSize</span><span class="p">;</span>
+    <span class="k">const</span> <span class="nx">endIndex</span> <span class="o">=</span> <span class="nx">startIndex</span> <span class="o">&lt;</span> <span class="nx">length</span> <span class="o">?</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">startIndex</span> <span class="o">+</span> <span class="nx">pageSize</span><span class="p">,</span> <span class="nx">length</span><span class="p">)</span> <span class="o">:</span> <span class="nx">startIndex</span> <span class="o">+</span> <span class="nx">pageSize</span><span class="p">;</span>
+    <span class="k">return</span> <span class="sb">`</span><span class="si">${</span><span class="nx">startIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="sb"> - </span><span class="si">${</span><span class="nx">endIndex</span><span class="si">}</span><span class="sb"> / </span><span class="si">${</span><span class="nx">length</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//./assets/i18n/tw.json
+</span><span class="c1"></span>
+  <span class="s2">&#34;items_per_page&#34;</span><span class="o">:</span> <span class="s2">&#34;筆數&#34;</span><span class="p">,</span>
+  <span class="s2">&#34;next_page&#34;</span><span class="o">:</span> <span class="s2">&#34;下一頁&#34;</span><span class="p">,</span>
+  <span class="s2">&#34;previous_page&#34;</span><span class="o">:</span> <span class="s2">&#34;上一頁&#34;</span><span class="p">,</span>
+  <span class="s2">&#34;of_label&#34;</span><span class="o">:</span> <span class="s2">&#34;of&#34;</span><span class="p">,</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//share.module.ts
+</span><span class="c1"></span>
+<span class="err">@</span><span class="nx">NgModule</span><span class="p">({</span>
+  <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span>
+    <span class="nx">CommonModule</span><span class="p">,</span>
+    <span class="nx">FormsModule</span><span class="p">,</span>
+    <span class="nx">ReactiveFormsModule</span><span class="p">,</span>
+    <span class="nx">TranslateModule</span><span class="p">,</span>
+    <span class="nx">MatPaginatorModule</span><span class="p">,</span>
+  <span class="p">],</span>
+  <span class="nx">exports</span><span class="o">:</span> <span class="p">[</span>
+    <span class="nx">CommonModule</span><span class="p">,</span>
+    <span class="nx">FormsModule</span><span class="p">,</span>
+    <span class="nx">ReactiveFormsModule</span><span class="p">,</span>
+    <span class="nx">TranslateModule</span><span class="p">,</span>
+    <span class="nx">MatPaginatorModule</span><span class="p">,</span>  
+  <span class="p">],</span>
+  <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nx">provide</span><span class="o">:</span> <span class="nx">MatPaginatorIntl</span><span class="p">,</span>
+      <span class="nx">useClass</span><span class="o">:</span> <span class="nx">CustomMatPaginatorIntl</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">SharedModule</span> <span class="p">{}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p><img src="/img/translate_2.png" alt="" /></p>
     </div>
 
@@ -703,6 +940,7 @@ export class SharedModule {}
 
   
 
+  
   
 
     

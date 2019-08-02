@@ -82,7 +82,7 @@
 
 <meta itemprop="datePublished" content="2018-12-10T15:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-12-10T15:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1490">
+<meta itemprop="wordCount" content="1725">
 
 
 
@@ -387,76 +387,134 @@
 
 <p>因實作過程中,很多功能模塊都會用到,
 因此顯示錯誤的 function 都會統一放在子組件,</p>
-
-<pre><code class="language-js">import { Component, Input } from &quot;@angular/core&quot;;
-import { FormControl } from &quot;@angular/forms&quot;;
-@Component({
-  selector: &quot;validation-messages&quot;,
-  template:
-    '&lt;div class=&quot;error-message&quot; *ngIf=&quot;errorMessage !== null&quot;&gt;{{errorMessage}}&lt;/div&gt;',
-  styles: [&quot;.error-message{color:#DF7607;font-size: x-small;}&quot;]
-})
-export class ValidationComponent {
-  @Input() control: FormControl;
-  constructor() {}
-  get errorMessage() {
-    if (!!this.control) {
-      for (let propertyName in this.control.errors) {
-        if (
-          this.control.errors.hasOwnProperty(propertyName) &amp;&amp;
-          this.control.touched
-        ) {
-          return propertyName;
-        }
-      }
-    }
-    return null;
-  }
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">Input</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;@angular/core&#34;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">FormControl</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;@angular/forms&#34;</span><span class="p">;</span>
+<span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
+  <span class="nx">selector</span><span class="o">:</span> <span class="s2">&#34;validation-messages&#34;</span><span class="p">,</span>
+  <span class="nx">template</span><span class="o">:</span>
+    <span class="s1">&#39;&lt;div class=&#34;error-message&#34; *ngIf=&#34;errorMessage !== null&#34;&gt;{{errorMessage}}&lt;/div&gt;&#39;</span><span class="p">,</span>
+  <span class="nx">styles</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;.error-message{color:#DF7607;font-size: x-small;}&#34;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">ValidationComponent</span> <span class="p">{</span>
+  <span class="err">@</span><span class="nx">Input</span><span class="p">()</span> <span class="nx">control</span><span class="o">:</span> <span class="nx">FormControl</span><span class="p">;</span>
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{}</span>
+  <span class="nx">get</span> <span class="nx">errorMessage</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!!</span><span class="k">this</span><span class="p">.</span><span class="nx">control</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">propertyName</span> <span class="k">in</span> <span class="k">this</span><span class="p">.</span><span class="nx">control</span><span class="p">.</span><span class="nx">errors</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">control</span><span class="p">.</span><span class="nx">errors</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">propertyName</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">control</span><span class="p">.</span><span class="nx">touched</span>
+        <span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="nx">propertyName</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <hr />
 
 <h1 id="簡單的-html-驗證">簡單的 html 驗證</h1>
 
 <p>例如:在 post.component.html</p>
-
-<pre><code>
-&lt;div class=&quot;item-list&quot;&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;div class=&#34;item-list&#34;&gt;
   &lt;span&gt;account&lt;/span&gt;
-  &lt;input type=&quot;text&quot; placeholder=&quot;請輸入帳號&quot; [(ngModel)]=&quot;account&quot;
-  name=&quot;account&quot; #aa=&quot;ngModel&quot; minlength=&quot;6&quot;
-  pattern=&quot;^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$&quot; required&gt;
-  &lt;validation-messages [control]=&quot;aa&quot;&gt;&lt;/validation-messages&gt;
+  &lt;input type=&#34;text&#34; placeholder=&#34;請輸入帳號&#34; [(ngModel)]=&#34;account&#34;
+  name=&#34;account&#34; #aa=&#34;ngModel&#34; minlength=&#34;6&#34;
+  pattern=&#34;^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$&#34; required&gt;
+  &lt;validation-messages [control]=&#34;aa&#34;&gt;&lt;/validation-messages&gt;
 &lt;/div&gt;
-&lt;button (click)=&quot;send()&quot; [disabled]=&quot;aa.invalid&quot;&gt;
+&lt;button (click)=&#34;send()&#34; [disabled]=&#34;aa.invalid&#34;&gt;
   submit
 &lt;/button&gt;
-    
-</code></pre>
-
+    </pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>要把 input 變成控件,能夠使用 invalid,valid,touch,touched&hellip;等,就是加上模板變數 <code>#aa=&quot;ngModel&quot;</code></li>
 <li><code>&lt;form&gt;</code>標籤可加可不加</li>
 </ul>
 
 <p>以下例子是有加的</p>
-
-<pre><code>&lt;div&gt;
-  &lt;form #myForm=&quot;ngForm&quot;&gt;
-    &lt;div class=&quot;item-list&quot;&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;div&gt;
+  &lt;form #myForm=&#34;ngForm&#34;&gt;
+    &lt;div class=&#34;item-list&#34;&gt;
       &lt;span&gt;account&lt;/span&gt;
-      &lt;input type=&quot;text&quot; placeholder=&quot;請輸入帳號&quot;
-       [(ngModel)]=&quot;account&quot;
-      name=&quot;account&quot; #aa=&quot;ngModel&quot; minlength=&quot;6&quot;
-      pattern=&quot;^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$&quot; required&gt;
-      &lt;validation-messages [control]=&quot;aa&quot;&gt;&lt;/validation-messages&gt;
+      &lt;input type=&#34;text&#34; placeholder=&#34;請輸入帳號&#34;
+       [(ngModel)]=&#34;account&#34;
+      name=&#34;account&#34; #aa=&#34;ngModel&#34; minlength=&#34;6&#34;
+      pattern=&#34;^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$&#34; required&gt;
+      &lt;validation-messages [control]=&#34;aa&#34;&gt;&lt;/validation-messages&gt;
     &lt;/div&gt;
-    &lt;button (click)=&quot;submit(myForm)&quot; [disabled]=&quot;myForm.form.invalid&quot;&gt;submit&lt;/button&gt;
+    &lt;button (click)=&#34;submit(myForm)&#34; [disabled]=&#34;myForm.form.invalid&#34;&gt;submit&lt;/button&gt;
   &lt;/form&gt;
-&lt;/div&gt;
-</code></pre>
-
+&lt;/div&gt;</pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li><code>&lt;form&gt;</code>標籤也加上模板變數後,在<code>&lt;button&gt;</code>的 disable 就能驗證整個表單內的元素是否都有效</li>
 </ul>
@@ -472,73 +530,140 @@ export class ValidationComponent {
 <h2 id="一般寫法">一般寫法</h2>
 
 <p>在 fn-validator.directive.ts</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="err">@</span><span class="nx">Directive</span><span class="p">({</span>
+  <span class="nx">selector</span><span class="o">:</span> <span class="s2">&#34;[fnName]&#34;</span><span class="p">,</span>
+  <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nx">provide</span><span class="o">:</span> <span class="nx">NG_VALIDATORS</span><span class="p">,</span>
+      <span class="nx">useExisting</span><span class="o">:</span> <span class="nx">forwardRef</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">fnValidator</span><span class="p">),</span>
+      <span class="nx">multi</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">fnValidator</span> <span class="kr">implements</span> <span class="nx">Validator</span> <span class="p">{</span>
+  <span class="err">@</span><span class="nx">Input</span><span class="p">()</span> <span class="nx">fnName</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
 
-<pre><code class="language-js">@Directive({
-  selector: &quot;[fnName]&quot;,
-  providers: [
-    {
-      provide: NG_VALIDATORS,
-      useExisting: forwardRef(() =&gt; fnValidator),
-      multi: true
-    }
-  ]
-})
-export class fnValidator implements Validator {
-  @Input() fnName: string;
+  <span class="nx">validate</span><span class="p">(</span><span class="nx">c</span><span class="o">:</span> <span class="nx">AbstractControl</span><span class="p">)</span><span class="o">:</span> <span class="p">{</span> <span class="p">[</span><span class="nx">key</span><span class="o">:</span> <span class="nx">string</span><span class="p">]</span><span class="o">:</span> <span class="nx">any</span> <span class="p">}</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">fnValidator</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">fnName</span><span class="p">](</span><span class="nx">c</span><span class="p">);</span>
+  <span class="p">}</span>
 
-  validate(c: AbstractControl): { [key: string]: any } {
-    return fnValidator[this.fnName](c);
-  }
+  <span class="kr">static</span> <span class="nx">passwordValidator</span><span class="p">(</span><span class="nx">control</span><span class="o">:</span> <span class="nx">FormControl</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span>
+      <span class="o">!!</span><span class="nx">control</span><span class="p">.</span><span class="nx">value</span> <span class="o">&amp;&amp;</span>
+      <span class="o">!!</span><span class="nx">control</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">match</span> <span class="o">&amp;&amp;</span>
+      <span class="nx">control</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^(?=.*[0-9])[a-zA-Z0-9!@#$%^&amp;*]{6,100}$/</span><span class="p">)</span>
+    <span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span> <span class="nx">invalid_password</span><span class="o">:</span> <span class="kc">true</span> <span class="p">};</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
 
-  static passwordValidator(control: FormControl) {
-    if (
-      !!control.value &amp;&amp;
-      !!control.value.match &amp;&amp;
-      control.value.match(/^(?=.*[0-9])[a-zA-Z0-9!@#$%^&amp;*]{6,100}$/)
-    ) {
-      return null;
-    } else {
-      return { invalid_password: true };
-    }
-  }
-
-  static userValidator(control: FormControl) {
-    //英數字+@
-    if (
-      !!control.value &amp;&amp;
-      !!control.value.match &amp;&amp;
-      control.value.match(/^.[A-Za-z0-9@]+$/)
-    ) {
-      return null;
-    } else {
-      return { invalid_account: true };
-    }
-  }
-}
-</code></pre>
-
+  <span class="kr">static</span> <span class="nx">userValidator</span><span class="p">(</span><span class="nx">control</span><span class="o">:</span> <span class="nx">FormControl</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//英數字+@
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span>
+      <span class="o">!!</span><span class="nx">control</span><span class="p">.</span><span class="nx">value</span> <span class="o">&amp;&amp;</span>
+      <span class="o">!!</span><span class="nx">control</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">match</span> <span class="o">&amp;&amp;</span>
+      <span class="nx">control</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^.[A-Za-z0-9@]+$/</span><span class="p">)</span>
+    <span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span> <span class="nx">invalid_account</span><span class="o">:</span> <span class="kc">true</span> <span class="p">};</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>在要使用的 html 裡</p>
-
-<pre><code>&lt;form #myForm=&quot;ngForm&quot;&gt;
-  &lt;div class=&quot;item-list&quot;&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;form #myForm=&#34;ngForm&#34;&gt;
+  &lt;div class=&#34;item-list&#34;&gt;
     &lt;span&gt;account&lt;/span&gt;
-      &lt;input type=&quot;text&quot; placeholder=&quot;請輸入帳號&quot;
-      [(ngModel)]=&quot;account&quot; name=&quot;account&quot; #aa=&quot;ngModel&quot;
-      [fnName]=&quot;'userValidator'&quot;&gt;
-      &lt;validation-messages [control]=&quot;aa&quot;&gt;&lt;/validation-messages&gt;
+      &lt;input type=&#34;text&#34; placeholder=&#34;請輸入帳號&#34;
+      [(ngModel)]=&#34;account&#34; name=&#34;account&#34; #aa=&#34;ngModel&#34;
+      [fnName]=&#34;&#39;userValidator&#39;&#34;&gt;
+      &lt;validation-messages [control]=&#34;aa&#34;&gt;&lt;/validation-messages&gt;
     &lt;/div&gt;
-    &lt;div class=&quot;item-list&quot;&gt;
+    &lt;div class=&#34;item-list&#34;&gt;
       &lt;span&gt;password&lt;/span&gt;
-      &lt;input type=&quot;text&quot; placeholder=&quot;請輸入密碼&quot;
-      [(ngModel)]=&quot;password&quot; name=&quot;password&quot; #pp=&quot;ngModel&quot;
-      [fnName]=&quot;'passwordValidator'&quot;&gt;
-      &lt;validation-messages [control]=&quot;pp&quot;&gt;&lt;/validation-messages&gt;
+      &lt;input type=&#34;text&#34; placeholder=&#34;請輸入密碼&#34;
+      [(ngModel)]=&#34;password&#34; name=&#34;password&#34; #pp=&#34;ngModel&#34;
+      [fnName]=&#34;&#39;passwordValidator&#39;&#34;&gt;
+      &lt;validation-messages [control]=&#34;pp&#34;&gt;&lt;/validation-messages&gt;
     &lt;/div&gt;
-    &lt;button (click)=&quot;submit(myForm)&quot;
-    [disabled]=&quot;myForm.form.invalid&quot;&gt;submit&lt;/button&gt;
-  &lt;/form&gt;
-</code></pre>
-
+    &lt;button (click)=&#34;submit(myForm)&#34;
+    [disabled]=&#34;myForm.form.invalid&#34;&gt;submit&lt;/button&gt;
+  &lt;/form&gt;</pre></td></tr></table>
+</div>
+</div>
 <hr />
 
 <h2 id="把驗證方法另外封裝">把驗證方法另外封裝</h2>
@@ -548,91 +673,176 @@ export class fnValidator implements Validator {
 讓其他模式下也能用</p>
 
 <p>在 fn-validator.directive.ts</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">import</span> <span class="p">{</span>
+  <span class="nx">Input</span><span class="p">,</span>
+  <span class="nx">OnInit</span><span class="p">,</span>
+  <span class="nx">Directive</span><span class="p">,</span>
+  <span class="nx">forwardRef</span><span class="p">,</span>
+  <span class="nx">provide</span><span class="p">,</span>
+  <span class="nx">Attribute</span>
+<span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;@angular/core&#34;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Validator</span><span class="p">,</span> <span class="nx">AbstractControl</span><span class="p">,</span> <span class="nx">NG_VALIDATORS</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;@angular/forms&#34;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">ValidationService</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;../share/validation.service&#34;</span><span class="p">;</span>
 
-<pre><code class="language-js">import {
-  Input,
-  OnInit,
-  Directive,
-  forwardRef,
-  provide,
-  Attribute
-} from &quot;@angular/core&quot;;
-import { Validator, AbstractControl, NG_VALIDATORS } from &quot;@angular/forms&quot;;
-import { ValidationService } from &quot;../share/validation.service&quot;;
+<span class="err">@</span><span class="nx">Directive</span><span class="p">({</span>
+  <span class="nx">selector</span><span class="o">:</span> <span class="s2">&#34;[fnName]&#34;</span><span class="p">,</span>
+  <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nx">provide</span><span class="o">:</span> <span class="nx">NG_VALIDATORS</span><span class="p">,</span>
+      <span class="nx">useExisting</span><span class="o">:</span> <span class="nx">forwardRef</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">fnValidator</span><span class="p">),</span>
+      <span class="nx">multi</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">fnValidator</span> <span class="kr">implements</span> <span class="nx">Validator</span> <span class="p">{</span>
+  <span class="err">@</span><span class="nx">Input</span><span class="p">()</span> <span class="nx">fnName</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
 
-@Directive({
-  selector: &quot;[fnName]&quot;,
-  providers: [
-    {
-      provide: NG_VALIDATORS,
-      useExisting: forwardRef(() =&gt; fnValidator),
-      multi: true
-    }
-  ]
-})
-export class fnValidator implements Validator {
-  @Input() fnName: string;
-
-  validate(c: AbstractControl): { [key: string]: any } {
-    return ValidationService[this.fnName](c);
-  }
-}
-</code></pre>
-
+  <span class="nx">validate</span><span class="p">(</span><span class="nx">c</span><span class="o">:</span> <span class="nx">AbstractControl</span><span class="p">)</span><span class="o">:</span> <span class="p">{</span> <span class="p">[</span><span class="nx">key</span><span class="o">:</span> <span class="nx">string</span><span class="p">]</span><span class="o">:</span> <span class="nx">any</span> <span class="p">}</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">ValidationService</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">fnName</span><span class="p">](</span><span class="nx">c</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>在 validation.service.ts</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">import</span> <span class="p">{</span> <span class="nx">FormControl</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;@angular/forms&#34;</span><span class="p">;</span>
 
-<pre><code class="language-js">import { FormControl } from &quot;@angular/forms&quot;;
+<span class="k">export</span> <span class="k">class</span> <span class="nx">ValidationService</span> <span class="p">{</span>
+  <span class="kr">static</span> <span class="nx">passwordValidator</span><span class="p">(</span><span class="nx">control</span><span class="o">:</span> <span class="nx">FormControl</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span>
+      <span class="o">!!</span><span class="nx">control</span><span class="p">.</span><span class="nx">value</span> <span class="o">&amp;&amp;</span>
+      <span class="o">!!</span><span class="nx">control</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">match</span> <span class="o">&amp;&amp;</span>
+      <span class="nx">control</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^(?=.*[0-9])[a-zA-Z0-9!@#$%^&amp;*]{6,100}$/</span><span class="p">)</span>
+    <span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span> <span class="nx">invalid_password</span><span class="o">:</span> <span class="kc">true</span> <span class="p">};</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
 
-export class ValidationService {
-  static passwordValidator(control: FormControl) {
-    if (
-      !!control.value &amp;&amp;
-      !!control.value.match &amp;&amp;
-      control.value.match(/^(?=.*[0-9])[a-zA-Z0-9!@#$%^&amp;*]{6,100}$/)
-    ) {
-      return null;
-    } else {
-      return { invalid_password: true };
-    }
-  }
-
-  static userValidator(control: FormControl) {
-    //英數字+@
-    if (
-      !!control.value &amp;&amp;
-      !!control.value.match &amp;&amp;
-      control.value.match(/^.[A-Za-z0-9@]+$/)
-    ) {
-      return null;
-    } else {
-      return { invalid_account: true };
-    }
-  }
-}
-</code></pre>
-
+  <span class="kr">static</span> <span class="nx">userValidator</span><span class="p">(</span><span class="nx">control</span><span class="o">:</span> <span class="nx">FormControl</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//英數字+@
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span>
+      <span class="o">!!</span><span class="nx">control</span><span class="p">.</span><span class="nx">value</span> <span class="o">&amp;&amp;</span>
+      <span class="o">!!</span><span class="nx">control</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">match</span> <span class="o">&amp;&amp;</span>
+      <span class="nx">control</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^.[A-Za-z0-9@]+$/</span><span class="p">)</span>
+    <span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span> <span class="nx">invalid_account</span><span class="o">:</span> <span class="kc">true</span> <span class="p">};</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>在要使用的 html 裡</p>
-
-<pre><code>&lt;form #myForm=&quot;ngForm&quot;&gt;
-  &lt;div class=&quot;item-list&quot;&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;form #myForm=&#34;ngForm&#34;&gt;
+  &lt;div class=&#34;item-list&#34;&gt;
     &lt;span&gt;account&lt;/span&gt;
-      &lt;input type=&quot;text&quot; placeholder=&quot;請輸入帳號&quot;
-      [(ngModel)]=&quot;account&quot; name=&quot;account&quot; #aa=&quot;ngModel&quot;
-      [fnName]=&quot;'userValidator'&quot;&gt;
-      &lt;validation-messages [control]=&quot;aa&quot;&gt;&lt;/validation-messages&gt;
+      &lt;input type=&#34;text&#34; placeholder=&#34;請輸入帳號&#34;
+      [(ngModel)]=&#34;account&#34; name=&#34;account&#34; #aa=&#34;ngModel&#34;
+      [fnName]=&#34;&#39;userValidator&#39;&#34;&gt;
+      &lt;validation-messages [control]=&#34;aa&#34;&gt;&lt;/validation-messages&gt;
     &lt;/div&gt;
-    &lt;div class=&quot;item-list&quot;&gt;
+    &lt;div class=&#34;item-list&#34;&gt;
       &lt;span&gt;password&lt;/span&gt;
-      &lt;input type=&quot;text&quot; placeholder=&quot;請輸入密碼&quot;
-      [(ngModel)]=&quot;password&quot; name=&quot;password&quot; #pp=&quot;ngModel&quot;
-      [fnName]=&quot;'passwordValidator'&quot;&gt;
-      &lt;validation-messages [control]=&quot;pp&quot;&gt;&lt;/validation-messages&gt;
+      &lt;input type=&#34;text&#34; placeholder=&#34;請輸入密碼&#34;
+      [(ngModel)]=&#34;password&#34; name=&#34;password&#34; #pp=&#34;ngModel&#34;
+      [fnName]=&#34;&#39;passwordValidator&#39;&#34;&gt;
+      &lt;validation-messages [control]=&#34;pp&#34;&gt;&lt;/validation-messages&gt;
     &lt;/div&gt;
-    &lt;button (click)=&quot;submit(myForm)&quot;
-    [disabled]=&quot;myForm.form.invalid&quot;&gt;submit&lt;/button&gt;
-  &lt;/form&gt;
-</code></pre>
-
+    &lt;button (click)=&#34;submit(myForm)&#34;
+    [disabled]=&#34;myForm.form.invalid&#34;&gt;submit&lt;/button&gt;
+  &lt;/form&gt;</pre></td></tr></table>
+</div>
+</div>
 <hr />
 
 <h1 id="常見情境-確認密碼-confirm-password">常見情境-確認密碼 Confirm Password</h1>
@@ -641,51 +851,96 @@ export class ValidationService {
 所以會另外做指令</p>
 
 <p>在 equal-validator.directive.ts</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="err">@</span><span class="nx">Directive</span><span class="p">({</span>
+  <span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;[validateEqual][formControlName],[validateEqual][formControl],[validateEqual][ngModel]&#39;</span><span class="p">,</span>
+  <span class="nx">providers</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nx">provide</span><span class="o">:</span> <span class="nx">NG_VALIDATORS</span><span class="p">,</span> <span class="nx">useExisting</span><span class="o">:</span> <span class="nx">forwardRef</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">EqualValidator</span><span class="p">),</span> <span class="nx">multi</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">EqualValidator</span> <span class="kr">implements</span> <span class="nx">Validator</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="err">@</span><span class="nx">Attribute</span><span class="p">(</span><span class="s1">&#39;validateEqual&#39;</span><span class="p">)</span> <span class="kr">public</span> <span class="nx">validateEqual</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">}</span>
 
-<pre><code class="language-js">@Directive({
-  selector: '[validateEqual][formControlName],[validateEqual][formControl],[validateEqual][ngModel]',
-  providers: [
-    { provide: NG_VALIDATORS, useExisting: forwardRef(() =&gt; EqualValidator), multi: true }
-  ]
-})
-export class EqualValidator implements Validator {
-  constructor(@Attribute('validateEqual') public validateEqual: string) {
-  }
-
-  validate(c: AbstractControl): { [key: string]: any } {
-    let v = c.value;
-    let e = c.root.get(this.validateEqual);
-    if (e &amp;&amp; v !== e.value)
-      return { validateEqual: false }
-    return null;
-  }
-}
-</code></pre>
-
+  <span class="nx">validate</span><span class="p">(</span><span class="nx">c</span><span class="o">:</span> <span class="nx">AbstractControl</span><span class="p">)</span><span class="o">:</span> <span class="p">{</span> <span class="p">[</span><span class="nx">key</span><span class="o">:</span> <span class="nx">string</span><span class="p">]</span><span class="o">:</span> <span class="nx">any</span> <span class="p">}</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">v</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">e</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">validateEqual</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">e</span> <span class="o">&amp;&amp;</span> <span class="nx">v</span> <span class="o">!==</span> <span class="nx">e</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
+      <span class="k">return</span> <span class="p">{</span> <span class="nx">validateEqual</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>在要使用的 html 裡</p>
-
-<pre><code>&lt;form #myForm=&quot;ngForm&quot;&gt;
-  &lt;div class=&quot;item-list&quot;&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;form #myForm=&#34;ngForm&#34;&gt;
+  &lt;div class=&#34;item-list&#34;&gt;
     &lt;span&gt;account&lt;/span&gt;
-      &lt;input type=&quot;text&quot; placeholder=&quot;請輸入帳號&quot; [(ngModel)]=&quot;account&quot; name=&quot;account&quot; #aa=&quot;ngModel&quot; 
-      [fnName]=&quot;'userValidator'&quot;&gt;
-      &lt;validation-messages [control]=&quot;aa&quot;&gt;&lt;/validation-messages&gt;
+      &lt;input type=&#34;text&#34; placeholder=&#34;請輸入帳號&#34; [(ngModel)]=&#34;account&#34; name=&#34;account&#34; #aa=&#34;ngModel&#34; 
+      [fnName]=&#34;&#39;userValidator&#39;&#34;&gt;
+      &lt;validation-messages [control]=&#34;aa&#34;&gt;&lt;/validation-messages&gt;
     &lt;/div&gt;
-    &lt;div class=&quot;item-list&quot;&gt;
+    &lt;div class=&#34;item-list&#34;&gt;
       &lt;span&gt;password&lt;/span&gt;
-      &lt;input type=&quot;text&quot; placeholder=&quot;請輸入密碼&quot; [(ngModel)]=&quot;password&quot; name=&quot;password&quot; #pp=&quot;ngModel&quot;
-      [fnName]=&quot;'passwordValidator'&quot;&gt;
-      &lt;validation-messages [control]=&quot;pp&quot;&gt;&lt;/validation-messages&gt;
+      &lt;input type=&#34;text&#34; placeholder=&#34;請輸入密碼&#34; [(ngModel)]=&#34;password&#34; name=&#34;password&#34; #pp=&#34;ngModel&#34;
+      [fnName]=&#34;&#39;passwordValidator&#39;&#34;&gt;
+      &lt;validation-messages [control]=&#34;pp&#34;&gt;&lt;/validation-messages&gt;
     &lt;/div&gt;
-    &lt;div class=&quot;item-list&quot;&gt;
+    &lt;div class=&#34;item-list&#34;&gt;
       &lt;span&gt;repeat&lt;/span&gt;
-      &lt;input type=&quot;text&quot; placeholder=&quot;請重複密碼&quot; [(ngModel)]=&quot;repeat&quot; name=&quot;repeat&quot; #rr=&quot;ngModel&quot; validateEqual=&quot;password&quot;&gt;
+      &lt;input type=&#34;text&#34; placeholder=&#34;請重複密碼&#34; [(ngModel)]=&#34;repeat&#34; name=&#34;repeat&#34; #rr=&#34;ngModel&#34; validateEqual=&#34;password&#34;&gt;
     &lt;/div&gt;
-    &lt;validation-messages [control]=&quot;rr&quot;&gt;&lt;/validation-messages&gt;
-    &lt;button (click)=&quot;submit(myForm)&quot; [disabled]=&quot;myForm.form.invalid&quot;&gt;submit&lt;/button&gt;
-  &lt;/form&gt;
-</code></pre>
-
+    &lt;validation-messages [control]=&#34;rr&#34;&gt;&lt;/validation-messages&gt;
+    &lt;button (click)=&#34;submit(myForm)&#34; [disabled]=&#34;myForm.form.invalid&#34;&gt;submit&lt;/button&gt;
+  &lt;/form&gt;</pre></td></tr></table>
+</div>
+</div>
 <hr />
 
 <h1 id="模板變數-name-ngif-與-hidden">模板變數(#name) *ngIf 與 [hidden]</h1>
@@ -698,25 +953,44 @@ export class EqualValidator implements Validator {
 
 <p>曾在開發的時候,同個Component因為資料的不同,
 導致需要顯示的input也不盡相同</p>
-
-<pre><code>&lt;div *ngIf=&quot;!topData&quot;&gt;
- &lt;input type=&quot;text&quot; #account=&quot;ngModel&quot;
-    [(ngModel)]=&quot;AgentAccountSel&quot;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;div *ngIf=&#34;!topData&#34;&gt;
+ &lt;input type=&#34;text&#34; #account=&#34;ngModel&#34;
+    [(ngModel)]=&#34;AgentAccountSel&#34;
   /&gt;
-  &lt;validation-messages [control]=&quot;account&quot;&gt;&lt;/validation-messages&gt;
+  &lt;validation-messages [control]=&#34;account&#34;&gt;&lt;/validation-messages&gt;
 &lt;/div&gt;
 ....
 ....
 &lt;button
-  *ngIf=&quot;!topData&quot;
-  (click)=&quot;searchList()&quot;
-  class=&quot;search&quot;
-  [disabled]=&quot;account.invalid&quot;
-  [ngClass]=&quot;{ disabled: account.invalid}&quot;
+  *ngIf=&#34;!topData&#34;
+  (click)=&#34;searchList()&#34;
+  class=&#34;search&#34;
+  [disabled]=&#34;account.invalid&#34;
+  [ngClass]=&#34;{ disabled: account.invalid}&#34;
 &gt;
-&lt;/button&gt;
-</code></pre>
-
+&lt;/button&gt;</pre></td></tr></table>
+</div>
+</div>
 <p>此時會出現錯誤,它抓不到<code>account</code>,沒有辦法判斷<code>account.invalid</code>,</p>
 
 <p>上述<code>&lt;button&gt;</code>跟<code>&lt;div&gt;</code>他們的<code>*ngIf</code>條件一樣,</p>
@@ -724,24 +998,44 @@ export class EqualValidator implements Validator {
 <p>但因為<code>&lt;div *ngIf=&quot;!topData&quot;&gt;</code>有可能在Dom上找不到,</p>
 
 <p>因此要採用<code>[hidden]</code>的方式</p>
-
-<pre><code>&lt;div [hidden]=&quot;!!topData&quot;&gt;
- &lt;input type=&quot;text&quot; #account=&quot;ngModel&quot;
-    [(ngModel)]=&quot;AgentAccountSel&quot;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;div [hidden]=&#34;!!topData&#34;&gt;
+ &lt;input type=&#34;text&#34; #account=&#34;ngModel&#34;
+    [(ngModel)]=&#34;AgentAccountSel&#34;
   /&gt;
-  &lt;validation-messages [control]=&quot;account&quot;&gt;&lt;/validation-messages&gt;
+  &lt;validation-messages [control]=&#34;account&#34;&gt;&lt;/validation-messages&gt;
 &lt;/div&gt;
 ....
 ....
 &lt;button
-  *ngIf=&quot;!topData&quot;
-  (click)=&quot;searchList()&quot;
-  class=&quot;search&quot;
-  [disabled]=&quot;account.invalid&quot;
-  [ngClass]=&quot;{ disabled: account.invalid}&quot;
+  *ngIf=&#34;!topData&#34;
+  (click)=&#34;searchList()&#34;
+  class=&#34;search&#34;
+  [disabled]=&#34;account.invalid&#34;
+  [ngClass]=&#34;{ disabled: account.invalid}&#34;
 &gt;
-&lt;/button&gt;
-</code></pre>
+&lt;/button&gt;</pre></td></tr></table>
+</div>
+</div>
     </div>
 
     
@@ -807,6 +1101,7 @@ export class EqualValidator implements Validator {
 
   
 
+  
   
 
     

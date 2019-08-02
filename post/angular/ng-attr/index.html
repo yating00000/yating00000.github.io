@@ -80,7 +80,7 @@
 
 <meta itemprop="datePublished" content="2018-12-26T11:30:13&#43;00:00" />
 <meta itemprop="dateModified" content="2018-12-26T11:30:13&#43;00:00" />
-<meta itemprop="wordCount" content="1292">
+<meta itemprop="wordCount" content="1521">
 
 
 
@@ -399,80 +399,156 @@
 <p>剩下的 tbody tr td 都使用 display:block 來排版</p>
 
 <p>那在angular下可以這樣寫</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>標題1<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>標題2<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>標題3<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>標題4<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span> <span class="err">[</span><span class="na">attr</span><span class="err">.</span><span class="na">data-title</span><span class="err">]=&#34;&#39;</span><span class="na">標題1</span><span class="err">&#39;&#34;</span><span class="p">&gt;</span>A1<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span> <span class="err">[</span><span class="na">attr</span><span class="err">.</span><span class="na">data-title</span><span class="err">]=&#34;&#39;</span><span class="na">標題2</span><span class="err">&#39;&#34;</span><span class="p">&gt;</span>A2<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span> <span class="err">[</span><span class="na">attr</span><span class="err">.</span><span class="na">data-title</span><span class="err">]=&#34;&#39;</span><span class="na">標題3</span><span class="err">&#39;&#34;</span><span class="p">&gt;</span>A3<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span> <span class="err">[</span><span class="na">attr</span><span class="err">.</span><span class="na">data-title</span><span class="err">]=&#34;&#39;</span><span class="na">標題4</span><span class="err">&#39;&#34;</span><span class="p">&gt;</span>A4<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span> <span class="err">[</span><span class="na">attr</span><span class="err">.</span><span class="na">data-title</span><span class="err">]=&#34;&#39;</span><span class="na">標題1</span><span class="err">&#39;&#34;</span><span class="p">&gt;</span>B1<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span> <span class="err">[</span><span class="na">attr</span><span class="err">.</span><span class="na">data-title</span><span class="err">]=&#34;&#39;</span><span class="na">標題2</span><span class="err">&#39;&#34;</span><span class="p">&gt;</span>B2<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span> <span class="err">[</span><span class="na">attr</span><span class="err">.</span><span class="na">data-title</span><span class="err">]=&#34;&#39;</span><span class="na">標題3</span><span class="err">&#39;&#34;</span><span class="p">&gt;</span>B3<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span> <span class="err">[</span><span class="na">attr</span><span class="err">.</span><span class="na">data-title</span><span class="err">]=&#34;&#39;</span><span class="na">標題4</span><span class="err">&#39;&#34;</span><span class="p">&gt;</span>B4<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//css
+</span><span class="c1"></span><span class="err">@</span><span class="nx">media</span> <span class="nx">only</span> <span class="nx">screen</span> <span class="nx">and</span> <span class="p">(</span><span class="nx">max</span><span class="o">-</span><span class="nx">width</span><span class="o">:</span> <span class="mi">767</span><span class="nx">px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">.</span><span class="nx">table</span> <span class="p">{</span>
+    <span class="nx">display</span><span class="o">:</span> <span class="nx">block</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="p">.</span><span class="nx">table</span> <span class="nx">thead</span><span class="p">,</span>
+  <span class="p">.</span><span class="nx">table</span> <span class="nx">tbody</span><span class="p">,</span>
+  <span class="p">.</span><span class="nx">table</span> <span class="nx">tfoot</span><span class="p">,</span>
+  <span class="p">.</span><span class="nx">table</span> <span class="nx">th</span><span class="p">,</span>
+  <span class="p">.</span><span class="nx">table</span> <span class="nx">td</span><span class="p">,</span>
+  <span class="p">.</span><span class="nx">table</span> <span class="nx">tr</span> <span class="p">{</span>
+    <span class="nx">display</span><span class="o">:</span> <span class="nx">block</span><span class="p">;</span>
+  <span class="p">}</span>
 
-<pre><code class="language-html">&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;標題1&lt;/th&gt;
-      &lt;th&gt;標題2&lt;/th&gt;
-      &lt;th&gt;標題3&lt;/th&gt;
-      &lt;th&gt;標題4&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td [attr.data-title]=&quot;'標題1'&quot;&gt;A1&lt;/td&gt;
-      &lt;td [attr.data-title]=&quot;'標題2'&quot;&gt;A2&lt;/td&gt;
-      &lt;td [attr.data-title]=&quot;'標題3'&quot;&gt;A3&lt;/td&gt;
-      &lt;td [attr.data-title]=&quot;'標題4'&quot;&gt;A4&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td [attr.data-title]=&quot;'標題1'&quot;&gt;B1&lt;/td&gt;
-      &lt;td [attr.data-title]=&quot;'標題2'&quot;&gt;B2&lt;/td&gt;
-      &lt;td [attr.data-title]=&quot;'標題3'&quot;&gt;B3&lt;/td&gt;
-      &lt;td [attr.data-title]=&quot;'標題4'&quot;&gt;B4&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-</code></pre>
+  <span class="p">.</span><span class="nx">table</span> <span class="nx">thead</span> <span class="nx">tr</span> <span class="p">{</span>
+    <span class="nx">position</span><span class="o">:</span> <span class="nx">absolute</span><span class="p">;</span>
+    <span class="nx">top</span><span class="o">:</span> <span class="o">-</span><span class="mi">9999</span><span class="nx">px</span><span class="p">;</span>
+    <span class="nx">left</span><span class="o">:</span> <span class="o">-</span><span class="mi">9999</span><span class="nx">px</span><span class="p">;</span>
+  <span class="p">}</span>
 
-<pre><code class="language-js">//css
-@media only screen and (max-width: 767px) {
-  .table {
-    display: block;
-  }
-  .table thead,
-  .table tbody,
-  .table tfoot,
-  .table th,
-  .table td,
-  .table tr {
-    display: block;
-  }
+  <span class="p">.</span><span class="nx">table</span> <span class="nx">tbody</span> <span class="nx">tr</span> <span class="nx">td</span> <span class="p">{</span>
+    <span class="nx">height</span><span class="o">:</span> <span class="nx">auto</span><span class="p">;</span>
+    <span class="nx">min</span><span class="o">-</span><span class="nx">height</span><span class="o">:</span> <span class="mi">30</span><span class="nx">px</span><span class="p">;</span>
+    <span class="nx">position</span><span class="o">:</span> <span class="nx">relative</span><span class="p">;</span>
+  <span class="p">}</span>
 
-  .table thead tr {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
+  <span class="p">.</span><span class="nx">table</span> <span class="nx">tbody</span> <span class="nx">tr</span> <span class="nx">td</span> <span class="nx">span</span><span class="p">,.</span><span class="nx">table</span> <span class="nx">tbody</span> <span class="nx">tr</span> <span class="nx">td</span> <span class="nx">a</span> <span class="p">{</span>
+    <span class="nx">line</span><span class="o">-</span><span class="nx">height</span><span class="o">:</span> <span class="mi">34</span><span class="nx">px</span><span class="p">;</span>
+  <span class="p">}</span>
 
-  .table tbody tr td {
-    height: auto;
-    min-height: 30px;
-    position: relative;
-  }
+  <span class="p">.</span><span class="nx">table</span> <span class="nx">td</span><span class="o">:</span><span class="nx">before</span> <span class="p">{</span>
+    <span class="nx">position</span><span class="o">:</span> <span class="nx">absolute</span><span class="p">;</span>
+    <span class="nx">top</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">left</span><span class="o">:</span> <span class="mi">10</span><span class="nx">px</span><span class="p">;</span>
+    <span class="nx">line</span><span class="o">-</span><span class="nx">height</span><span class="o">:</span> <span class="mi">40</span><span class="nx">px</span><span class="p">;</span>
+  <span class="p">}</span>
 
-  .table tbody tr td span,.table tbody tr td a {
-    line-height: 34px;
-  }
+  <span class="p">.</span><span class="nx">table</span> <span class="nx">td</span><span class="o">:</span><span class="nx">before</span> <span class="p">{</span>
+    <span class="nx">content</span><span class="o">:</span> <span class="nx">attr</span><span class="p">(</span><span class="nx">data</span><span class="o">-</span><span class="nx">title</span><span class="p">);</span>
+  <span class="p">}</span>
 
-  .table td:before {
-    position: absolute;
-    top: 0;
-    left: 10px;
-    line-height: 40px;
-  }
-
-  .table td:before {
-    content: attr(data-title);
-  }
-
-  tfoot tr td {
-    position: relative;
-  }
-}
-</code></pre>
-
+  <span class="nx">tfoot</span> <span class="nx">tr</span> <span class="nx">td</span> <span class="p">{</span>
+    <span class="nx">position</span><span class="o">:</span> <span class="nx">relative</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <hr />
 
 <h1 id="常見情境-直接在列表上更新">常見情境-直接在列表上更新</h1>
@@ -484,110 +560,238 @@
 
 <p>所以作法上就是在html元素上綁上自訂義的值,
 在用監聽的方式,一但按下(click)後就開始做更新修改的事情</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span><span class="p">,</span> <span class="nx">OnDestroy</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">FormControl</span><span class="p">,</span> <span class="nx">Validators</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;@angular/forms&#34;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">fromEvent</span> <span class="nx">as</span> <span class="nx">observableFromEvent</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;rxjs/internal/observable/fromEvent&#34;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Observable</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;rxjs/internal/Observable&#34;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Subscription</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;rxjs/internal/Subscription&#34;</span><span class="p">;</span>
 
-<pre><code class="language-js">import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormControl, Validators } from &quot;@angular/forms&quot;;
-import { fromEvent as observableFromEvent } from &quot;rxjs/internal/observable/fromEvent&quot;;
-import { Observable } from &quot;rxjs/internal/Observable&quot;;
-import { Subscription } from &quot;rxjs/internal/Subscription&quot;;
+<span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
+  <span class="nx">selector</span><span class="o">:</span> <span class="s1">&#39;my-app&#39;</span><span class="p">,</span>
+  <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;./app.component.html&#39;</span><span class="p">,</span>
+  <span class="nx">styleUrls</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;./app.component.css&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">AppComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span><span class="p">,</span> <span class="nx">OnDestroy</span> <span class="p">{</span>
+  <span class="nx">subscriptionClick</span><span class="o">:</span> <span class="nx">Subscription</span><span class="p">;</span>
+  <span class="nx">fc</span><span class="o">:</span> <span class="nx">FormControl</span><span class="p">;</span>
+  <span class="nx">a</span> <span class="o">=</span> <span class="s2">&#34;AAA&#34;</span>
+  <span class="nx">b</span> <span class="o">=</span> <span class="s2">&#34;BBB&#34;</span>
+  <span class="nx">c</span> <span class="o">=</span> <span class="s2">&#34;CCC&#34;</span>
+  <span class="nx">selectID</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
 
-@Component({
-  selector: 'my-app',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent implements OnInit, OnDestroy {
-  subscriptionClick: Subscription;
-  fc: FormControl;
-  a = &quot;AAA&quot;
-  b = &quot;BBB&quot;
-  c = &quot;CCC&quot;
-  selectID = 0;
-  constructor() { }
+  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">subscriptionClick</span> <span class="o">=</span> <span class="nx">observableFromEvent</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="s2">&#34;click&#34;</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
+      <span class="p">(</span><span class="nx">e</span><span class="o">:</span> <span class="nx">MouseEvent</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!!</span><span class="nx">e</span><span class="p">.</span><span class="nx">srcElement</span><span class="p">.</span><span class="nx">attributes</span><span class="p">.</span><span class="nx">getNamedItem</span><span class="p">(</span><span class="s2">&#34;change-val&#34;</span><span class="p">))</span> <span class="p">{</span>
+          <span class="kd">let</span> <span class="nx">v</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">srcElement</span><span class="p">.</span><span class="nx">attributes</span><span class="p">.</span><span class="nx">getNamedItem</span><span class="p">(</span><span class="s2">&#34;change-val&#34;</span><span class="p">);</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">selectID</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">nodeValue</span><span class="p">);</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">fc</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormControl</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="p">[</span>
+            <span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">,</span>
+          <span class="p">]);</span>
+        <span class="p">}</span>
 
-  ngOnInit() {
-    this.subscriptionClick = observableFromEvent(window, &quot;click&quot;).subscribe(
-      (e: MouseEvent) =&gt; {
-        if (!!e.srcElement.attributes.getNamedItem(&quot;change-val&quot;)) {
-          let v = e.srcElement.attributes.getNamedItem(&quot;change-val&quot;);
-          this.selectID = parseInt(v.nodeValue);
-          this.fc = new FormControl(&quot;&quot;, [
-            Validators.required,
-          ]);
-        }
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">e</span><span class="p">.</span><span class="nx">srcElement</span><span class="p">.</span><span class="nx">attributes</span><span class="p">.</span><span class="nx">getNamedItem</span><span class="p">(</span><span class="s2">&#34;change-val&#34;</span><span class="p">))</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">fc</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">clickReset</span><span class="p">();</span>
+            <span class="k">return</span><span class="p">;</span>
+          <span class="p">}</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!!</span><span class="k">this</span><span class="p">.</span><span class="nx">fc</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">fc</span><span class="p">.</span><span class="nx">valid</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">saveVal</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">fc</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">clickReset</span><span class="p">();</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
 
-        if (!e.srcElement.attributes.getNamedItem(&quot;change-val&quot;)) {
-          if (!this.fc) {
-            this.clickReset();
-            return;
-          }
-          if (!!this.fc &amp;&amp; this.fc.valid) {
-            this.saveVal(this.fc.value)
-            this.clickReset();
-          }
-        }
-      }
-    );
-  }
+  <span class="nx">ngOnDestroy</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!!</span><span class="k">this</span><span class="p">.</span><span class="nx">subscriptionClick</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">subscriptionClick</span><span class="p">.</span><span class="nx">unsubscribe</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
 
-  ngOnDestroy() {
-    if (!!this.subscriptionClick) {
-      this.subscriptionClick.unsubscribe();
-    }
-  }
+  <span class="nx">clickReset</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">selectID</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!!</span><span class="k">this</span><span class="p">.</span><span class="nx">fc</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">fc</span><span class="p">.</span><span class="nx">setValue</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
 
-  clickReset() {
-    this.selectID = 0;
-    if (!!this.fc) {
-      this.fc.setValue(&quot;&quot;)
-    }
-  }
-
-  saveVal(val: string) {
-    switch (this.selectID) {
-      case 1:
-        this.a = val;
-        break;
-      case 2:
-        this.b = val;
-        break;
-      case 3:
-        this.c = val;
-        break;
-    }
-  }
-}
-</code></pre>
-
-<pre><code>&lt;div class=&quot;flex&quot;&gt;
+  <span class="nx">saveVal</span><span class="p">(</span><span class="nx">val</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">selectID</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">c</span> <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;div class=&#34;flex&#34;&gt;
   &lt;div&gt;
-    &lt;span [attr.change-val]=&quot;1&quot; *ngIf=&quot;selectID != 1&quot;&gt;{{ a }}&lt;/span&gt;
-    &lt;div *ngIf=&quot;selectID == 1 &amp;&amp; !!fc&quot;&gt;
-      &lt;input [attr.change-val]=&quot;1&quot; [formControl]=&quot;fc&quot; cusAutofocus /&gt; 
-      &lt;button *ngIf=&quot;fc.touched &amp;&amp; !fc.valid&quot; (click)=&quot;clickReset()&quot;&gt;X&lt;/button&gt;
-      &lt;span *ngIf=&quot;fc.touched &amp;&amp; fc.errors &amp;&amp; fc.errors.required&quot; class=&quot;tip&quot;&gt;必填&lt;/span&gt;
+    &lt;span [attr.change-val]=&#34;1&#34; *ngIf=&#34;selectID != 1&#34;&gt;{{ a }}&lt;/span&gt;
+    &lt;div *ngIf=&#34;selectID == 1 &amp;&amp; !!fc&#34;&gt;
+      &lt;input [attr.change-val]=&#34;1&#34; [formControl]=&#34;fc&#34; cusAutofocus /&gt; 
+      &lt;button *ngIf=&#34;fc.touched &amp;&amp; !fc.valid&#34; (click)=&#34;clickReset()&#34;&gt;X&lt;/button&gt;
+      &lt;span *ngIf=&#34;fc.touched &amp;&amp; fc.errors &amp;&amp; fc.errors.required&#34; class=&#34;tip&#34;&gt;必填&lt;/span&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div&gt;
-    &lt;span [attr.change-val]=&quot;2&quot; *ngIf=&quot;selectID != 2&quot;&gt;{{ b }}&lt;/span&gt;
-    &lt;div *ngIf=&quot;selectID == 2 &amp;&amp; !!fc&quot;&gt;
-      &lt;input [attr.change-val]=&quot;2&quot; [formControl]=&quot;fc&quot; cusAutofocus /&gt; 
-      &lt;button *ngIf=&quot;fc.touched &amp;&amp; !fc.valid&quot; (click)=&quot;clickReset()&quot;&gt;X&lt;/button&gt;
-      &lt;span *ngIf=&quot;fc.touched &amp;&amp; fc.errors &amp;&amp; fc.errors.required&quot; class=&quot;tip&quot;&gt;必填&lt;/span&gt;
+    &lt;span [attr.change-val]=&#34;2&#34; *ngIf=&#34;selectID != 2&#34;&gt;{{ b }}&lt;/span&gt;
+    &lt;div *ngIf=&#34;selectID == 2 &amp;&amp; !!fc&#34;&gt;
+      &lt;input [attr.change-val]=&#34;2&#34; [formControl]=&#34;fc&#34; cusAutofocus /&gt; 
+      &lt;button *ngIf=&#34;fc.touched &amp;&amp; !fc.valid&#34; (click)=&#34;clickReset()&#34;&gt;X&lt;/button&gt;
+      &lt;span *ngIf=&#34;fc.touched &amp;&amp; fc.errors &amp;&amp; fc.errors.required&#34; class=&#34;tip&#34;&gt;必填&lt;/span&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div&gt;
-    &lt;span [attr.change-val]=&quot;3&quot; *ngIf=&quot;selectID != 3&quot;&gt;{{ c }}&lt;/span&gt;
-    &lt;div *ngIf=&quot;selectID == 3 &amp;&amp; !!fc&quot;&gt;
-      &lt;input [attr.change-val]=&quot;3&quot; [formControl]=&quot;fc&quot; cusAutofocus /&gt; 
-      &lt;button *ngIf=&quot;fc.touched &amp;&amp; !fc.valid&quot; (click)=&quot;clickReset()&quot;&gt;X&lt;/button&gt;
-      &lt;span *ngIf=&quot;fc.touched &amp;&amp; fc.errors &amp;&amp; fc.errors.required&quot; class=&quot;tip&quot;&gt;必填&lt;/span&gt;
+    &lt;span [attr.change-val]=&#34;3&#34; *ngIf=&#34;selectID != 3&#34;&gt;{{ c }}&lt;/span&gt;
+    &lt;div *ngIf=&#34;selectID == 3 &amp;&amp; !!fc&#34;&gt;
+      &lt;input [attr.change-val]=&#34;3&#34; [formControl]=&#34;fc&#34; cusAutofocus /&gt; 
+      &lt;button *ngIf=&#34;fc.touched &amp;&amp; !fc.valid&#34; (click)=&#34;clickReset()&#34;&gt;X&lt;/button&gt;
+      &lt;span *ngIf=&#34;fc.touched &amp;&amp; fc.errors &amp;&amp; fc.errors.required&#34; class=&#34;tip&#34;&gt;必填&lt;/span&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-
-<pre><code>//css
+&lt;/div&gt;</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">//css
 
 .flex{
   display: flex;
@@ -606,8 +810,9 @@ button{
 .tip{
   font-size: smaller;
   color:orange;
-}
-</code></pre>
+}</pre></td></tr></table>
+</div>
+</div>
     </div>
 
     
@@ -660,6 +865,7 @@ button{
 
   
 
+  
   
 
     

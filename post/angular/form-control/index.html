@@ -80,7 +80,7 @@
 
 <meta itemprop="datePublished" content="2018-12-12T15:15:57&#43;00:00" />
 <meta itemprop="dateModified" content="2018-12-12T15:15:57&#43;00:00" />
-<meta itemprop="wordCount" content="830">
+<meta itemprop="wordCount" content="972">
 
 
 
@@ -387,28 +387,50 @@
 <p>可單獨使用,不需<code>[formGroup]</code></p>
 
 <p>ip-detail.component.ts</p>
-
-<pre><code class="language-js">  ipContent = new FormControl(&quot;&quot;, [
-    Validators.required,
-    ValidationService.ipValidator
-  ]);
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js">  <span class="nx">ipContent</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormControl</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">,</span>
+    <span class="nx">ValidationService</span><span class="p">.</span><span class="nx">ipValidator</span>
+  <span class="p">]);</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>ip-detail.component.html</p>
-
-<pre><code>&lt;div&gt;
-    &lt;input [formControl]=&quot;ipContent&quot;/&gt;
-    &lt;validation-messages [control]=&quot;ipContent&quot;&gt;&lt;/validation-messages&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;div&gt;
+    &lt;input [formControl]=&#34;ipContent&#34;/&gt;
+    &lt;validation-messages [control]=&#34;ipContent&#34;&gt;&lt;/validation-messages&gt;
 &lt;/div&gt;
 &lt;button
-    (click)=&quot;enter()&quot;
-    [disabled]=&quot;!ipContent.valid&quot;
-    [ngClass]=&quot;{ disable: !ipContent.valid }&quot;
+    (click)=&#34;enter()&#34;
+    [disabled]=&#34;!ipContent.valid&#34;
+    [ngClass]=&#34;{ disable: !ipContent.valid }&#34;
 &gt;
-    {{ &quot;insert&quot; | translate }}
-&lt;/button&gt;
-</code></pre>
-
+    {{ &#34;insert&#34; | translate }}
+&lt;/button&gt;</pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>驗證方式跟FormBuilder一樣</li>
 </ul>
@@ -418,28 +440,50 @@
 <h1 id="有沒有-form-標籤的差異">有沒有<code>&lt;form&gt;</code>標籤的差異</h1>
 
 <p>當沒有使用<code>[formGroup]</code>時,html寫法也有些變化</p>
-
-<pre><code>//FormBuilder
-&lt;form [formGroup]=&quot;form&quot;&gt;
-  &lt;input type=&quot;text&quot; formControlName=&quot;account&quot;/&gt;
-  &lt;validation-messages [control]=&quot;form.controls.account&quot;&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">//FormBuilder
+&lt;form [formGroup]=&#34;form&#34;&gt;
+  &lt;input type=&#34;text&#34; formControlName=&#34;account&#34;/&gt;
+  &lt;validation-messages [control]=&#34;form.controls.account&#34;&gt;
     &lt;/validation-messages&gt;
-  &lt;button mat-button (click)=&quot;enter()&quot; [disabled]=&quot;!form.valid&quot; 
-          [ngClass]=&quot;{ disable: !form.valid }&quot;&gt;
-    {{ &quot;enter&quot; | translate }}
+  &lt;button mat-button (click)=&#34;enter()&#34; [disabled]=&#34;!form.valid&#34; 
+          [ngClass]=&#34;{ disable: !form.valid }&#34;&gt;
+    {{ &#34;enter&#34; | translate }}
   &lt;/button&gt;
 &lt;/form&gt;
 
 
 //FormControl
-&lt;input type=&quot;text&quot; [formControl]=&quot;account&quot;/&gt;
-&lt;validation-messages [control]=&quot;account&quot;&gt;&lt;/validation-messages&gt;
-&lt;button (click)=&quot;submit()&quot; [disabled]=&quot;account.invalid&quot; 
-[ngClass]=&quot;{'disable':account.invalid}&quot;&gt;
-  {{ &quot;enter&quot; | translate }}
-&lt;/button&gt;
-</code></pre>
-
+&lt;input type=&#34;text&#34; [formControl]=&#34;account&#34;/&gt;
+&lt;validation-messages [control]=&#34;account&#34;&gt;&lt;/validation-messages&gt;
+&lt;button (click)=&#34;submit()&#34; [disabled]=&#34;account.invalid&#34; 
+[ngClass]=&#34;{&#39;disable&#39;:account.invalid}&#34;&gt;
+  {{ &#34;enter&#34; | translate }}
+&lt;/button&gt;</pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>有<code>[formGroup]</code>時,input控鍵需寫上<code>formControlName</code></li>
 </ul>
@@ -456,64 +500,122 @@
 <h2 id="第一種則是異步-如下例">第一種則是異步,如下例</h2>
 
 <p>在 post-detail.component.html</p>
-
-<pre><code>&lt;div&gt;
-  &lt;input type=&quot;text&quot; [formControl]=&quot;ipContent&quot;/&gt;
-  &lt;validation-messages [control]=&quot;ipContent&quot;&gt;&lt;/validation-messages&gt;
-  &lt;button (click)=&quot;submit()&quot; [disabled]=&quot;ipContent.invalid&quot; 
-  [ngClass]=&quot;{'disable':ipContent.invalid}&quot;&gt;
-    {{ &quot;binding&quot; | translate }}
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;div&gt;
+  &lt;input type=&#34;text&#34; [formControl]=&#34;ipContent&#34;/&gt;
+  &lt;validation-messages [control]=&#34;ipContent&#34;&gt;&lt;/validation-messages&gt;
+  &lt;button (click)=&#34;submit()&#34; [disabled]=&#34;ipContent.invalid&#34; 
+  [ngClass]=&#34;{&#39;disable&#39;:ipContent.invalid}&#34;&gt;
+    {{ &#34;binding&#34; | translate }}
   &lt;/button&gt;
-&lt;/div&gt;
-</code></pre>
-
+&lt;/div&gt;</pre></td></tr></table>
+</div>
+</div>
 <p>在 post-detail.component.ts</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">createForm</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">account</span><span class="o">:</span> <span class="p">[</span>
+        <span class="s2">&#34;&#34;</span><span class="p">,</span>
+        <span class="p">[</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">,</span>
+          <span class="nx">ValidationService</span><span class="p">.</span><span class="nx">userValidator</span><span class="p">,</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">minLength</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+        <span class="p">],</span> 
+        <span class="k">this</span><span class="p">.</span><span class="nx">asyncValidator</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+      <span class="p">],</span>
+      <span class="nx">password</span><span class="o">:</span> <span class="p">[</span>
+        <span class="s2">&#34;&#34;</span><span class="p">,</span>
+        <span class="p">[</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">,</span>
+          <span class="nx">ValidationService</span><span class="p">.</span><span class="nx">passwordValidator</span><span class="p">,</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">minLength</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+        <span class="p">]</span>
+      <span class="p">]</span>
+    <span class="p">};</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">form</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">fb</span><span class="p">.</span><span class="nx">group</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+  <span class="p">}</span>
 
-<pre><code class="language-js">createForm() {
-    let obj = {
-      account: [
-        &quot;&quot;,
-        [
-          Validators.required,
-          ValidationService.userValidator,
-          Validators.minLength(6)
-        ], 
-        this.asyncValidator.bind(this)
-      ],
-      password: [
-        &quot;&quot;,
-        [
-          Validators.required,
-          ValidationService.passwordValidator,
-          Validators.minLength(6)
-        ]
-      ]
-    };
-    this.form = this.fb.group(obj);
-  }
-
-asyncValidator(control): Observable&lt;IDataMain&gt; {
-    let obj = this.dataService.setWsModel(
-      &quot;self&quot;,
-      &quot;bindotp&quot;,
-      &quot;request&quot;,
-      control.value
-    );
-    return Observable.create(observer =&gt; {
-      this.dataService.ObWsModel(obj).subscribe({
-        next: result =&gt; {
-          if (result.errorCode == &quot;0&quot;) {
-            observer.next(null);
-          } else {
-            observer.next({ invalidOtpFail: true });
-          }
-          observer.complete();
-        }
-      });
-    });
-  }
-</code></pre>
-
+<span class="nx">asyncValidator</span><span class="p">(</span><span class="nx">control</span><span class="p">)</span><span class="o">:</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="nx">IDataMain</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">dataService</span><span class="p">.</span><span class="nx">setWsModel</span><span class="p">(</span>
+      <span class="s2">&#34;self&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;bindotp&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;request&#34;</span><span class="p">,</span>
+      <span class="nx">control</span><span class="p">.</span><span class="nx">value</span>
+    <span class="p">);</span>
+    <span class="k">return</span> <span class="nx">Observable</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">observer</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">dataService</span><span class="p">.</span><span class="nx">ObWsModel</span><span class="p">(</span><span class="nx">obj</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">({</span>
+        <span class="nx">next</span><span class="o">:</span> <span class="nx">result</span> <span class="p">=&gt;</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">errorCode</span> <span class="o">==</span> <span class="s2">&#34;0&#34;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">observer</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">observer</span><span class="p">.</span><span class="nx">next</span><span class="p">({</span> <span class="nx">invalidOtpFail</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+          <span class="p">}</span>
+          <span class="nx">observer</span><span class="p">.</span><span class="nx">complete</span><span class="p">();</span>
+        <span class="p">}</span>
+      <span class="p">});</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>在FormBuilder的物件中,第三個參數是放異步加載的function,</li>
 </ul>
@@ -527,61 +629,116 @@ asyncValidator(control): Observable&lt;IDataMain&gt; {
 <h2 id="第二種等使用者全輸入完-非異步">第二種等使用者全輸入完(非異步)</h2>
 
 <p>在 post-detail.component.html</p>
-
-<pre><code>&lt;div&gt;
-  &lt;input type=&quot;text&quot; [formControl]=&quot;ipContent&quot;/&gt;
-  &lt;validation-messages [control]=&quot;ipContent&quot;&gt;&lt;/validation-messages&gt;
-  &lt;button (click)=&quot;bind()&quot; [disabled]=&quot;ipContent.invalid&quot; 
-  [ngClass]=&quot;{'disable':ipContent.invalid}&quot;&gt;
-    {{ &quot;binding&quot; | translate }}
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;div&gt;
+  &lt;input type=&#34;text&#34; [formControl]=&#34;ipContent&#34;/&gt;
+  &lt;validation-messages [control]=&#34;ipContent&#34;&gt;&lt;/validation-messages&gt;
+  &lt;button (click)=&#34;bind()&#34; [disabled]=&#34;ipContent.invalid&#34; 
+  [ngClass]=&#34;{&#39;disable&#39;:ipContent.invalid}&#34;&gt;
+    {{ &#34;binding&#34; | translate }}
   &lt;/button&gt;
-&lt;/div&gt;
-</code></pre>
-
+&lt;/div&gt;</pre></td></tr></table>
+</div>
+</div>
 <p>在 post-detail.component.ts</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">createForm</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">account</span><span class="o">:</span> <span class="p">[</span>
+        <span class="s2">&#34;&#34;</span><span class="p">,</span>
+        <span class="p">[</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">,</span>
+          <span class="nx">ValidationService</span><span class="p">.</span><span class="nx">userValidator</span><span class="p">,</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">minLength</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+        <span class="p">]</span>
+      <span class="p">],</span>
+      <span class="nx">password</span><span class="o">:</span> <span class="p">[</span>
+        <span class="s2">&#34;&#34;</span><span class="p">,</span>
+        <span class="p">[</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">,</span>
+          <span class="nx">ValidationService</span><span class="p">.</span><span class="nx">passwordValidator</span><span class="p">,</span>
+          <span class="nx">Validators</span><span class="p">.</span><span class="nx">minLength</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+        <span class="p">]</span>
+      <span class="p">]</span>
+    <span class="p">};</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">form</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">fb</span><span class="p">.</span><span class="nx">group</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+  <span class="p">}</span>
 
-<pre><code class="language-js">createForm() {
-    let obj = {
-      account: [
-        &quot;&quot;,
-        [
-          Validators.required,
-          ValidationService.userValidator,
-          Validators.minLength(6)
-        ]
-      ],
-      password: [
-        &quot;&quot;,
-        [
-          Validators.required,
-          ValidationService.passwordValidator,
-          Validators.minLength(6)
-        ]
-      ]
-    };
-    this.form = this.fb.group(obj);
-  }
-
-bind() {
-    let obj = this.dataService.setWsModel(
-      &quot;self&quot;,
-      &quot;bindotp&quot;,
-      &quot;request&quot;,
-      this.ipContent.value
-    );
-    this.dataService
-      .ObWsModel(obj)
-      .pipe(take(1))
-      .subscribe(val =&gt; {
-        if (!val.e) {
-          this.data.OTPBinding = true;
-        } else {
-          this.ipContent.setErrors({ invalidOtpFail: true });
-        }
-      });
-  }
-</code></pre>
-
+<span class="nx">bind</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">dataService</span><span class="p">.</span><span class="nx">setWsModel</span><span class="p">(</span>
+      <span class="s2">&#34;self&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;bindotp&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;request&#34;</span><span class="p">,</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">ipContent</span><span class="p">.</span><span class="nx">value</span>
+    <span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">dataService</span>
+      <span class="p">.</span><span class="nx">ObWsModel</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">take</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+      <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">val</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">val</span><span class="p">.</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">OTPBinding</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">ipContent</span><span class="p">.</span><span class="nx">setErrors</span><span class="p">({</span> <span class="nx">invalidOtpFail</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+        <span class="p">}</span>
+      <span class="p">});</span>
+  <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <hr />
 
 <p>稍微說明一下setErrors:</p>
@@ -589,26 +746,41 @@ bind() {
 <p>一般我們在使用FormBuilder或是FormControl的時候,</p>
 
 <p>第二個參數是以陣列的方式,並塞進要驗證的function</p>
-
-<pre><code>account: [
-  &quot;&quot;,
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">account: [
+  &#34;&#34;,
   [
     Validators.required,
     ValidationService.userValidator,
     Validators.minLength(6)
   ]
-],
-</code></pre>
-
+],</pre></td></tr></table>
+</div>
+</div>
 <p>當驗證出<code>account</code>的值有錯誤時,其實它會自動幫我們塞setErrors</p>
 
 <p>所以實務上有發生需要自己寫自己塞setErrors,</p>
 
 <p>就是如上例所寫的</p>
-
-<pre><code>  this.ipContent.setErrors({ invalidOtpFail: true });
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">  this.ipContent.setErrors({ invalidOtpFail: true });</pre></td></tr></table>
+</div>
+</div>
 <p>當出現錯誤時就會show: <code>invalidOtpFail</code></p>
     </div>
 
@@ -675,6 +847,7 @@ bind() {
 
   
 
+  
   
 
     
