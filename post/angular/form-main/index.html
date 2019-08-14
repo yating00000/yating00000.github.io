@@ -24,7 +24,7 @@
 
 <meta name="author" content="Emma" />
   <meta name="description" content=" 驗證模式的幾種方式 顯示錯誤的幾種寫法  " />
-<meta name="keywords" content="angular, angular6, form, validate" />
+<meta name="keywords" content="angular, form, validator, validate, FormControl, formGroup, formControlName" />
 
 
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.55.6" />
 
 
-<link rel="canonical" href="http://localhost:1313/post/angular/form-main/" />
+<link rel="canonical" href="https://yating00000.github.io/post/angular/form-main/" />
 
 
 
@@ -64,7 +64,7 @@
 
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/post/angular/form-main/" />
+<meta property="og:url" content="https://yating00000.github.io/post/angular/form-main/" />
 <meta property="article:published_time" content="2018-12-07T15:30:00&#43;00:00"/>
 <meta property="article:modified_time" content="2018-12-07T15:30:00&#43;00:00"/>
 
@@ -78,7 +78,7 @@
 
 <meta itemprop="datePublished" content="2018-12-07T15:30:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-12-07T15:30:00&#43;00:00" />
-<meta itemprop="wordCount" content="942">
+<meta itemprop="wordCount" content="945">
 
 
 
@@ -121,42 +121,42 @@
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/">首頁</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/">首頁</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/post/">文章</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/post/">文章</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/tags/">標籤</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/tags/">標籤</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/categories/">分類</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/categories/">分類</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/link/">連結</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/link/">連結</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/about/">關於</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/about/">關於</a>
           
         
       </li>
@@ -249,7 +249,7 @@
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/">首頁</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/">首頁</a>
           
 
         
@@ -260,7 +260,7 @@
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/post/">文章</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/post/">文章</a>
           
 
         
@@ -271,7 +271,7 @@
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/tags/">標籤</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/tags/">標籤</a>
           
 
         
@@ -282,7 +282,7 @@
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/categories/">分類</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/categories/">分類</a>
           
 
         
@@ -293,7 +293,7 @@
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/link/">連結</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/link/">連結</a>
           
 
         
@@ -304,7 +304,7 @@
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/about/">關於</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/about/">關於</a>
           
 
         
@@ -336,7 +336,7 @@
           2018-12-07
         </time>
         <div class="post-category">
-            <a href="http://localhost:1313/categories/angular/"> angular </a>
+            <a href="https://yating00000.github.io/categories/angular/"> angular </a>
             
           </div>
         
@@ -383,11 +383,11 @@
 
 <h1 id="驗證模式的幾種方式">驗證模式的幾種方式</h1>
 
-<hr />
-
 <h2 id="ngmodel">[(ngModel)]</h2>
 
-<p>例如:在post.component.html</p>
+<ul>
+<li>在post.component.html</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
@@ -403,24 +403,21 @@
 </code></pre></td></tr></table>
 </div>
 </div>
-<p>PS:
-- 不一定要有<code>&lt;form&gt;</code>標籤,但如果有的話,使用[(ngModel)]的input要加上 Name 屬性
-<code>name=&quot;account&quot;</code>,否則會報錯.</p>
+<p><code>[(ngModel)]=&quot;account&quot;</code>只是雙向綁定資料,須加上<code>#aa=&quot;ngModel&quot;</code>來控制</p>
 
-<p><code>Error: If ngModel is used within a form tag, either the name attribute must be set or the form
+<blockquote>
+<p>寫法不一定要有<code>&lt;form&gt;</code>標籤,</p>
+
+<p>但如果有的話,使用[(ngModel)]的input要加上<code>name=&quot;account&quot;</code>,否則會報錯.
+<code>Error: If ngModel is used within a form tag, either the name attribute must be set or the form
 control must be defined as 'standalone' in ngModelOptions.</code></p>
-
-<ul>
-<li><code>[(ngModel)]=&quot;account&quot;</code>只是雙向綁定資料,須加上<code>#aa=&quot;ngModel&quot;</code>來控制</li>
-</ul>
-
-<hr />
+</blockquote>
 
 <h2 id="formbuilder">FormBuilder</h2>
 
-<p>例如:</p>
-
-<p>在component裡</p>
+<ul>
+<li>在component裡</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
@@ -447,7 +444,6 @@ control must be defined as 'standalone' in ngModelOptions.</code></p>
 </span><span class="lnt">22
 </span><span class="lnt">23
 </span><span class="lnt">24
-</span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="k">export</span> <span class="k">class</span> <span class="nx">MasterInsertComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
@@ -463,8 +459,7 @@ control must be defined as 'standalone' in ngModelOptions.</code></p>
 
   <span class="nx">createForm</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="nx">account</span><span class="o">:</span> <span class="p">[</span>
-        <span class="s2">&#34;&#34;</span><span class="p">,</span>
+      <span class="nx">account</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
         <span class="p">[</span>
           <span class="nx">Validators</span><span class="p">.</span><span class="nx">required</span><span class="p">,</span>
           <span class="nx">ValidationService</span><span class="p">.</span><span class="nx">userValidator</span><span class="p">,</span>
@@ -478,27 +473,28 @@ control must be defined as 'standalone' in ngModelOptions.</code></p>
 </code></pre></td></tr></table>
 </div>
 </div>
-<p>在html裡</p>
+<ul>
+<li>在html裡</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;form [formGroup]=&#34;myForm&#34;&gt;
-  &lt;input type=&#34;text&#34; formControlName=&#34;account&#34;/&gt;&lt;/div&gt;
-&lt;/form&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">form</span> <span class="err">[</span><span class="na">formGroup</span><span class="err">]=&#34;</span><span class="na">myForm</span><span class="err">&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">formControlName</span><span class="o">=</span><span class="s">&#34;account&#34;</span><span class="p">/&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span></code></pre></td></tr></table>
 </div>
 </div>
-<hr />
-
 <h2 id="formcontrol">FormControl</h2>
 
 <p>算是FormBuilder的零件版</p>
 
-<p>例如:
-在 post.component.ts</p>
+<ul>
+<li>post.component.ts</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
@@ -514,24 +510,24 @@ control must be defined as 'standalone' in ngModelOptions.</code></p>
 </code></pre></td></tr></table>
 </div>
 </div>
-<p>在 post.component.html</p>
+<ul>
+<li>post.component.html</li>
+</ul>
+
+<p>可不使用<code>&lt;form&gt;</code>標籤</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;text&#34;</span> <span class="p">[</span><span class="nx">formControl</span><span class="p">]</span><span class="o">=</span><span class="s2">&#34;ipContent&#34;</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nx">button</span> <span class="p">(</span><span class="nx">click</span><span class="p">)</span><span class="o">=</span><span class="s2">&#34;enter()&#34;</span> <span class="p">[</span><span class="nx">disabled</span><span class="p">]</span><span class="o">=</span><span class="s2">&#34;!ipContent.valid&#34;</span><span class="o">&gt;</span><span class="nx">insert</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="err">[</span><span class="na">formControl</span><span class="err">]=&#34;</span><span class="na">ipContent</span><span class="err">&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="err">(</span><span class="na">click</span><span class="err">)=&#34;</span><span class="na">enter</span><span class="err">()&#34;</span> <span class="err">[</span><span class="na">disabled</span><span class="err">]=&#34;!</span><span class="na">ipContent</span><span class="err">.</span><span class="na">valid</span><span class="err">&#34;</span><span class="p">&gt;</span>insert<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span></code></pre></td></tr></table>
 </div>
 </div>
-<ul>
-<li>可不使用<code>&lt;form&gt;</code>標籤</li>
-<li>驗證方式一樣</li>
-</ul>
-
-<hr />
+<blockquote>
+<p>跟<code>FormBuilder</code>驗證方式一樣</p>
+</blockquote>
 
 <h1 id="顯示錯誤的寫法">顯示錯誤的寫法</h1>
 
@@ -540,56 +536,66 @@ control must be defined as 'standalone' in ngModelOptions.</code></p>
 <h2 id="寫在-html-上">寫在 html 上</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;input type=&#34;text&#34; placeholder=&#34;請輸入帳號&#34; 
-[(ngModel)]=&#34;account&#34; name=&#34;account&#34; #aa=&#34;ngModel&#34; 
-minlength=&#34;6&#34; pattern=&#34;^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$&#34; required&gt;
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;請輸入帳號&#34;</span> 
+<span class="err">[(</span><span class="na">ngModel</span><span class="err">)]=&#34;</span><span class="na">account</span><span class="err">&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;account&#34;</span> <span class="err">#</span><span class="na">aa</span><span class="o">=</span><span class="s">&#34;ngModel&#34;</span> 
+<span class="na">minlength</span><span class="o">=</span><span class="s">&#34;6&#34;</span> <span class="na">pattern</span><span class="o">=</span><span class="s">&#34;^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$&#34;</span> <span class="na">required</span><span class="p">&gt;</span>
 
-&lt;span *ngIf=&#34;aa.touched &amp;&amp; aa.errors &amp;&amp; aa.errors.minlength&#34; class=&#34;tip&#34;&gt;至少6位數&lt;/span&gt;
-&lt;span *ngIf=&#34;aa.touched &amp;&amp; aa.errors &amp;&amp; aa.errors.required&#34; class=&#34;tip&#34;&gt;必填&lt;/span&gt;
-&lt;span *ngIf=&#34;aa.touched &amp;&amp; aa.errors &amp;&amp; aa.errors.pattern&#34; class=&#34;tip&#34;&gt;格式錯誤&lt;/span&gt;</pre></td></tr></table>
+<span class="p">&lt;</span><span class="nt">span</span> <span class="err">*</span><span class="na">ngIf</span><span class="o">=</span><span class="s">&#34;aa.touched &amp;&amp; aa.errors &amp;&amp; aa.errors.minlength&#34;</span><span class="p">&gt;</span>至少6位數<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">span</span> <span class="err">*</span><span class="na">ngIf</span><span class="o">=</span><span class="s">&#34;aa.touched &amp;&amp; aa.errors &amp;&amp; aa.errors.required&#34;</span><span class="p">&gt;</span>必填<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">span</span> <span class="err">*</span><span class="na">ngIf</span><span class="o">=</span><span class="s">&#34;aa.touched &amp;&amp; aa.errors &amp;&amp; aa.errors.pattern&#34;</span><span class="p">&gt;</span>格式錯誤<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span></code></pre></td></tr></table>
 </div>
 </div>
+<p>常用的就</p>
+
 <ul>
-<li>常用的就
-aa.touched
-aa.invalid
-以及aa.errors.*
-如:
-aa.errors.minlength
-aa.errors.pattern
-aa.errors.required
-&mdash;</li>
+<li><p>aa.touched</p></li>
+
+<li><p>aa.invalid</p></li>
+
+<li><p>以及aa.errors.*</p>
+
+<p>如:</p>
+
+<ul>
+<li>aa.errors.minlength</li>
+<li>aa.errors.pattern</li>
+<li>aa.errors.required</li>
+</ul></li>
 </ul>
 
 <h2 id="寫在-component-上">寫在 component 上</h2>
 
-<p>在post.component.html</p>
+<ul>
+<li>在post.component.html</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;input type=&#34;text&#34; placeholder=&#34;請輸入帳號&#34; 
-[(ngModel)]=&#34;account&#34; name=&#34;account&#34; #aa=&#34;ngModel&#34; minlength=&#34;6&#34; required&gt;
-&lt;span *ngIf=&#34;aa.touched &amp;&amp; aa.invalid&#34; class=&#34;tip&#34;&gt;
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;請輸入帳號&#34;</span> 
+<span class="err">[(</span><span class="na">ngModel</span><span class="err">)]=&#34;</span><span class="na">account</span><span class="err">&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;account&#34;</span> <span class="err">#</span><span class="na">aa</span><span class="o">=</span><span class="s">&#34;ngModel&#34;</span> <span class="na">minlength</span><span class="o">=</span><span class="s">&#34;6&#34;</span> <span class="na">required</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">span</span> <span class="err">*</span><span class="na">ngIf</span><span class="o">=</span><span class="s">&#34;aa.touched &amp;&amp; aa.invalid&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;tip&#34;</span><span class="p">&gt;</span>
     {{errorMessage(aa)}}
-&lt;/span&gt;</pre></td></tr></table>
+<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>在post.component.ts</p>
+<ul>
+<li>在post.component.ts</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
@@ -625,8 +631,6 @@ aa.errors.required
 </code></pre></td></tr></table>
 </div>
 </div>
-<hr />
-
 <h2 id="統一放在子組件上">統一放在子組件上</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -662,7 +666,7 @@ aa.errors.required
 <span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
   <span class="nx">selector</span><span class="o">:</span> <span class="s2">&#34;validation-messages&#34;</span><span class="p">,</span>
   <span class="nx">template</span><span class="o">:</span>
-    <span class="s1">&#39;&lt;div class=&#34;error-message&#34; *ngIf=&#34;errorMessage !== null&#34;&gt;{{errorMessage}}&lt;/div&gt;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;&lt;div *ngIf=&#34;errorMessage !== null&#34;&gt;{{errorMessage}}&lt;/div&gt;&#39;</span><span class="p">,</span>
   <span class="nx">styles</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;.error-message{color:#DF7607;font-size: x-small;}&#34;</span><span class="p">]</span>
 <span class="p">})</span>
 <span class="k">export</span> <span class="k">class</span> <span class="nx">ValidationComponent</span> <span class="p">{</span>
@@ -685,13 +689,15 @@ aa.errors.required
 </code></pre></td></tr></table>
 </div>
 </div>
-<p>在需要使用的地方(Html)寫上</p>
+<ul>
+<li>在需要使用的地方(html)寫上</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;validation-messages [control]=&#34;aa&#34;&gt;&lt;/validation-messages&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">validation-messages</span> <span class="err">[</span><span class="na">control</span><span class="err">]=&#34;</span><span class="na">aa</span><span class="err">&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">validation-messages</span><span class="p">&gt;</span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -705,8 +711,8 @@ aa.errors.required
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="http://localhost:1313/tags/angular/">angular</a>
-          <a href="http://localhost:1313/tags/%E5%AF%A6%E4%BD%9C%E5%BF%83%E5%BE%97/">實作心得</a>
+          <a href="https://yating00000.github.io/tags/angular/">angular</a>
+          <a href="https://yating00000.github.io/tags/%E5%AF%A6%E4%BD%9C%E5%BF%83%E5%BE%97/">實作心得</a>
           
         </div>
 
@@ -990,7 +996,7 @@ aa.errors.required
     </a>
 
 
-<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="https://yating00000.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

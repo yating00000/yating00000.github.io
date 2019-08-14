@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>實作心得 on Emma Blog</title>
-    <link>http://localhost:1313/tags/%E5%AF%A6%E4%BD%9C%E5%BF%83%E5%BE%97/</link>
+    <link>https://yating00000.github.io/tags/%E5%AF%A6%E4%BD%9C%E5%BF%83%E5%BE%97/</link>
     <description>Recent content in 實作心得 on Emma Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <copyright>Emma Chang</copyright>
     <lastBuildDate>Wed, 26 Dec 2018 11:30:13 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/%E5%AF%A6%E4%BD%9C%E5%BF%83%E5%BE%97/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://yating00000.github.io/tags/%E5%AF%A6%E4%BD%9C%E5%BF%83%E5%BE%97/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>attr</title>
-      <link>http://localhost:1313/post/angular/ng-attr/</link>
+      <link>https://yating00000.github.io/post/angular/ng-attr/</link>
       <pubDate>Wed, 26 Dec 2018 11:30:13 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/angular/ng-attr/</guid>
+      <guid>https://yating00000.github.io/post/angular/ng-attr/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;在 angular 裡使用 &lt;code&gt;attr&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;常見情境-響應式 Table&lt;/li&gt;
@@ -28,10 +28,10 @@
     
     <item>
       <title>ngx-translate</title>
-      <link>http://localhost:1313/post/angular/translate/</link>
+      <link>https://yating00000.github.io/post/angular/translate/</link>
       <pubDate>Mon, 17 Dec 2018 09:28:45 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/angular/translate/</guid>
+      <guid>https://yating00000.github.io/post/angular/translate/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;安裝簡述&lt;/li&gt;
 &lt;li&gt;一般用法&lt;/li&gt;
@@ -41,10 +41,10 @@
     
     <item>
       <title>使用websocket</title>
-      <link>http://localhost:1313/post/angular/service-ws/</link>
+      <link>https://yating00000.github.io/post/angular/service-ws/</link>
       <pubDate>Fri, 14 Dec 2018 16:03:23 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/angular/service-ws/</guid>
+      <guid>https://yating00000.github.io/post/angular/service-ws/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;一般用法&lt;/li&gt;
 &lt;li&gt;把資訊隱藏的寫法
@@ -54,10 +54,10 @@
     
     <item>
       <title>路由守衛</title>
-      <link>http://localhost:1313/post/angular/route-guard/</link>
+      <link>https://yating00000.github.io/post/angular/route-guard/</link>
       <pubDate>Fri, 14 Dec 2018 15:19:09 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/angular/route-guard/</guid>
+      <guid>https://yating00000.github.io/post/angular/route-guard/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;一般用法&lt;/li&gt;
 &lt;li&gt;以&lt;code&gt;Observable&lt;/code&gt;方式回傳&lt;/li&gt;
@@ -66,10 +66,10 @@
     
     <item>
       <title>表單驗證4-FormControl</title>
-      <link>http://localhost:1313/post/angular/form-control/</link>
+      <link>https://yating00000.github.io/post/angular/form-control/</link>
       <pubDate>Wed, 12 Dec 2018 15:15:57 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/angular/form-control/</guid>
+      <guid>https://yating00000.github.io/post/angular/form-control/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;一般用法&lt;/li&gt;
 &lt;li&gt;有沒有&lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt;標籤的差異&lt;/li&gt;
@@ -80,10 +80,10 @@
     
     <item>
       <title>表單驗證3-FormBuilder</title>
-      <link>http://localhost:1313/post/angular/form-builder/</link>
+      <link>https://yating00000.github.io/post/angular/form-builder/</link>
       <pubDate>Tue, 11 Dec 2018 17:38:48 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/angular/form-builder/</guid>
+      <guid>https://yating00000.github.io/post/angular/form-builder/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;一般用法&lt;/li&gt;
 &lt;li&gt;把驗證方法封裝跟使用&lt;/li&gt;
@@ -94,10 +94,10 @@
     
     <item>
       <title>表單驗證2-ngModel</title>
-      <link>http://localhost:1313/post/angular/form-model/</link>
+      <link>https://yating00000.github.io/post/angular/form-model/</link>
       <pubDate>Mon, 10 Dec 2018 15:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/angular/form-model/</guid>
+      <guid>https://yating00000.github.io/post/angular/form-model/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;簡單的 html 驗證&lt;/li&gt;
 &lt;li&gt;用 directive 驗證&lt;/li&gt;
@@ -109,10 +109,10 @@
     
     <item>
       <title>表單驗證1</title>
-      <link>http://localhost:1313/post/angular/form-main/</link>
+      <link>https://yating00000.github.io/post/angular/form-main/</link>
       <pubDate>Fri, 07 Dec 2018 15:30:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/angular/form-main/</guid>
+      <guid>https://yating00000.github.io/post/angular/form-main/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;驗證模式的幾種方式&lt;/li&gt;
 &lt;li&gt;顯示錯誤的幾種寫法

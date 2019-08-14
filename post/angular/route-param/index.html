@@ -24,7 +24,7 @@
 
 <meta name="author" content="Emma" />
   <meta name="description" content=" params 與 queryParams 區分 URL 表達形式 讀取 params 的幾種寫法 讀取 queryParams 的寫法 讀取 fragment 的幾種寫法 " />
-<meta name="keywords" content="angular, angular6, angular route, angular 路由, params, queryParams" />
+<meta name="keywords" content="angular, route, 路由, params, queryParams" />
 
 
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.55.6" />
 
 
-<link rel="canonical" href="http://localhost:1313/post/angular/route-param/" />
+<link rel="canonical" href="https://yating00000.github.io/post/angular/route-param/" />
 
 
 
@@ -66,7 +66,7 @@ URL 表達形式
 讀取 fragment 的幾種寫法
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/post/angular/route-param/" />
+<meta property="og:url" content="https://yating00000.github.io/post/angular/route-param/" />
 <meta property="article:published_time" content="2018-09-14T11:42:29&#43;00:00"/>
 <meta property="article:modified_time" content="2018-09-14T11:42:29&#43;00:00"/>
 
@@ -127,42 +127,42 @@ URL 表達形式
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/">首頁</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/">首頁</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/post/">文章</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/post/">文章</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/tags/">標籤</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/tags/">標籤</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/categories/">分類</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/categories/">分類</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/link/">連結</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/link/">連結</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/about/">關於</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/about/">關於</a>
           
         
       </li>
@@ -255,7 +255,7 @@ URL 表達形式
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/">首頁</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/">首頁</a>
           
 
         
@@ -266,7 +266,7 @@ URL 表達形式
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/post/">文章</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/post/">文章</a>
           
 
         
@@ -277,7 +277,7 @@ URL 表達形式
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/tags/">標籤</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/tags/">標籤</a>
           
 
         
@@ -288,7 +288,7 @@ URL 表達形式
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/categories/">分類</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/categories/">分類</a>
           
 
         
@@ -299,7 +299,7 @@ URL 表達形式
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/link/">連結</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/link/">連結</a>
           
 
         
@@ -310,7 +310,7 @@ URL 表達形式
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/about/">關於</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/about/">關於</a>
           
 
         
@@ -342,7 +342,7 @@ URL 表達形式
           2018-09-14
         </time>
         <div class="post-category">
-            <a href="http://localhost:1313/categories/angular/"> angular </a>
+            <a href="https://yating00000.github.io/categories/angular/"> angular </a>
             
           </div>
         
@@ -396,22 +396,7 @@ URL 表達形式
 </ul>
 
 <h1 id="params-與-queryparams-區分">params 與 queryParams 區分</h1>
-
-<hr />
 <div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">    //路由設定
-    export const MyRoutes: Routes = [
-        {path: &#39;:type&#39;, component: MyComponent}
-    ];</pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
 </span><span class="lnt">2
@@ -424,7 +409,21 @@ URL 表達形式
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js">    <span class="c1">//路由設定
+</span><span class="c1"></span>    <span class="k">export</span> <span class="k">const</span> <span class="nx">MyRoutes</span><span class="o">:</span> <span class="nx">Routes</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span><span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;:type&#39;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">MyComponent</span><span class="p">}</span>
+    <span class="p">];</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -433,36 +432,22 @@ URL 表達形式
 </span><span class="lnt">7
 </span><span class="lnt">8
 </span><span class="lnt">9
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">    //讀取
-    this.paramsSubscription = this.route.params.subscribe((param: any) =&gt; {
-        console.log(&#39;type&#39;,param[&#39;type&#39;]);
-        //會印出 heroes or enemy
-
-        let q = this.route.snapshot.queryParams[&#34;paramA&#34;];
-        console.log(&#39;queryParams&#39;,q)
-        //會印出 1
-    })</pre></td></tr></table>
+<pre class="chroma"><code class="language-js" data-lang="js">    <span class="c1">//讀取
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">paramsSubscription</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">param</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span><span class="nx">param</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]);</span>
+        <span class="c1">//會印出 heroes or enemy
+</span><span class="c1"></span>
+        <span class="kd">let</span> <span class="nx">q</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">snapshot</span><span class="p">.</span><span class="nx">queryParams</span><span class="p">[</span><span class="s2">&#34;paramA&#34;</span><span class="p">];</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;queryParams&#39;</span><span class="p">,</span><span class="nx">q</span><span class="p">)</span>
+        <span class="c1">//會印出 1
+</span><span class="c1"></span>    <span class="p">})</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>在<code>?</code>前面即為 params, 在<code>?</code>後面即為 queryParams</p>
 <div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">    //路由設定
-    export const MyRoutes: Routes = [
-        {path: &#39;:type&#39;, component: MyComponent}
-        {path: &#39;:type/:id&#39;, component: MyComponent}
-    ];</pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
 </span><span class="lnt">2
@@ -475,7 +460,23 @@ URL 表達形式
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js">    <span class="c1">//路由設定
+</span><span class="c1"></span>    <span class="k">export</span> <span class="k">const</span> <span class="nx">MyRoutes</span><span class="o">:</span> <span class="nx">Routes</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span><span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;:type&#39;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">MyComponent</span><span class="p">}</span>
+        <span class="p">{</span><span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;:type/:id&#39;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">MyComponent</span><span class="p">}</span>
+    <span class="p">];</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -483,23 +484,22 @@ URL 表達形式
 </span><span class="lnt">6
 </span><span class="lnt">7
 </span><span class="lnt">8
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">    //讀取
-    this.paramsSubscription = this.route.params.subscribe((param: any) =&gt; {
-        console.log(&#39;type&#39;,param[&#39;type&#39;]);
-        console.log(&#34;type&#34;, param[&#34;id&#34;]);
-        //會印出 heroes 5
-        // or
-        // 印出 enemy 3
-    })</pre></td></tr></table>
+<pre class="chroma"><code class="language-js" data-lang="js">    <span class="c1">//讀取
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">paramsSubscription</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">param</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span><span class="nx">param</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;type&#34;</span><span class="p">,</span> <span class="nx">param</span><span class="p">[</span><span class="s2">&#34;id&#34;</span><span class="p">]);</span>
+        <span class="c1">//會印出 heroes 5
+</span><span class="c1"></span>        <span class="c1">// or
+</span><span class="c1"></span>        <span class="c1">// 印出 enemy 3
+</span><span class="c1"></span>    <span class="p">})</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>由上面兩個例子可以看到<code>?前面</code>的<code>每個/</code>後面都是params</p>
 
 <h1 id="url-表達形式">URL 表達形式</h1>
-
-<hr />
 
 <ul>
 <li><p>帶有查詢參數的URL： <a href="http://somewhere/heroes/5?paramA=1&amp;paramB=6542">http://somewhere/heroes/5?paramA=1&amp;paramB=6542</a></p>
@@ -517,36 +517,36 @@ URL 表達形式
 
 <h1 id="讀取-params-的幾種寫法">讀取 params 的幾種寫法</h1>
 
-<hr />
-
 <h2 id="訂閱方式-observable">訂閱方式 Observable</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">    this.activatedRoute.params.subscribe((param: any) =&gt; {
-        console.log(&#39;type&#39;,param[&#39;type&#39;]);
-    })</pre></td></tr></table>
+<pre class="chroma"><code class="language-js" data-lang="js">    <span class="k">this</span><span class="p">.</span><span class="nx">activatedRoute</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">param</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span><span class="nx">param</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]);</span>
+    <span class="p">})</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <h2 id="快照-snapshot">快照 Snapshot</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">    this.activatedRoute.snapshot.params
-    or
-    this.activatedRoute.snapshot.params[&#39;type&#39;]
-    or
-    const id = +this.route.snapshot.paramMap.get(&#39;id&#39;);</pre></td></tr></table>
+<pre class="chroma"><code class="language-js" data-lang="js">    <span class="k">this</span><span class="p">.</span><span class="nx">activatedRoute</span><span class="p">.</span><span class="nx">snapshot</span><span class="p">.</span><span class="nx">params</span>
+    <span class="nx">or</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">activatedRoute</span><span class="p">.</span><span class="nx">snapshot</span><span class="p">.</span><span class="nx">params</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
+    <span class="nx">or</span>
+    <span class="k">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="o">+</span><span class="k">this</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">snapshot</span><span class="p">.</span><span class="nx">paramMap</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>舉個例子:</p>
@@ -597,28 +597,28 @@ URL 表達形式
 </div>
 <h1 id="讀取-queryparams-的寫法">讀取 queryParams 的寫法</h1>
 
-<hr />
-
 <h2 id="訂閱方式-observable-1">訂閱方式 Observable</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">    this.activatedRoute.queryParams.subscribe((param: any)=&gt;{
-        console.log(&#39;paramA&#39;,param[&#39;paramA&#39;]);
-    });</pre></td></tr></table>
+<pre class="chroma"><code class="language-js" data-lang="js">    <span class="k">this</span><span class="p">.</span><span class="nx">activatedRoute</span><span class="p">.</span><span class="nx">queryParams</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">param</span><span class="o">:</span> <span class="nx">any</span><span class="p">)=&gt;{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;paramA&#39;</span><span class="p">,</span><span class="nx">param</span><span class="p">[</span><span class="s1">&#39;paramA&#39;</span><span class="p">]);</span>
+    <span class="p">});</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <h2 id="快照-snapshot-1">快照 Snapshot</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">    this.activatedRoute.snapshot.queryParams;</pre></td></tr></table>
+<pre class="chroma"><code class="language-js" data-lang="js">    <span class="k">this</span><span class="p">.</span><span class="nx">activatedRoute</span><span class="p">.</span><span class="nx">snapshot</span><span class="p">.</span><span class="nx">queryParams</span><span class="p">;</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <p>舉個例子:</p>
@@ -669,8 +669,6 @@ URL 表達形式
 </div>
 <h1 id="讀取-fragment-的幾種寫法">讀取 fragment 的幾種寫法</h1>
 
-<hr />
-
 <p>fragment 指網址<code>#</code>後面的參數</p>
 
 <h2 id="訂閱方式-observable-2">訂閱方式 Observable</h2>
@@ -690,28 +688,29 @@ URL 表達形式
 <h2 id="快照-snapshot-2">快照 Snapshot</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">    this.activatedRoute.snapshot.fragment;</pre></td></tr></table>
+<pre class="chroma"><code class="language-js" data-lang="js">    <span class="k">this</span><span class="p">.</span><span class="nx">activatedRoute</span><span class="p">.</span><span class="nx">snapshot</span><span class="p">.</span><span class="nx">fragment</span><span class="p">;</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <h1 id="備註">備註</h1>
 
-<hr />
+<p>因網址傳送跟接收都是用字串,所以如果在讀取<code>params</code>,</p>
 
-<p>因網址傳送跟接收都是用字串,所以如果在讀取<code>params</code>,<br>
-在常見的抓取<code>:id</code> 的時候我們會用 <code>+</code> 號來讓它字串自動轉成數字</p>
+<p>在常見的抓取<code>:id</code> 的時候我們會用 <code>+</code> 號來讓它字串自動轉成數字</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">    this.activatedRoute.params.subscribe((param: any) =&gt; {
-        console.log(&#39;type&#39;,+param[&#39;type&#39;]);   //多了+號
-    })</pre></td></tr></table>
+<pre class="chroma"><code class="language-js" data-lang="js">    <span class="k">this</span><span class="p">.</span><span class="nx">activatedRoute</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">param</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span><span class="o">+</span><span class="nx">param</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]);</span>   <span class="c1">//多了+號
+</span><span class="c1"></span>    <span class="p">})</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 <ul>
@@ -730,8 +729,8 @@ URL 表達形式
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="http://localhost:1313/tags/angular/">angular</a>
-          <a href="http://localhost:1313/tags/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/">學習筆記</a>
+          <a href="https://yating00000.github.io/tags/angular/">angular</a>
+          <a href="https://yating00000.github.io/tags/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/">學習筆記</a>
           
         </div>
 
@@ -1015,7 +1014,7 @@ URL 表達形式
     </a>
 
 
-<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="https://yating00000.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

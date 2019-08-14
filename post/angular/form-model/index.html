@@ -24,7 +24,7 @@
 
 <meta name="author" content="Emma" />
   <meta name="description" content=" 簡單的 html 驗證 用 directive 驗證 常見情境-確認密碼 Confirm Password 備註:模板變數(#name) ngIf 與 hidden  " />
-<meta name="keywords" content="angular, angular6, form, validator, directive" />
+<meta name="keywords" content="angular, form, validator, validate, FormControl, formGroup, formControlName, directive" />
 
 
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.55.6" />
 
 
-<link rel="canonical" href="http://localhost:1313/post/angular/form-model/" />
+<link rel="canonical" href="https://yating00000.github.io/post/angular/form-model/" />
 
 
 
@@ -66,7 +66,7 @@
 
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/post/angular/form-model/" />
+<meta property="og:url" content="https://yating00000.github.io/post/angular/form-model/" />
 <meta property="article:published_time" content="2018-12-10T15:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2018-12-10T15:00:00&#43;00:00"/>
 
@@ -82,7 +82,7 @@
 
 <meta itemprop="datePublished" content="2018-12-10T15:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-12-10T15:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1725">
+<meta itemprop="wordCount" content="1787">
 
 
 
@@ -127,42 +127,42 @@
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/">首頁</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/">首頁</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/post/">文章</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/post/">文章</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/tags/">標籤</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/tags/">標籤</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/categories/">分類</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/categories/">分類</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/link/">連結</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/link/">連結</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/about/">關於</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/about/">關於</a>
           
         
       </li>
@@ -255,7 +255,7 @@
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/">首頁</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/">首頁</a>
           
 
         
@@ -266,7 +266,7 @@
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/post/">文章</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/post/">文章</a>
           
 
         
@@ -277,7 +277,7 @@
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/tags/">標籤</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/tags/">標籤</a>
           
 
         
@@ -288,7 +288,7 @@
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/categories/">分類</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/categories/">分類</a>
           
 
         
@@ -299,7 +299,7 @@
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/link/">連結</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/link/">連結</a>
           
 
         
@@ -310,7 +310,7 @@
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/about/">關於</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/about/">關於</a>
           
 
         
@@ -342,7 +342,7 @@
           2018-12-10
         </time>
         <div class="post-category">
-            <a href="http://localhost:1313/categories/angular/"> angular </a>
+            <a href="https://yating00000.github.io/categories/angular/"> angular </a>
             
           </div>
         
@@ -385,8 +385,15 @@
 <br /></li>
 </ul>
 
-<p>因實作過程中,很多功能模塊都會用到,
-因此顯示錯誤的 function 都會統一放在子組件,</p>
+<blockquote>
+<p>因實作過程中,很多功能模塊都會用到,</p>
+
+<p>因此顯示錯誤的 function 都會統一放在子組件</p>
+</blockquote>
+
+<ul>
+<li>專門顯示錯誤的子組件：validation-messages.component.ts</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
@@ -421,7 +428,7 @@
 <span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
   <span class="nx">selector</span><span class="o">:</span> <span class="s2">&#34;validation-messages&#34;</span><span class="p">,</span>
   <span class="nx">template</span><span class="o">:</span>
-    <span class="s1">&#39;&lt;div class=&#34;error-message&#34; *ngIf=&#34;errorMessage !== null&#34;&gt;{{errorMessage}}&lt;/div&gt;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;&lt;div *ngIf=&#34;errorMessage !== null&#34;&gt;{{errorMessage}}&lt;/div&gt;&#39;</span><span class="p">,</span>
   <span class="nx">styles</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;.error-message{color:#DF7607;font-size: x-small;}&#34;</span><span class="p">]</span>
 <span class="p">})</span>
 <span class="k">export</span> <span class="k">class</span> <span class="nx">ValidationComponent</span> <span class="p">{</span>
@@ -444,14 +451,18 @@
 </code></pre></td></tr></table>
 </div>
 </div>
-<hr />
-
 <h1 id="簡單的-html-驗證">簡單的 html 驗證</h1>
 
-<p>例如:在 post.component.html</p>
+<ul>
+<li>在 post.component.html</li>
+</ul>
+
+<blockquote>
+<p>沒加<code>&lt;form&gt;</code>標籤的寫法</p>
+</blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -461,31 +472,34 @@
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
-</span><span class="lnt">11
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;div class=&#34;item-list&#34;&gt;
-  &lt;span&gt;account&lt;/span&gt;
-  &lt;input type=&#34;text&#34; placeholder=&#34;請輸入帳號&#34; [(ngModel)]=&#34;account&#34;
-  name=&#34;account&#34; #aa=&#34;ngModel&#34; minlength=&#34;6&#34;
-  pattern=&#34;^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$&#34; required&gt;
-  &lt;validation-messages [control]=&#34;aa&#34;&gt;&lt;/validation-messages&gt;
-&lt;/div&gt;
-&lt;button (click)=&#34;send()&#34; [disabled]=&#34;aa.invalid&#34;&gt;
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;item-list&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>account<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;請輸入帳號&#34;</span> <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]=&#34;</span><span class="na">account</span><span class="err">&#34;</span>
+  <span class="na">name</span><span class="o">=</span><span class="s">&#34;account&#34;</span> <span class="err">#</span><span class="na">aa</span><span class="o">=</span><span class="s">&#34;ngModel&#34;</span> <span class="na">minlength</span><span class="o">=</span><span class="s">&#34;6&#34;</span>
+  <span class="na">pattern</span><span class="o">=</span><span class="s">&#34;^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$&#34;</span> <span class="na">required</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">validation-messages</span> <span class="err">[</span><span class="na">control</span><span class="err">]=&#34;</span><span class="na">aa</span><span class="err">&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">validation-messages</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="err">(</span><span class="na">click</span><span class="err">)=&#34;</span><span class="na">send</span><span class="err">()&#34;</span> <span class="err">[</span><span class="na">disabled</span><span class="err">]=&#34;</span><span class="na">aa</span><span class="err">.</span><span class="na">invalid</span><span class="err">&#34;</span><span class="p">&gt;</span>
   submit
-&lt;/button&gt;
-    </pre></td></tr></table>
+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span> </code></pre></td></tr></table>
 </div>
 </div>
+<blockquote>
+<p>要把 input 變成控件,能夠使用 invalid,valid,touch,touched&hellip;等,就是加上模板變數 <code>#aa=&quot;ngModel&quot;</code></p>
+</blockquote>
+
 <ul>
-<li>要把 input 變成控件,能夠使用 invalid,valid,touch,touched&hellip;等,就是加上模板變數 <code>#aa=&quot;ngModel&quot;</code></li>
-<li><code>&lt;form&gt;</code>標籤可加可不加</li>
+<li>在 post.component.html</li>
 </ul>
 
-<p>以下例子是有加的</p>
+<blockquote>
+<p>有加<code>&lt;form&gt;</code>標籤的寫法</p>
+</blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -498,38 +512,40 @@
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;div&gt;
-  &lt;form #myForm=&#34;ngForm&#34;&gt;
-    &lt;div class=&#34;item-list&#34;&gt;
-      &lt;span&gt;account&lt;/span&gt;
-      &lt;input type=&#34;text&#34; placeholder=&#34;請輸入帳號&#34;
-       [(ngModel)]=&#34;account&#34;
-      name=&#34;account&#34; #aa=&#34;ngModel&#34; minlength=&#34;6&#34;
-      pattern=&#34;^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$&#34; required&gt;
-      &lt;validation-messages [control]=&#34;aa&#34;&gt;&lt;/validation-messages&gt;
-    &lt;/div&gt;
-    &lt;button (click)=&#34;submit(myForm)&#34; [disabled]=&#34;myForm.form.invalid&#34;&gt;submit&lt;/button&gt;
-  &lt;/form&gt;
-&lt;/div&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">form</span> <span class="err">#</span><span class="na">myForm</span><span class="o">=</span><span class="s">&#34;ngForm&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;item-list&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>account<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;請輸入帳號&#34;</span>
+      <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]=&#34;</span><span class="na">account</span><span class="err">&#34;</span>
+    <span class="na">name</span><span class="o">=</span><span class="s">&#34;account&#34;</span> <span class="err">#</span><span class="na">aa</span><span class="o">=</span><span class="s">&#34;ngModel&#34;</span> <span class="na">minlength</span><span class="o">=</span><span class="s">&#34;6&#34;</span>
+    <span class="na">pattern</span><span class="o">=</span><span class="s">&#34;^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$&#34;</span> <span class="na">required</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">validation-messages</span> <span class="err">[</span><span class="na">control</span><span class="err">]=&#34;</span><span class="na">aa</span><span class="err">&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">validation-messages</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="err">(</span><span class="na">click</span><span class="err">)=&#34;</span><span class="na">submit</span><span class="err">(</span><span class="na">myForm</span><span class="err">)&#34;</span> 
+          <span class="err">[</span><span class="na">disabled</span><span class="err">]=&#34;</span><span class="na">myForm</span><span class="err">.</span><span class="na">form</span><span class="err">.</span><span class="na">invalid</span><span class="err">&#34;</span><span class="p">&gt;</span>submit
+  <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span></code></pre></td></tr></table>
 </div>
 </div>
-<ul>
-<li><code>&lt;form&gt;</code>標籤也加上模板變數後,在<code>&lt;button&gt;</code>的 disable 就能驗證整個表單內的元素是否都有效</li>
-</ul>
-
-<hr />
+<blockquote>
+<p><code>&lt;form&gt;</code>標籤也加上模板變數後,在<code>&lt;button&gt;</code>的 disable 就能驗證整個表單內的元素是否都有效</p>
+</blockquote>
 
 <h1 id="用-directive-驗證">用 directive 驗證</h1>
 
-<p>我們可能有很多需要自製的驗證方式,
-所以除了原本 html 帶來的驗證方法,
-我們可以使用 directive 來幫目標<code>input</code>綁定錯誤事件</p>
+<p>我們可能有很多需要自製的驗證方式,</p>
+
+<p>所以除了原本 html 帶來的驗證方法,</p>
+
+<p>我們可以使用 directive 來幫目標<code>input</code>綁定錯誤事件</p>
 
 <h2 id="一般寫法">一般寫法</h2>
 
-<p>在 fn-validator.directive.ts</p>
+<ul>
+<li>在 fn-validator.directive.ts</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
@@ -621,10 +637,12 @@
 </code></pre></td></tr></table>
 </div>
 </div>
-<p>在要使用的 html 裡</p>
+<ul>
+<li>在要使用的 html 裡</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -642,37 +660,39 @@
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;form #myForm=&#34;ngForm&#34;&gt;
-  &lt;div class=&#34;item-list&#34;&gt;
-    &lt;span&gt;account&lt;/span&gt;
-      &lt;input type=&#34;text&#34; placeholder=&#34;請輸入帳號&#34;
-      [(ngModel)]=&#34;account&#34; name=&#34;account&#34; #aa=&#34;ngModel&#34;
-      [fnName]=&#34;&#39;userValidator&#39;&#34;&gt;
-      &lt;validation-messages [control]=&#34;aa&#34;&gt;&lt;/validation-messages&gt;
-    &lt;/div&gt;
-    &lt;div class=&#34;item-list&#34;&gt;
-      &lt;span&gt;password&lt;/span&gt;
-      &lt;input type=&#34;text&#34; placeholder=&#34;請輸入密碼&#34;
-      [(ngModel)]=&#34;password&#34; name=&#34;password&#34; #pp=&#34;ngModel&#34;
-      [fnName]=&#34;&#39;passwordValidator&#39;&#34;&gt;
-      &lt;validation-messages [control]=&#34;pp&#34;&gt;&lt;/validation-messages&gt;
-    &lt;/div&gt;
-    &lt;button (click)=&#34;submit(myForm)&#34;
-    [disabled]=&#34;myForm.form.invalid&#34;&gt;submit&lt;/button&gt;
-  &lt;/form&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">form</span> <span class="err">#</span><span class="na">myForm</span><span class="o">=</span><span class="s">&#34;ngForm&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;item-list&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>account<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;請輸入帳號&#34;</span>
+    <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]=&#34;</span><span class="na">account</span><span class="err">&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;account&#34;</span> <span class="err">#</span><span class="na">aa</span><span class="o">=</span><span class="s">&#34;ngModel&#34;</span>
+    <span class="err">[</span><span class="na">fnName</span><span class="err">]=&#34;&#39;</span><span class="na">userValidator</span><span class="err">&#39;&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">validation-messages</span> <span class="err">[</span><span class="na">control</span><span class="err">]=&#34;</span><span class="na">aa</span><span class="err">&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">validation-messages</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;item-list&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>password<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;請輸入密碼&#34;</span>
+    <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]=&#34;</span><span class="na">password</span><span class="err">&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;password&#34;</span> <span class="err">#</span><span class="na">pp</span><span class="o">=</span><span class="s">&#34;ngModel&#34;</span>
+    <span class="err">[</span><span class="na">fnName</span><span class="err">]=&#34;&#39;</span><span class="na">passwordValidator</span><span class="err">&#39;&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">validation-messages</span> <span class="err">[</span><span class="na">control</span><span class="err">]=&#34;</span><span class="na">pp</span><span class="err">&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">validation-messages</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="err">(</span><span class="na">click</span><span class="err">)=&#34;</span><span class="na">submit</span><span class="err">(</span><span class="na">myForm</span><span class="err">)&#34;</span>
+  <span class="err">[</span><span class="na">disabled</span><span class="err">]=&#34;</span><span class="na">myForm</span><span class="err">.</span><span class="na">form</span><span class="err">.</span><span class="na">invalid</span><span class="err">&#34;</span><span class="p">&gt;</span>submit<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span></code></pre></td></tr></table>
 </div>
 </div>
-<hr />
-
 <h2 id="把驗證方法另外封裝">把驗證方法另外封裝</h2>
 
-<p>其實驗證的模式很多種,
-我們會把經常用到的方法封裝到 service,
-讓其他模式下也能用</p>
+<p>其實驗證的模式很多種,</p>
 
-<p>在 fn-validator.directive.ts</p>
+<p>我們會把經常用到的方法封裝到 service,</p>
+
+<p>讓其他模式下也能用</p>
+
+<ul>
+<li>在 fn-validator.directive.ts</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
@@ -736,7 +756,9 @@
 </code></pre></td></tr></table>
 </div>
 </div>
-<p>在 validation.service.ts</p>
+<ul>
+<li>在 validation.service.ts</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
@@ -800,10 +822,12 @@
 </code></pre></td></tr></table>
 </div>
 </div>
-<p>在要使用的 html 裡</p>
+<ul>
+<li>在要使用的 html 裡  一樣使用指令方式驗證</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -821,36 +845,37 @@
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;form #myForm=&#34;ngForm&#34;&gt;
-  &lt;div class=&#34;item-list&#34;&gt;
-    &lt;span&gt;account&lt;/span&gt;
-      &lt;input type=&#34;text&#34; placeholder=&#34;請輸入帳號&#34;
-      [(ngModel)]=&#34;account&#34; name=&#34;account&#34; #aa=&#34;ngModel&#34;
-      [fnName]=&#34;&#39;userValidator&#39;&#34;&gt;
-      &lt;validation-messages [control]=&#34;aa&#34;&gt;&lt;/validation-messages&gt;
-    &lt;/div&gt;
-    &lt;div class=&#34;item-list&#34;&gt;
-      &lt;span&gt;password&lt;/span&gt;
-      &lt;input type=&#34;text&#34; placeholder=&#34;請輸入密碼&#34;
-      [(ngModel)]=&#34;password&#34; name=&#34;password&#34; #pp=&#34;ngModel&#34;
-      [fnName]=&#34;&#39;passwordValidator&#39;&#34;&gt;
-      &lt;validation-messages [control]=&#34;pp&#34;&gt;&lt;/validation-messages&gt;
-    &lt;/div&gt;
-    &lt;button (click)=&#34;submit(myForm)&#34;
-    [disabled]=&#34;myForm.form.invalid&#34;&gt;submit&lt;/button&gt;
-  &lt;/form&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">form</span> <span class="err">#</span><span class="na">myForm</span><span class="o">=</span><span class="s">&#34;ngForm&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;item-list&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>account<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;請輸入帳號&#34;</span>
+    <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]=&#34;</span><span class="na">account</span><span class="err">&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;account&#34;</span> <span class="err">#</span><span class="na">aa</span><span class="o">=</span><span class="s">&#34;ngModel&#34;</span>
+    <span class="err">[</span><span class="na">fnName</span><span class="err">]=&#34;&#39;</span><span class="na">userValidator</span><span class="err">&#39;&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">validation-messages</span> <span class="err">[</span><span class="na">control</span><span class="err">]=&#34;</span><span class="na">aa</span><span class="err">&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">validation-messages</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;item-list&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>password<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;請輸入密碼&#34;</span>
+    <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]=&#34;</span><span class="na">password</span><span class="err">&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;password&#34;</span> <span class="err">#</span><span class="na">pp</span><span class="o">=</span><span class="s">&#34;ngModel&#34;</span>
+    <span class="err">[</span><span class="na">fnName</span><span class="err">]=&#34;&#39;</span><span class="na">passwordValidator</span><span class="err">&#39;&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">validation-messages</span> <span class="err">[</span><span class="na">control</span><span class="err">]=&#34;</span><span class="na">pp</span><span class="err">&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">validation-messages</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="err">(</span><span class="na">click</span><span class="err">)=&#34;</span><span class="na">submit</span><span class="err">(</span><span class="na">myForm</span><span class="err">)&#34;</span>
+  <span class="err">[</span><span class="na">disabled</span><span class="err">]=&#34;</span><span class="na">myForm</span><span class="err">.</span><span class="na">form</span><span class="err">.</span><span class="na">invalid</span><span class="err">&#34;</span><span class="p">&gt;</span>submit<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span></code></pre></td></tr></table>
 </div>
 </div>
-<hr />
-
 <h1 id="常見情境-確認密碼-confirm-password">常見情境-確認密碼 Confirm Password</h1>
 
-<p>因為需要一個被比較是否相等的控件,
-所以會另外做指令</p>
+<p>因為需要一個被比較是否相等的控件,</p>
 
-<p>在 equal-validator.directive.ts</p>
+<p>所以會另外做指令</p>
+
+<ul>
+<li>在 equal-validator.directive.ts</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
@@ -894,10 +919,12 @@
 </code></pre></td></tr></table>
 </div>
 </div>
-<p>在要使用的 html 裡</p>
+<ul>
+<li>在要使用的 html 裡</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -917,32 +944,40 @@
 </span><span class="lnt">18
 </span><span class="lnt">19
 </span><span class="lnt">20
-</span></pre></td>
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;form #myForm=&#34;ngForm&#34;&gt;
-  &lt;div class=&#34;item-list&#34;&gt;
-    &lt;span&gt;account&lt;/span&gt;
-      &lt;input type=&#34;text&#34; placeholder=&#34;請輸入帳號&#34; [(ngModel)]=&#34;account&#34; name=&#34;account&#34; #aa=&#34;ngModel&#34; 
-      [fnName]=&#34;&#39;userValidator&#39;&#34;&gt;
-      &lt;validation-messages [control]=&#34;aa&#34;&gt;&lt;/validation-messages&gt;
-    &lt;/div&gt;
-    &lt;div class=&#34;item-list&#34;&gt;
-      &lt;span&gt;password&lt;/span&gt;
-      &lt;input type=&#34;text&#34; placeholder=&#34;請輸入密碼&#34; [(ngModel)]=&#34;password&#34; name=&#34;password&#34; #pp=&#34;ngModel&#34;
-      [fnName]=&#34;&#39;passwordValidator&#39;&#34;&gt;
-      &lt;validation-messages [control]=&#34;pp&#34;&gt;&lt;/validation-messages&gt;
-    &lt;/div&gt;
-    &lt;div class=&#34;item-list&#34;&gt;
-      &lt;span&gt;repeat&lt;/span&gt;
-      &lt;input type=&#34;text&#34; placeholder=&#34;請重複密碼&#34; [(ngModel)]=&#34;repeat&#34; name=&#34;repeat&#34; #rr=&#34;ngModel&#34; validateEqual=&#34;password&#34;&gt;
-    &lt;/div&gt;
-    &lt;validation-messages [control]=&#34;rr&#34;&gt;&lt;/validation-messages&gt;
-    &lt;button (click)=&#34;submit(myForm)&#34; [disabled]=&#34;myForm.form.invalid&#34;&gt;submit&lt;/button&gt;
-  &lt;/form&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">form</span> <span class="err">#</span><span class="na">myForm</span><span class="o">=</span><span class="s">&#34;ngForm&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;item-list&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>account<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span>  <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;請輸入帳號&#34;</span> <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]=&#34;</span><span class="na">account</span><span class="err">&#34;</span> 
+            <span class="na">name</span><span class="o">=</span><span class="s">&#34;account&#34;</span> <span class="err">#</span><span class="na">aa</span><span class="o">=</span><span class="s">&#34;ngModel&#34;</span> 
+            <span class="err">[</span><span class="na">fnName</span><span class="err">]=&#34;&#39;</span><span class="na">userValidator</span><span class="err">&#39;&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">validation-messages</span> <span class="err">[</span><span class="na">control</span><span class="err">]=&#34;</span><span class="na">aa</span><span class="err">&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">validation-messages</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;item-list&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>password<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span>  <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;請輸入密碼&#34;</span> <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]=&#34;</span><span class="na">password</span><span class="err">&#34;</span> 
+            <span class="na">name</span><span class="o">=</span><span class="s">&#34;password&#34;</span> <span class="err">#</span><span class="na">pp</span><span class="o">=</span><span class="s">&#34;ngModel&#34;</span>
+            <span class="err">[</span><span class="na">fnName</span><span class="err">]=&#34;&#39;</span><span class="na">passwordValidator</span><span class="err">&#39;&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">validation-messages</span> <span class="err">[</span><span class="na">control</span><span class="err">]=&#34;</span><span class="na">pp</span><span class="err">&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">validation-messages</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;item-list&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>repeat<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span>  <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;請重複密碼&#34;</span> <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]=&#34;</span><span class="na">repeat</span><span class="err">&#34;</span> 
+            <span class="na">name</span><span class="o">=</span><span class="s">&#34;repeat&#34;</span> <span class="err">#</span><span class="na">rr</span><span class="o">=</span><span class="s">&#34;ngModel&#34;</span> 
+            <span class="na">validateEqual</span><span class="o">=</span><span class="s">&#34;password&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">validation-messages</span> <span class="err">[</span><span class="na">control</span><span class="err">]=&#34;</span><span class="na">rr</span><span class="err">&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">validation-messages</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="err">(</span><span class="na">click</span><span class="err">)=&#34;</span><span class="na">submit</span><span class="err">(</span><span class="na">myForm</span><span class="err">)&#34;</span> 
+          <span class="err">[</span><span class="na">disabled</span><span class="err">]=&#34;</span><span class="na">myForm</span><span class="err">.</span><span class="na">form</span><span class="err">.</span><span class="na">invalid</span><span class="err">&#34;</span><span class="p">&gt;</span>submit<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span></code></pre></td></tr></table>
 </div>
 </div>
-<hr />
-
 <h1 id="模板變數-name-ngif-與-hidden">模板變數(#name) *ngIf 與 [hidden]</h1>
 
 <p>網上可以找到很多<code>*ngIf</code>跟<code>[hidden]</code>之間的差異,</p>
@@ -951,11 +986,12 @@
 
 <p>而<code>[hidden]</code>它會在Dom裡並沒有被破壞只是看不見而已.</p>
 
-<p>曾在開發的時候,同個Component因為資料的不同,
-導致需要顯示的input也不盡相同</p>
+<p>曾在開發的時候,同個Component因為資料的不同,</p>
+
+<p>導致需要顯示的input也不盡相同</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -970,25 +1006,23 @@
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
-</span><span class="lnt">16
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;div *ngIf=&#34;!topData&#34;&gt;
- &lt;input type=&#34;text&#34; #account=&#34;ngModel&#34;
-    [(ngModel)]=&#34;AgentAccountSel&#34;
-  /&gt;
-  &lt;validation-messages [control]=&#34;account&#34;&gt;&lt;/validation-messages&gt;
-&lt;/div&gt;
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="err">*</span><span class="na">ngIf</span><span class="o">=</span><span class="s">&#34;!topData&#34;</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="err">#</span><span class="na">account</span><span class="o">=</span><span class="s">&#34;ngModel&#34;</span>
+    <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]=&#34;</span><span class="na">AgentAccountSel</span><span class="err">&#34;</span><span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">validation-messages</span> <span class="err">[</span><span class="na">control</span><span class="err">]=&#34;</span><span class="na">account</span><span class="err">&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">validation-messages</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 ....
 ....
-&lt;button
-  *ngIf=&#34;!topData&#34;
-  (click)=&#34;searchList()&#34;
-  class=&#34;search&#34;
-  [disabled]=&#34;account.invalid&#34;
-  [ngClass]=&#34;{ disabled: account.invalid}&#34;
-&gt;
-&lt;/button&gt;</pre></td></tr></table>
+<span class="p">&lt;</span><span class="nt">button</span>
+  <span class="err">*</span><span class="na">ngIf</span><span class="o">=</span><span class="s">&#34;!topData&#34;</span>
+  <span class="err">(</span><span class="na">click</span><span class="err">)=&#34;</span><span class="na">searchList</span><span class="err">()&#34;</span>
+  <span class="na">class</span><span class="o">=</span><span class="s">&#34;search&#34;</span>
+  <span class="err">[</span><span class="na">disabled</span><span class="err">]=&#34;</span><span class="na">account</span><span class="err">.</span><span class="na">invalid</span><span class="err">&#34;</span>
+  <span class="err">[</span><span class="na">ngClass</span><span class="err">]=&#34;{</span> <span class="na">disabled:</span> <span class="na">account</span><span class="err">.</span><span class="na">invalid</span><span class="err">}&#34;</span>
+<span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>此時會出現錯誤,它抓不到<code>account</code>,沒有辦法判斷<code>account.invalid</code>,</p>
@@ -1000,7 +1034,7 @@
 <p>因此要採用<code>[hidden]</code>的方式</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1016,24 +1050,24 @@
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;div [hidden]=&#34;!!topData&#34;&gt;
- &lt;input type=&#34;text&#34; #account=&#34;ngModel&#34;
-    [(ngModel)]=&#34;AgentAccountSel&#34;
-  /&gt;
-  &lt;validation-messages [control]=&#34;account&#34;&gt;&lt;/validation-messages&gt;
-&lt;/div&gt;
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="err">[</span><span class="na">hidden</span><span class="err">]=&#34;!!</span><span class="na">topData</span><span class="err">&#34;</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="err">#</span><span class="na">account</span><span class="o">=</span><span class="s">&#34;ngModel&#34;</span>
+    <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]=&#34;</span><span class="na">AgentAccountSel</span><span class="err">&#34;</span>
+  <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">validation-messages</span> <span class="err">[</span><span class="na">control</span><span class="err">]=&#34;</span><span class="na">account</span><span class="err">&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">validation-messages</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 ....
 ....
-&lt;button
-  *ngIf=&#34;!topData&#34;
-  (click)=&#34;searchList()&#34;
-  class=&#34;search&#34;
-  [disabled]=&#34;account.invalid&#34;
-  [ngClass]=&#34;{ disabled: account.invalid}&#34;
-&gt;
-&lt;/button&gt;</pre></td></tr></table>
+<span class="p">&lt;</span><span class="nt">button</span>
+  <span class="err">*</span><span class="na">ngIf</span><span class="o">=</span><span class="s">&#34;!topData&#34;</span>
+  <span class="err">(</span><span class="na">click</span><span class="err">)=&#34;</span><span class="na">searchList</span><span class="err">()&#34;</span>
+  <span class="na">class</span><span class="o">=</span><span class="s">&#34;search&#34;</span>
+  <span class="err">[</span><span class="na">disabled</span><span class="err">]=&#34;</span><span class="na">account</span><span class="err">.</span><span class="na">invalid</span><span class="err">&#34;</span>
+  <span class="err">[</span><span class="na">ngClass</span><span class="err">]=&#34;{</span> <span class="na">disabled:</span> <span class="na">account</span><span class="err">.</span><span class="na">invalid</span><span class="err">}&#34;</span>
+<span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -1047,8 +1081,8 @@
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="http://localhost:1313/tags/angular/">angular</a>
-          <a href="http://localhost:1313/tags/%E5%AF%A6%E4%BD%9C%E5%BF%83%E5%BE%97/">實作心得</a>
+          <a href="https://yating00000.github.io/tags/angular/">angular</a>
+          <a href="https://yating00000.github.io/tags/%E5%AF%A6%E4%BD%9C%E5%BF%83%E5%BE%97/">實作心得</a>
           
         </div>
 
@@ -1332,7 +1366,7 @@
     </a>
 
 
-<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="https://yating00000.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

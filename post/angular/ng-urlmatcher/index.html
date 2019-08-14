@@ -24,7 +24,7 @@
 
 <meta name="author" content="Emma" />
   <meta name="description" content=" UrlMatcher 意義 UrlMatcher 寫法 備註 " />
-<meta name="keywords" content="angular, angular6, UrlMatcher" />
+<meta name="keywords" content="angular, ng-template" />
 
 
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.55.6" />
 
 
-<link rel="canonical" href="http://localhost:1313/post/angular/ng-urlmatcher/" />
+<link rel="canonical" href="https://yating00000.github.io/post/angular/ng-urlmatcher/" />
 
 
 
@@ -64,7 +64,7 @@ UrlMatcher 寫法
 備註
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/post/angular/ng-urlmatcher/" />
+<meta property="og:url" content="https://yating00000.github.io/post/angular/ng-urlmatcher/" />
 <meta property="article:published_time" content="2018-09-14T11:15:10&#43;00:00"/>
 <meta property="article:modified_time" content="2018-09-14T11:15:10&#43;00:00"/>
 
@@ -121,42 +121,42 @@ UrlMatcher 寫法
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/">首頁</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/">首頁</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/post/">文章</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/post/">文章</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/tags/">標籤</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/tags/">標籤</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/categories/">分類</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/categories/">分類</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/link/">連結</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/link/">連結</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/about/">關於</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/about/">關於</a>
           
         
       </li>
@@ -249,7 +249,7 @@ UrlMatcher 寫法
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/">首頁</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/">首頁</a>
           
 
         
@@ -260,7 +260,7 @@ UrlMatcher 寫法
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/post/">文章</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/post/">文章</a>
           
 
         
@@ -271,7 +271,7 @@ UrlMatcher 寫法
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/tags/">標籤</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/tags/">標籤</a>
           
 
         
@@ -282,7 +282,7 @@ UrlMatcher 寫法
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/categories/">分類</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/categories/">分類</a>
           
 
         
@@ -293,7 +293,7 @@ UrlMatcher 寫法
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/link/">連結</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/link/">連結</a>
           
 
         
@@ -304,7 +304,7 @@ UrlMatcher 寫法
         
           
           
-            <a class="menu-item-link" href="http://localhost:1313/about/">關於</a>
+            <a class="menu-item-link" href="https://yating00000.github.io/about/">關於</a>
           
 
         
@@ -336,7 +336,7 @@ UrlMatcher 寫法
           2018-09-14
         </time>
         <div class="post-category">
-            <a href="http://localhost:1313/categories/angular/"> angular </a>
+            <a href="https://yating00000.github.io/categories/angular/"> angular </a>
             
           </div>
         
@@ -374,18 +374,14 @@ UrlMatcher 寫法
 
 <h1 id="urlmatcher-意義">UrlMatcher 意義</h1>
 
-<hr />
-
 <p>就是驗證網址跟參數是否有符合規則</p>
 
 <h1 id="urlmatcher-實際運用">UrlMatcher 實際運用</h1>
 
-<hr />
-
 <p>在路由中設定</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -397,20 +393,21 @@ UrlMatcher 寫法
 </span><span class="lnt">10
 </span><span class="lnt">11
 </span><span class="lnt">12
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">    const appRoutes: Routes = [
-        {
-            path: &#34;enemy&#34;,
-            component: MyComponent,
-            children: [
-                {
-                    matcher: mymatcher,  //寫這個後就不能再寫path
-                    component: ChildComponent
-                }
-            ]
-        }
-    ];</pre></td></tr></table>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">const</span> <span class="nx">appRoutes</span><span class="o">:</span> <span class="nx">Routes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nx">path</span><span class="o">:</span> <span class="s2">&#34;enemy&#34;</span><span class="p">,</span>
+        <span class="nx">component</span><span class="o">:</span> <span class="nx">MyComponent</span><span class="p">,</span>
+        <span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nx">matcher</span><span class="o">:</span> <span class="nx">mymatcher</span><span class="p">,</span>  <span class="c1">//寫這個後就不能再寫path
+</span><span class="c1"></span>                <span class="nx">component</span><span class="o">:</span> <span class="nx">ChildComponent</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">];</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -437,15 +434,14 @@ UrlMatcher 寫法
 </code></pre></td></tr></table>
 </div>
 </div>
-<p>當網址 <code>enemy/bbb</code> 將匹配成功
-<code>enemy/aaa</code>  就會跳出錯誤訊息 <code>Error: Cannot match any routes.</code></p>
+<p>當網址 <code>enemy/bbb</code> 將匹配成功</p>
+
+<p><code>enemy/aaa</code>  就會跳出錯誤訊息 <code>Error: Cannot match any routes.</code></p>
 
 <h1 id="備註">備註</h1>
-
-<hr />
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -455,18 +451,19 @@ UrlMatcher 寫法
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">    @NgModule({
-        imports: [RouterModule.forChild([
-            {
-                matcher : matcher, //這裏不要使用匿名方法或則箭頭函數哦, aot 不過
-                component : FirstComponent,
-                children : []
-            }
-        ])],
-        exports: [RouterModule],
-    })</pre></td></tr></table>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="err">@</span><span class="nx">NgModule</span><span class="p">({</span>
+    <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span><span class="nx">RouterModule</span><span class="p">.</span><span class="nx">forChild</span><span class="p">([</span>
+        <span class="p">{</span>
+            <span class="nx">matcher</span> <span class="o">:</span> <span class="nx">matcher</span><span class="p">,</span> <span class="c1">//這裏不要使用匿名方法或則箭頭函數哦, aot 不過
+</span><span class="c1"></span>            <span class="nx">component</span> <span class="o">:</span> <span class="nx">FirstComponent</span><span class="p">,</span>
+            <span class="nx">children</span> <span class="o">:</span> <span class="p">[]</span>
+        <span class="p">}</span>
+    <span class="p">])],</span>
+    <span class="nx">exports</span><span class="o">:</span> <span class="p">[</span><span class="nx">RouterModule</span><span class="p">],</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -480,8 +477,8 @@ UrlMatcher 寫法
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="http://localhost:1313/tags/angular/">angular</a>
-          <a href="http://localhost:1313/tags/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/">學習筆記</a>
+          <a href="https://yating00000.github.io/tags/angular/">angular</a>
+          <a href="https://yating00000.github.io/tags/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/">學習筆記</a>
           
         </div>
 
@@ -503,7 +500,7 @@ UrlMatcher 寫法
           </a>
         
           <a class="next" href="/post/angular/ng-directive/">
-            <span class="next-text nav-default">ng-directive</span>
+            <span class="next-text nav-default">directive</span>
             <span class="prev-text nav-mobile">下一篇</span>
             
             <i class="iconfont">
@@ -765,7 +762,7 @@ UrlMatcher 寫法
     </a>
 
 
-<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="https://yating00000.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
