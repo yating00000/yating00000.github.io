@@ -169,13 +169,6 @@
   </url>
   
   <url>
-    <loc>https://yating00000.github.io/post/angular/ng-directive/</loc>
-    <lastmod>2018-09-14T11:04:22+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://yating00000.github.io/post/angular/ng-ngmodel/</loc>
     <lastmod>2018-09-14T10:49:17+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -183,8 +176,22 @@
   </url>
   
   <url>
-    <loc>https://yating00000.github.io/post/angular/ng-template/</loc>
-    <lastmod>2018-09-14T10:42:25+00:00</lastmod>
+    <loc>https://yating00000.github.io/post/angular/ng-commend3/</loc>
+    <lastmod>2018-09-14T10:47:25+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yating00000.github.io/post/angular/ng-commend2/</loc>
+    <lastmod>2018-09-14T10:46:22+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yating00000.github.io/post/angular/ng-commend1/</loc>
+    <lastmod>2018-09-14T10:45:25+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

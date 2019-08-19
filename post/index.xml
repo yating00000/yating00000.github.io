@@ -207,18 +207,6 @@
     </item>
     
     <item>
-      <title>directive</title>
-      <link>https://yating00000.github.io/post/angular/ng-directive/</link>
-      <pubDate>Fri, 14 Sep 2018 11:04:22 +0000</pubDate>
-      
-      <guid>https://yating00000.github.io/post/angular/ng-directive/</guid>
-      <description>&lt;ul&gt;
-&lt;li&gt;ngStyle的幾種寫法&lt;/li&gt;
-&lt;li&gt;ngClass的幾種寫法&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
       <title>ngModel</title>
       <link>https://yating00000.github.io/post/angular/ng-ngmodel/</link>
       <pubDate>Fri, 14 Sep 2018 10:49:17 +0000</pubDate>
@@ -231,14 +219,41 @@
     </item>
     
     <item>
-      <title>ng-template</title>
-      <link>https://yating00000.github.io/post/angular/ng-template/</link>
-      <pubDate>Fri, 14 Sep 2018 10:42:25 +0000</pubDate>
+      <title>Angular指令 3 - 結構型</title>
+      <link>https://yating00000.github.io/post/angular/ng-commend3/</link>
+      <pubDate>Fri, 14 Sep 2018 10:47:25 +0000</pubDate>
       
-      <guid>https://yating00000.github.io/post/angular/ng-template/</guid>
+      <guid>https://yating00000.github.io/post/angular/ng-commend3/</guid>
       <description>&lt;ul&gt;
-&lt;li&gt;ng-template的使用 -ngFor&lt;/li&gt;
-&lt;li&gt;ng-template的使用 -ngIf&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;ng-container&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;lt;ng-template&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;ngIf 寫法差異&lt;/li&gt;
+&lt;li&gt;ngFor 寫法差異&lt;/li&gt;
+&lt;li&gt;ngSwicth 寫法差異
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Angular指令 2 - 屬性型</title>
+      <link>https://yating00000.github.io/post/angular/ng-commend2/</link>
+      <pubDate>Fri, 14 Sep 2018 10:46:22 +0000</pubDate>
+      
+      <guid>https://yating00000.github.io/post/angular/ng-commend2/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;ngStyle的幾種寫法&lt;/li&gt;
+&lt;li&gt;ngClass的幾種寫法&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Angular指令 1</title>
+      <link>https://yating00000.github.io/post/angular/ng-commend1/</link>
+      <pubDate>Fri, 14 Sep 2018 10:45:25 +0000</pubDate>
+      
+      <guid>https://yating00000.github.io/post/angular/ng-commend1/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;屬性型的指令有哪些&lt;/li&gt;
+&lt;li&gt;結構型的指令有哪些&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
