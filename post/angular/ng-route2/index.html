@@ -85,7 +85,7 @@
 
 <meta itemprop="datePublished" content="2018-10-27T11:34:13&#43;00:00" />
 <meta itemprop="dateModified" content="2018-10-27T11:34:13&#43;00:00" />
-<meta itemprop="wordCount" content="772">
+<meta itemprop="wordCount" content="740">
 
 
 
@@ -484,18 +484,14 @@
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">const</span> <span class="nx">routes</span><span class="o">:</span> <span class="nx">Routes</span> <span class="o">=</span> <span class="p">[</span>
-  <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;child&#39;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">ChildComponent</span> <span class="p">}</span>
-<span class="p">];</span>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">const</span> <span class="nx">routes</span><span class="o">:</span> <span class="nx">Routes</span> <span class="o">=</span> <span class="p">[{</span> <span class="nx">path</span><span class="o">:</span> <span class="s2">&#34;child&#34;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">ChildComponent</span> <span class="p">}];</span>
 <span class="err">@</span><span class="nx">NgModule</span><span class="p">({</span>
   <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span><span class="nx">RouterModule</span><span class="p">.</span><span class="nx">forRoot</span><span class="p">(</span><span class="nx">routes</span><span class="p">)],</span>
   <span class="nx">exports</span><span class="o">:</span> <span class="p">[</span><span class="nx">RouterModule</span><span class="p">]</span>
 <span class="p">})</span>
-<span class="k">export</span> <span class="k">class</span> <span class="nx">AppRoutingModule</span> <span class="p">{</span> <span class="p">}</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">AppRoutingModule</span> <span class="p">{}</span>
 </code></pre></td></tr></table>
 </div>
 </div>
@@ -646,18 +642,14 @@
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">const</span> <span class="nx">routes</span><span class="o">:</span> <span class="nx">Routes</span> <span class="o">=</span> <span class="p">[</span>
-  <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;child&#39;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">ChildComponent</span> <span class="p">}</span>
-<span class="p">];</span>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">const</span> <span class="nx">routes</span><span class="o">:</span> <span class="nx">Routes</span> <span class="o">=</span> <span class="p">[{</span> <span class="nx">path</span><span class="o">:</span> <span class="s2">&#34;child&#34;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">ChildComponent</span> <span class="p">}];</span>
 <span class="err">@</span><span class="nx">NgModule</span><span class="p">({</span>
   <span class="nx">imports</span><span class="o">:</span> <span class="p">[</span><span class="nx">RouterModule</span><span class="p">.</span><span class="nx">forRoot</span><span class="p">(</span><span class="nx">routes</span><span class="p">)],</span>
   <span class="nx">exports</span><span class="o">:</span> <span class="p">[</span><span class="nx">RouterModule</span><span class="p">]</span>
 <span class="p">})</span>
-<span class="k">export</span> <span class="k">class</span> <span class="nx">AppRoutingModule</span> <span class="p">{</span> <span class="p">}</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nx">AppRoutingModule</span> <span class="p">{}</span>
 </code></pre></td></tr></table>
 </div>
 </div>
@@ -723,9 +715,9 @@
 <h2 id="功能模塊">功能模塊</h2>
 
 <blockquote>
-<p>通常ShareModule就是如此,
-或是私有的service 或 指令 混合成的功能組件,
-可方便其他module 匯入來用</p>
+<p>通常 ShareModule 就是如此,
+或是私有的 service 或 指令 混合成的功能組件,
+可方便其他 module 匯入來用</p>
 </blockquote>
 
 <ul>
@@ -735,7 +727,7 @@
 <p>none</p>
 
 <ul>
-<li>任何要使用的html</li>
+<li>任何要使用的 html</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -915,8 +907,8 @@
 <td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="k">const</span> <span class="nx">routes</span><span class="o">:</span> <span class="nx">Routes</span> <span class="o">=</span> <span class="p">[</span>
   <span class="p">{</span>
-    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;child&#39;</span><span class="p">,</span>
-    <span class="nx">component</span><span class="o">:</span><span class="nx">ChildComponent</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s2">&#34;child&#34;</span><span class="p">,</span>
+    <span class="nx">component</span><span class="o">:</span> <span class="nx">ChildComponent</span>
   <span class="p">}</span>
 <span class="p">];</span>
 
@@ -975,8 +967,8 @@
 <td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="k">const</span> <span class="nx">routes</span><span class="o">:</span> <span class="nx">Routes</span> <span class="o">=</span> <span class="p">[</span>
   <span class="p">{</span>
-    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;child&#39;</span><span class="p">,</span>
-    <span class="nx">loadChildren</span><span class="o">:</span> <span class="s1">&#39;src/app/child/child.module#ChildModule&#39;</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s2">&#34;child&#34;</span><span class="p">,</span>
+    <span class="nx">loadChildren</span><span class="o">:</span> <span class="s2">&#34;src/app/child/child.module#ChildModule&#34;</span>
   <span class="p">}</span>
 <span class="p">];</span>
 
@@ -1044,8 +1036,8 @@
 <td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="k">const</span> <span class="nx">routes</span><span class="o">:</span> <span class="nx">Routes</span> <span class="o">=</span> <span class="p">[</span>
   <span class="p">{</span>
-    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-    <span class="nx">component</span><span class="o">:</span><span class="nx">ChildComponent</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+    <span class="nx">component</span><span class="o">:</span> <span class="nx">ChildComponent</span>
   <span class="p">}</span>
 <span class="p">];</span>
 
