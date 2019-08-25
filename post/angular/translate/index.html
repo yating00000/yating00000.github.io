@@ -78,7 +78,7 @@
 
 <meta itemprop="datePublished" content="2018-12-17T09:28:45&#43;00:00" />
 <meta itemprop="dateModified" content="2018-12-17T09:28:45&#43;00:00" />
-<meta itemprop="wordCount" content="950">
+<meta itemprop="wordCount" content="974">
 
 
 
@@ -358,7 +358,7 @@
 <ul>
 <li><a href="#安裝簡述">安裝簡述</a></li>
 <li><a href="#一般用法">一般用法</a></li>
-<li><a href="#mat-paginator-的翻譯"><code>mat-paginator</code>的翻譯</a></li>
+<li><a href="#mat-paginator-頁碼的翻譯"><code>mat-paginator</code>頁碼的翻譯</a></li>
 </ul>
 </nav>
   </div>
@@ -591,11 +591,13 @@ npm install @ngx-translate/http-loader --save</pre></td></tr></table>
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="err">[</span><span class="na">placeholder</span><span class="err">]=&#34;&#39;</span><span class="na">import_account</span><span class="err">&#39;</span> <span class="err">|</span> <span class="na">translate</span><span class="err">&#34;</span><span class="p">&gt;</span></code></pre></td></tr></table>
 </div>
 </div>
-<h1 id="mat-paginator-的翻譯"><code>mat-paginator</code>的翻譯</h1>
+<h1 id="mat-paginator-頁碼的翻譯"><code>mat-paginator</code>頁碼的翻譯</h1>
 
 <p>接下來紀錄一下在<code>angular - material</code>的頁碼如何翻譯.</p>
 
-<p><code>material</code>安裝過程請參照官網</p>
+<p><code>material</code>安裝過程請參照官網,</p>
+
+<p>先匯入<code>MatPaginatorModule</code></p>
 
 <ul>
 <li>shareModule</li>
@@ -696,8 +698,6 @@ npm install @ngx-translate/http-loader --save</pre></td></tr></table>
 <span class="p">&lt;/</span><span class="nt">mat-paginator</span><span class="p">&gt;</span></code></pre></td></tr></table>
 </div>
 </div>
-<p><img src="/img/translate_1.png" alt="" /></p>
-
 <p>那很多功能模塊都會有頁碼,</p>
 
 <p>所以單純的在各個模塊翻譯各自的頁碼是比較不妥的,</p>
@@ -872,7 +872,6 @@ npm install @ngx-translate/http-loader --save</pre></td></tr></table>
 </code></pre></td></tr></table>
 </div>
 </div>
-<p><img src="/img/translate_2.png" alt="" /></p>
     </div>
 
     

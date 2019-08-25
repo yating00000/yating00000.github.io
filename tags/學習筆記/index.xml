@@ -13,35 +13,44 @@
     
     
     <item>
-      <title>路由簡介3-延遲子路由</title>
-      <link>https://yating00000.github.io/post/angular/route-child-lazy/</link>
+      <title>路由3 - 延遲子路由</title>
+      <link>https://yating00000.github.io/post/angular/ng-route3/</link>
       <pubDate>Sat, 27 Oct 2018 12:34:13 +0000</pubDate>
       
-      <guid>https://yating00000.github.io/post/angular/route-child-lazy/</guid>
+      <guid>https://yating00000.github.io/post/angular/ng-route3/</guid>
       <description>&lt;ul&gt;
-&lt;li&gt;路由 - 延遲子路由的寫法&lt;/li&gt;
+&lt;li&gt;延遲子路由寫法&lt;/li&gt;
+&lt;li&gt;延遲子路由注意事項&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
     <item>
-      <title>路由簡介2-子路由</title>
-      <link>https://yating00000.github.io/post/angular/route-child/</link>
+      <title>路由2 - 子路由</title>
+      <link>https://yating00000.github.io/post/angular/ng-route2/</link>
       <pubDate>Sat, 27 Oct 2018 11:34:13 +0000</pubDate>
       
-      <guid>https://yating00000.github.io/post/angular/route-child/</guid>
+      <guid>https://yating00000.github.io/post/angular/ng-route2/</guid>
       <description>&lt;ul&gt;
-&lt;li&gt;路由 - 子路由的寫法&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;li&gt;子組件&lt;/li&gt;
+&lt;li&gt;子路由&lt;/li&gt;
+&lt;li&gt;延遲子路由&lt;/li&gt;
+&lt;li&gt;功能模塊&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;寫法上的差異&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>路由簡介1-主路由</title>
-      <link>https://yating00000.github.io/post/angular/route-main/</link>
+      <title>路由1 - 簡介</title>
+      <link>https://yating00000.github.io/post/angular/ng-route1/</link>
       <pubDate>Sat, 27 Oct 2018 10:34:13 +0000</pubDate>
       
-      <guid>https://yating00000.github.io/post/angular/route-main/</guid>
+      <guid>https://yating00000.github.io/post/angular/ng-route1/</guid>
       <description>&lt;ul&gt;
-&lt;li&gt;路由 - 主路由的寫法&lt;/li&gt;
+&lt;li&gt;主路由&lt;/li&gt;
+&lt;li&gt;子路由&lt;/li&gt;
+&lt;li&gt;延遲子路由&lt;/li&gt;
+&lt;li&gt;輔助子路由&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
