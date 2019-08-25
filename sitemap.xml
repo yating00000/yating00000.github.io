@@ -79,13 +79,6 @@
   </url>
   
   <url>
-    <loc>https://yating00000.github.io/post/angular/route-guard/</loc>
-    <lastmod>2018-12-14T15:19:09+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://yating00000.github.io/post/angular/form-control/</loc>
     <lastmod>2018-12-12T15:15:57+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -136,6 +129,13 @@
   <url>
     <loc>https://yating00000.github.io/post/angular/ng-route1/</loc>
     <lastmod>2018-10-27T10:34:13+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yating00000.github.io/post/angular/route-guard/</loc>
+    <lastmod>2018-10-26T10:34:13+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
