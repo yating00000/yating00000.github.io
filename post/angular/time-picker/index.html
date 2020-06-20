@@ -78,7 +78,7 @@
 
 <meta itemprop="datePublished" content="2020-06-20T11:37:54&#43;08:00" />
 <meta itemprop="dateModified" content="2020-06-20T11:37:54&#43;08:00" />
-<meta itemprop="wordCount" content="943">
+<meta itemprop="wordCount" content="942">
 
 
 
@@ -378,24 +378,33 @@
 
 <h1 id="套件選擇與說明">套件選擇與說明</h1>
 
-<p>因 Angular Materia 的時間套件只能年月日，
-但是工作上需要使用到時分秒，
-早期使用都是用 <code>owl-date-time</code> 這個套件：
-<a href="https://github.com/DanielYKPan/date-time-picker">https://github.com/DanielYKPan/date-time-picker</a></p>
+<p>因 Angular Materia 的時間套件只能年月日，</p>
 
-<p>那相關的使用方式，可參閱我在鐵人賽所寫的：
-<a href="https://ithelp.ithome.com.tw/articles/10226541">https://ithelp.ithome.com.tw/articles/10226541</a></p>
+<p>但是工作上需要使用到時分秒，</p>
+
+<p>早期使用都是用 <code>owl-date-time</code> 這個套件：</p>
+
+<p><a href="https://github.com/DanielYKPan/date-time-picker">https://github.com/DanielYKPan/date-time-picker</a></p>
+
+<p>那相關的使用方式，可參閱我在鐵人賽所寫的：</p>
+
+<p><a href="https://ithelp.ithome.com.tw/articles/10226541">https://ithelp.ithome.com.tw/articles/10226541</a></p>
 
 <hr />
 
-<p>然而現在因考慮到更新套件的作者有無<code>定期更新</code>!!
-而且 angular 官方又是一直在持續更新版本，
-所以考慮再三之下，
-轉移到目前一直有在更新套件的 <code>angular-material-components</code>，
-<a href="https://github.com/h2qutc/angular-material-components">https://github.com/h2qutc/angular-material-components</a></p>
+<p>然而現在因考慮到更新套件的作者有無<code>定期更新</code>!!</p>
 
-<p>那這套本身除了 datetimepicker，
-作者還有做 colorpicker 等等一些小插件，弄成一包供大家使用。</p>
+<p>而且 angular 官方又是一直在持續更新版本，</p>
+
+<p>所以考慮再三之下，</p>
+
+<p>轉移到目前一直有在更新套件的 <code>angular-material-components</code>，</p>
+
+<p><a href="https://github.com/h2qutc/angular-material-components">https://github.com/h2qutc/angular-material-components</a></p>
+
+<p>那這套本身除了 datetimepicker，</p>
+
+<p>作者還有做 colorpicker 等等一些小插件，弄成一包供大家使用。</p>
 
 <blockquote>
 <p>本文只專注在<code>datetimepicker</code>上</p>
@@ -403,8 +412,9 @@
 
 <h1 id="初始建置">初始建置</h1>
 
-<p>因為很多 <code>component</code> 都會用到 datetimepicker，
-因此我會先把他包成一塊<code>Module</code> 方便共用。</p>
+<p>因為很多 <code>component</code> 都會用到 datetimepicker，</p>
+
+<p>因此我會先把他包成一塊<code>Module</code> 方便共用。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-ts" data-lang="ts"><span class="lnt"> 1
@@ -667,14 +677,13 @@
 </div>
 </div>
 <p>要取得資料時：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="nx">moment</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">ee</span><span class="p">.</span><span class="nx">value</span><span class="p">).</span><span class="nx">format</span><span class="p">();</span></code></pre></td></tr></table>
-</div>
-</div>
+
+<blockquote>
+<p><code>moment(this.ee.value).format();</code></p>
+</blockquote>
+
+<hr />
+
 <ul>
 <li>html</li>
 </ul>
@@ -824,6 +833,8 @@
 <span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
+<hr />
+
 <ul>
 <li>html</li>
 </ul>
