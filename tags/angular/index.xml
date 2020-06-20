@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <copyright>Emma Chang</copyright>
-    <lastBuildDate>Wed, 26 Dec 2018 11:30:13 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jun 2020 11:37:54 +0800</lastBuildDate>
     
 	<atom:link href="https://yating00000.github.io/tags/angular/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>datetimepicker</title>
+      <link>https://yating00000.github.io/post/angular/time-picker/</link>
+      <pubDate>Sat, 20 Jun 2020 11:37:54 +0800</pubDate>
+      
+      <guid>https://yating00000.github.io/post/angular/time-picker/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;套件選擇與說明&lt;/li&gt;
+&lt;li&gt;初始建置&lt;/li&gt;
+&lt;li&gt;一般用法&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
     
     <item>
       <title>attr</title>
@@ -263,18 +276,6 @@
       <description>&lt;ul&gt;
 &lt;li&gt;屬性型的指令有哪些&lt;/li&gt;
 &lt;li&gt;結構型的指令有哪些&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>angular-cli 相關指令</title>
-      <link>https://yating00000.github.io/post/angular/ng-cli/</link>
-      <pubDate>Wed, 12 Sep 2018 16:44:13 +0000</pubDate>
-      
-      <guid>https://yating00000.github.io/post/angular/ng-cli/</guid>
-      <description>&lt;ul&gt;
-&lt;li&gt;CLI指令&lt;/li&gt;
-&lt;li&gt;如何新增檔案卻不新增 spec 的幾種方式&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
